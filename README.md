@@ -1,5 +1,4 @@
-Este proyecto esta creado con React Js utilizando TypeScript
-
+Este proyecto está creado con React Js utilizando TypeScript
 
 ![image](https://user-images.githubusercontent.com/63028064/225215577-b8f422ad-f734-49de-a9f9-fbd3e8b37f10.png)
 
