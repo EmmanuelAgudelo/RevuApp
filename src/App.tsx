@@ -1,6 +1,7 @@
-function App() {
+import { Router } from "./router/Router"
 
-  return <h1>Revu</h1>
+function App() {
+  return <Router/>
 }
 
 export default App
