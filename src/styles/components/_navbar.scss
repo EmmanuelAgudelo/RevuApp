@@ -1,2 +1,60 @@
-@use '../base/variables' as v;
+@use "../base/variables" as v;
 
+.navbar {
+  width: 100%;
+  box-shadow: 0 0.4rem 0.4rem #e9e4e4;
+}
+
+.nav {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  height: 10rem;
+}
+.logo {
+  line-height: 10rem;
+}
+.links__home {
+  display: flex;
+  line-height: 10rem;
+  flex-direction: row;
+  display: flex;
+  gap: 2rem;
+}
+
+.links {
+  list-style: none;
+}
+
+.navegation {
+  text-decoration: none;
+  color: #000;
+}
+
+// Links Auth
+
+.auth {
+  display: flex;
+  line-height: 10rem;
+  flex-direction: row;
+  display: flex;
+  gap: 2rem;
+}
+.link__auth {
+  list-style: none;
+}
+
+
+.navegation__auth {
+  text-decoration: noen;
+  color: #000;
+}
+.navegation__auth__modify{
+  color: #fff;
+  font-weight: 800;
+  border: 1px solid #14beaf;
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #14beaf;
+}
