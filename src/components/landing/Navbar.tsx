@@ -1,12 +1,12 @@
-import logo_revu from "../../assets/images/Logo_revu.jpg";
+import logo_revu from "../../assets/images/revu_logo.svg";
 
 export const Navbar = () => {
   return (
     <div>
-      <div className="navbar">
+      <div className="header">
         <nav className="nav">
           <div className="nav__logo">
-            <img src={logo_revu} className="nav__revu" alt="" />
+            <img src={logo_revu} className="nav__revu" alt="Logo__revu" />
           </div>
           <div className="nav__links">
             <ul className="nav__items">

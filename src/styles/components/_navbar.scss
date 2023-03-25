@@ -1,6 +1,6 @@
 @use "../base/variables" as v;
 
-.navbar {
+.header {
   width: 100%;
   box-shadow: 0 0.4rem 0.4rem #e9e4e4;
   position: fixed;
@@ -15,11 +15,12 @@
   justify-content: space-evenly;
   margin: 0 auto;
   height: 10rem;
-  
 }
 .nav__logo {
- width: 10rem;
+  width: 11rem;
+  margin: auto 0;
 }
+
 .nav__items {
   display: flex;
   line-height: 10rem;
@@ -37,10 +38,7 @@
   color: #000;
 }
 
-
-
-
-.nav__navegation--modifier{
+.nav__navegation--modifier {
   color: #fff;
   font-weight: 800;
   border: 1px solid #14beaf;
@@ -49,10 +47,8 @@
   background-color: #14beaf;
 }
 
+// HOla
 
-
-// HOla 
-
-.Hola{
+.Hola {
   margin-top: 11rem;
 }
