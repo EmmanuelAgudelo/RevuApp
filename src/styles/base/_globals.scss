@@ -20,9 +20,7 @@ body {
 h1,
 h2,
 h3 {
-//   font-family: "Courier New", Courier, monospace;
-font-weight: 700;
-  /*  margin: 2.5rem 0; */
+  font-weight: 700;
 }
 
 h1 {
@@ -37,6 +35,7 @@ h3 {
 }
 a {
   text-decoration: none;
+  color: #000;
 }
 
 li {
@@ -47,8 +46,11 @@ img {
   max-width: 100%;
   display: block;
 }
+main {
+  padding-top: 10rem;
+}
 
-.container {
+[class$="--container"] {
   max-width: 120rem;
   width: 90%;
   margin: 0 auto;

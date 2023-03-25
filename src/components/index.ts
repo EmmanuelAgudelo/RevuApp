@@ -1,1 +1,1 @@
-export * from "./landing/Navbar";
+export * from "./layout/Layout";
