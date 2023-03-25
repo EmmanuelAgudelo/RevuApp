@@ -3,6 +3,10 @@
 .navbar {
   width: 100%;
   box-shadow: 0 0.4rem 0.4rem #e9e4e4;
+  position: fixed;
+  background: white;
+  z-index: 100;
+  top: 0;
 }
 
 .nav {
@@ -11,11 +15,12 @@
   justify-content: space-evenly;
   margin: 0 auto;
   height: 10rem;
+  
 }
-.logo {
-  line-height: 10rem;
+.nav__logo {
+ width: 10rem;
 }
-.links__home {
+.nav__items {
   display: flex;
   line-height: 10rem;
   flex-direction: row;
@@ -23,38 +28,31 @@
   gap: 2rem;
 }
 
-.links {
+.nav__item {
   list-style: none;
 }
 
-.navegation {
+.nav__navegation {
   text-decoration: none;
   color: #000;
 }
 
-// Links Auth
-
-.auth {
-  display: flex;
-  line-height: 10rem;
-  flex-direction: row;
-  display: flex;
-  gap: 2rem;
-}
-.link__auth {
-  list-style: none;
-}
 
 
-.navegation__auth {
-  text-decoration: noen;
-  color: #000;
-}
-.navegation__auth__modify{
+
+.nav__navegation--modifier{
   color: #fff;
   font-weight: 800;
   border: 1px solid #14beaf;
   border-radius: 3rem;
   padding: 0.5rem 1.5rem;
   background-color: #14beaf;
+}
+
+
+
+// HOla 
+
+.Hola{
+  margin-top: 11rem;
 }

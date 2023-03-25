@@ -1,34 +1,51 @@
+import logo_revu from "../../assets/images/Logo_revu.jpg";
+
 export const Navbar = () => {
   return (
     <div>
       <div className="navbar">
         <nav className="nav">
-          <div className="logo">
-            <h2>Revu foods</h2>
+          <div className="nav__logo">
+            <img src={logo_revu} className="nav__revu" alt="" />
           </div>
-          <div className="links__info">
-            <ul className="links__home">
-              <li className="link">
-                <a href="#" className="navegation">Conócenos</a>
+          <div className="nav__links">
+            <ul className="nav__items">
+              <li className="nav__item">
+                <a href="#" className="nav__navegation">
+                  Conócenos
+                </a>
               </li>
-              <li className="link">
-                <a href="#" className="navegation">¿Cómo funciona?</a>
+              <li className="nav__item">
+                <a href="#" className="nav__navegation">
+                  ¿Cómo funciona?
+                </a>
               </li>
-              <li className="link">
-                <a href="#" className="navegation">Aliados</a>
+              <li className="nav__item">
+                <a href="#" className="nav__navegation">
+                  Aliados
+                </a>
               </li>
-              <li className="link">
-                <a href="#" className="navegation">Descarga</a>
+              <li className="nav__item">
+                <a href="#" className="nav__navegation">
+                  Descarga
+                </a>
               </li>
             </ul>
           </div>
-          <div className="auth_links">
-            <ul className="auth">
-              <li className="link__auth">
-                <a href="#" className="navegation__auth">Ingresa</a>
+          <div className="auth">
+            <ul className="nav__items">
+              <li className="nav__item">
+                <a href="#" className="nav__navegation">
+                  Ingresa
+                </a>
               </li>
-              <li className="link__auth ">
-                <a href="#" className="navegation__auth navegation__auth__modify">Registra tu estrablecimiento</a>
+              <li className="nav__item">
+                <a
+                  href="#"
+                  className="nav__navegation nav__navegation--modifier"
+                >
+                  Registra tu estrablecimiento
+                </a>
               </li>
             </ul>
           </div>
