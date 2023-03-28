@@ -6,7 +6,8 @@ export interface IUser {
     cellphone:string;
     document_type:string;
     document:string;
-    password:string;
     status: boolean;
     role:string;
 }
+
+export type UpdateUser = Pick<IUser, 'names' | 'last_names' | 'cellphone' | 'document_type'>
