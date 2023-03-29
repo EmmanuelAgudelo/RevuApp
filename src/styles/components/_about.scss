@@ -6,25 +6,26 @@
 
   @include m.tablet {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  
+
   &__image {
     background-image: url("src/assets/images/foto.svg");
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: 100;
+
     display: flex;
     align-items: center;
     text-align: center;
-    height: 50vh; 
+    height: 50vh;
+
     @include m.tablet {
       height: unset;
-     /*  border-radius: 0 10rem 0 0; */
+      /*  border-radius: 0 10rem 0 0; */
     }
   }
 
-  &__content{
+  &__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,9 +33,17 @@
     text-align: center;
   }
 
-
   &__title {
     color: #14beaf;
+    font-size: 3.5rem;
+
+    @include m.tablet {
+      font-size: 3.5rem;
+    }
+
+    @include m.desktop {
+      font-size: 7rem;
+    }
   }
   &__title--orange {
     color: #ffa500;
@@ -49,20 +58,20 @@
     font-weight: bold;
   }
 
-  &__btn {
-    display: flex;
-    gap: 4rem;
-  }
   &__btn__btn {
-    margin-top: 5rem;
+    display: block;
+    margin-top: 1rem;
     background-color: #ffa500;
-    padding: 0.2rem 2.5rem;
+    padding: 0.7rem 2.5rem;
     border-radius: 3rem;
     color: white;
+
+    @include m.tablet {
+      display: inline-block;
+    }
   }
 
   &__btn__btn--blue {
     background-color: #14beaf;
   }
 }
-
