@@ -4,29 +4,31 @@
 .about {
   height: calc(100vh - 10rem);
 
-  @include m.tablet {
+  @include m.desktop {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
   &__image {
-    background-image: url("src/assets/images/foto.svg");
+    background-image: url("/images/foto.svg");
     background-size: cover;
     background-repeat: no-repeat;
 
-    display: flex;
+    display: none;
     align-items: center;
     text-align: center;
     height: 50vh;
 
-    @include m.tablet {
+    @include m.desktop {
       height: unset;
+      display: block;
       /*  border-radius: 0 10rem 0 0; */
     }
   }
 
   &__content {
     display: flex;
+    height: calc(100vh - 10rem);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -38,29 +40,41 @@
     font-size: 3.5rem;
 
     @include m.tablet {
-      font-size: 3.5rem;
+      font-size: 5.5rem;
     }
 
     @include m.desktop {
       font-size: 7rem;
     }
   }
+
   &__title--orange {
     color: #ffa500;
   }
   &__paragraph {
+    font-size: 2rem;
     margin-top: 2rem;
     color: #666666;
   }
   &__paragraph--bold {
     color: #494949;
-
     font-weight: bold;
   }
 
+  &__btn {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 4rem;
+
+    @include m.tablet {
+      flex-direction: row;
+      margin-top: 5rem;
+    }
+  }
+
   &__btn__btn {
-    display: block;
-    margin-top: 1rem;
     background-color: #ffa500;
     padding: 0.7rem 2.5rem;
     border-radius: 3rem;
@@ -69,6 +83,14 @@
     @include m.tablet {
       display: inline-block;
     }
+
+    &:last-of-type {
+      margin-top: 1rem;
+      @include m.tablet {
+        margin-top: 0;
+      }
+    }
+
   }
 
   &__btn__btn--blue {

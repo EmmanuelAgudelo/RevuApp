@@ -7,10 +7,7 @@
   background: white;
   z-index: 100;
   top: 0;
-
-  @include m.tablet {
-    box-shadow: 0 0.4rem 0.4rem #e9e4e4;
-  }
+  box-shadow: 0 0.4rem 0.4rem #e9e4e4;
 }
 
 .nav {
@@ -40,7 +37,17 @@
 
   &__link {
     &--active {
-      color: red;
+      position: relative;
+      &::after {
+        content: '';
+        background-color: #ffa500;
+        height: 0.5rem;
+        width: 50%;
+        display: block;
+        position: absolute;
+        bottom:  -1rem;
+        left: 0;
+      }
     }
     &--register {
       color: #fff;

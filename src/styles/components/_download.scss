@@ -11,7 +11,7 @@
   }
 
   &__image {
-    background-image: url("src/assets/images/foto1.svg");
+    background-image: url("/images/foto1.svg");
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 100;
@@ -32,13 +32,19 @@
       &::after {
         content: '';
         background-color: #ffa500;
-        height: 1rem;
+        height: 0.5rem;
         width: 100%;
         display: block;
-        margin-top: -2rem;
+        margin-top: -1rem;
+
+        @include m.tablet {
+          margin-top: -2rem;
+          height: 1rem;
+        } 
+
         @include m.desktop {
-          height: 2rem;
           margin-top: -3rem;
+          height: 2rem;
         } 
       }
     }

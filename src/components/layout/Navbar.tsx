@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { FaHamburger } from 'react-icons/fa';
-import logo_revu from "../../assets/images/revu_logo.svg";
+import logo_revu from "/images/revu_logo.svg";
 import { routes } from "../../router/routes";
 
 
@@ -18,7 +18,7 @@ export const Navbar = () => {
             {/* dynamic routes */}
             {routes.landing.map(({title,path})=>(
               <li className="nav__item">
-               <Link to={path} className="nav__link">{title}</Link>
+               <NavLink to={path} className={({isActive})=>isActive?'nav__link nav__link--active':'nav__link'}>{title}</NavLink>
              </li>
             ))} 
           </ul>
