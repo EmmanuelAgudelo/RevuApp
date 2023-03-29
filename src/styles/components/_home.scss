@@ -1,21 +1,45 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-.section {
-  display: flex;
-  gap: 15rem;
+.home {
+  height: calc(100vh - 10rem);
 
-  &__container__img {
-    width: 69.8rem;
+  &__image-container {
+    background-color: #492705;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
-}
+  &__title--container h1 {
+    font-size: 8rem;
+    color: white;
+  }
 
+  &__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+  }
+  @include m.tablet {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+}
+/* 
 .text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 50%;
 
   &__title {
     color: #363535;
@@ -37,3 +61,4 @@
     border-radius: 0.3rem;
   }
 }
+ */

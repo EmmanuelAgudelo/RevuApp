@@ -1,0 +1,74 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.download {
+  height: calc(100vh - 10rem);
+
+  @include m.tablet {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  &__image {
+    background-image: url("src/assets/images/foto1.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 50vh; 
+    @include m.tablet {
+      height: unset;
+      border-radius: 0 10rem 0 0;
+    }
+  }
+
+  &__title {
+    color: white; 
+    &--span {
+      display: inline-block;
+      &::after {
+        content: '';
+        background-color: #ffa500;
+        height: 1rem;
+        width: 100%;
+        display: block;
+        margin-top: -2rem;
+        @include m.desktop {
+          height: 2rem;
+          margin-top: -3rem;
+        } 
+      }
+    }
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-size: 4rem;
+    color: #363535;
+  }
+
+  &__paragraph {
+    margin-top: 2rem;
+    font-weight: 500;
+    font-size: 3rem;
+    color: #666666;
+  }
+
+  &__button {
+    background-color: black;
+    margin-top: 1rem;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+  }
+}

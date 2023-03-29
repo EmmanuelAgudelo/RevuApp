@@ -11,19 +11,19 @@ export const routes: IRoutes = {
     landing:[
         {
             title:'Conócenos',
-            path: "aboutMe"
+            path: "/aboutMe"
         },
         {
             title:'¿Cómo funciona?',
-            path: "questions"
+            path: "/questions"
         },
         {
             title:'Aliados',
-            path: "partners"
+            path: "/partners"
         },
         {
             title:'Descarga',
-            path: "download"
+            path: "/download"
         },
     ]
 }

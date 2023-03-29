@@ -1,34 +1,46 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-.login {
-  background-image: url("/src/assets/images/bg.svg");
-  background-repeat: no-repeat;
-  // background-position: center;
-  background-size: cover;
-  height: 100vh;
-  
-}
-.section {
-  display: flex;
+.about {
+  height: calc(100vh - 10rem);
 
-  &__text {
+  @include m.tablet {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+  &__image {
+    background-image: url("src/assets/images/foto.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 50vh; 
+    @include m.tablet {
+      height: unset;
+     /*  border-radius: 0 10rem 0 0; */
+    }
+  }
+
+  &__content{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 45%;
-    margin-left: 6.5rem;
+    text-align: center;
   }
+
+
   &__title {
     color: #14beaf;
-    font-weight: bold;
-    font-size: 4rem;
   }
   &__title--orange {
     color: #ffa500;
   }
   &__paragraph {
+    margin-top: 2rem;
     color: #666666;
   }
   &__paragraph--bold {
@@ -54,8 +66,3 @@
   }
 }
 
-//image
-
-.section__image {
-  width: 54.9rem;
-}
