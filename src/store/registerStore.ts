@@ -1,19 +1,19 @@
 import {createStore} from 'zustand';
 import { API } from './api';
-import { IResponse } from '../interfaces';
+import { IResponse,IRegister } from '../interfaces';
 
 interface IRegisterStore {
     registerResponse: IResponse | null;
     isLoading:boolean;
     error:string | null;
-    register: (body:any) => void 
+    register: (body:Omit<IRegister, 'id'>) => void;
 }
 
 export const  registerStore = createStore<IRegisterStore>((set)=>({
     registerResponse: null,
     isLoading: false,
     error:null,
-    register: async (body) => {
+    register: async (body:Omit<IRegister, 'id'>) => {
         try {
             set({isLoading:true});
             const {data} = await API.post<IResponse>('/register',body);
