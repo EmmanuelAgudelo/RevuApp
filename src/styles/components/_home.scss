@@ -1,0 +1,39 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.section {
+  display: flex;
+  gap: 15rem;
+
+  &__container__img {
+    width: 69.8rem;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+
+  &__title {
+    color: #363535;
+  }
+  &__paragraph {
+    color: #363535;
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  &__btn {
+    background-color: black;
+    color: white;
+    padding: 0.2rem 1.5rem;
+    border-radius: 0.3rem;
+  }
+}

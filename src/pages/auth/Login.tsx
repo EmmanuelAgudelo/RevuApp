@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { setTitle } from '../../helpers';
 
+import LoginComponen from "../../components/auth/LoginComponen";
+
 const Login = () => {
  
   useEffect(() => {
@@ -9,7 +11,9 @@ const Login = () => {
   
  
   return (
-    <h1>Login</h1>
+    <>
+      <LoginComponen/>
+    </>
   )
 }
 
