@@ -18,8 +18,9 @@ interface IAuthStore {
     validateLogin: (body:ILogin) => void;
     validateLogout: () => void;
     validateCode: (code:string) =>void;
-    validateRecoverPassword:(email:string) => void;
-    validateResetPassword:(body:IResetPassword) => void
+    validateRecoverPassword:(email:{email:string}) => void;
+    validateResetPassword:(body:IResetPassword) => void,
+    reset: () => void
 }
 
 export const authStore = createStore<IAuthStore>((set)=>({
@@ -65,10 +66,10 @@ export const authStore = createStore<IAuthStore>((set)=>({
             set({error:e?.response?.data.message});
         }
     },
-    validateRecoverPassword: async(email:string) => {
+    validateRecoverPassword: async(email:{email:string}) => {
         try {
             set({isLoading:true});
-            const {data} = await API.post<IResponse>('/auth/recoverPassword',{email});
+            const {data} = await API.post<IResponse>('/auth/recoverPassword',email);
             set({recoverPassword:data});
         } catch (e:any) {
             set({error:e?.response?.data.message});
@@ -84,6 +85,9 @@ export const authStore = createStore<IAuthStore>((set)=>({
             set({error:e?.response?.data.message});
         }
         set({isLoading:false});
+    },
+    reset : () => {
+        set({error:null,recoverPassword:null,resetPassword:null});
     }
 }));
     

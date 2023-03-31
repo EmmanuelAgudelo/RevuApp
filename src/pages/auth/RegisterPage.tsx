@@ -1,19 +1,20 @@
 import { useEffect } from "react";
+import { Register } from "../../components";
 import { setTitle } from "../../helpers";
 
-import RegisterComponent from "../../components/auth/RegisterComponent";0
 
-const Register = () => {
+
+const RegisterPage = () => {
 
   useEffect(() => {
     setTitle("Revufoods - Register✅");
   }, [])
   
   return (
-<>  
-<RegisterComponent/>
-</>
+    <>  
+      <Register/>
+    </>
   )
 }
 
-export default Register;
+export default RegisterPage;

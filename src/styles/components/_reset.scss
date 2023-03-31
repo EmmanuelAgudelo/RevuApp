@@ -1,0 +1,58 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+
+.reset {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 2rem;
+    @include m.tablet {
+        width: 60%;
+    }
+
+    @include m.desktop {
+        width: 50%;
+    }
+
+    &__form {
+        width: 60%;
+        padding: 2rem;
+        text-align: left;
+    }
+
+    &__title {
+        font-size: 3rem;
+        text-align: center;
+        color:  #494949;
+        margin-bottom: 3rem;
+    }
+
+
+    &__image {
+        width: 40%;
+        background-image: url("/images/foto_formulario-general.png");
+        background-position: center left;
+        border-radius: 2rem 0 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__logo {
+        width: 60%;
+    }
+
+    
+    &__btn {
+        color: white;
+        background-color: #38d2c4;
+        display: block;
+        font-weight: 700;
+        border: none;
+        padding: 1rem;
+        border-radius: 1.1rem;
+        margin: 2rem auto;
+    }
+}

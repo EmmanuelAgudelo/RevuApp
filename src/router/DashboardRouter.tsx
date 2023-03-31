@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route,Navigate } from "react-router-dom";
 import { useStore } from "zustand";
 import { removeLocalStorage } from "../localstorage";
+import Users from "../pages/dashboard/Users";
 import { authStore } from "../store";
 
 export const DashboardRouter = () => {
@@ -32,7 +33,7 @@ export const DashboardRouter = () => {
   
   return (
     <Routes>
-      <Route path="/user" element={<>user</>}/>
+      <Route path="/user" element={<Users/>}/>
       <Route path="*" element={<>Error 404 dash</>}/>
     </Routes>
   )

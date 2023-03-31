@@ -3,8 +3,10 @@ export * from './home/FrontPage';
 
 
 /* Auth */
-export * from './auth/LoginComponen';
-export * from './auth/RegisterComponent';
+export * from './auth/Login';
+export * from './auth/Register';
+export * from "./auth/RecoverPassword";
+export * from "./auth/resetPassword";
 
 
 /* Download */

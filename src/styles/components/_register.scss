@@ -1,26 +1,27 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-body {
-  // background-image: url("/public/images/bg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
 
-.card {
+
+.register {
   background-color: white;
-  width: 70rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5rem auto;
+  margin: 0 auto;
   flex-direction: column;
   padding-bottom: 2rem;
-
   border-radius: 2rem;
+
+  @include m.tablet {
+    width: 80%;
+  }
+  @include m.desktop {
+    width: 50%;
+  }
+
   &__head {
-    background-image: url("/public/images/foto_formulario-general.png");
+    background-image: url("/images/foto_formulario-general.png");
     background-position: center right ;
     width: 100%;
     padding: 2rem;
@@ -39,55 +40,39 @@ body {
     position: relative;
     left: 20rem;
   }
-}
-
-.card__body {
-  width: 80%;
-  &__title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-
-    text-align: center;
-    color: rgb(53, 53, 53);
-    font-size: 2rem;
+  &__body {
+    width: 80%;
+    &__title {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+  
+      text-align: center;
+      color: rgb(53, 53, 53);
+      font-size: 2rem;
+    }
+    &__title--orange {
+      color: #ffa500;
+    }
+    &__title--blue {
+      color: #38d2c4;
+    }
   }
-  &__title--orange {
-    color: #ffa500;
-  }
-  &__title--blue {
-    color: #38d2c4;
-  }
-
-  .form__group {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .form__icons--orange {
-    color: #ffa500;
-  }
-  .form__icons--blue {
-    color: #38d2c4;
+  &__btn {
+    color: white;
+    background-color: #ffa500;
+    display: block;
+    margin: 0 auto;
+    font-weight: 700;
+    margin: 2rem auto;
+    border: none;
+    padding: 1rem;
+    border-radius: 1.1rem;
   }
 }
 
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"],
-select {
-  width: 100%;
-  border-radius: 1.1rem;
+.form__icons--orange {
+  color: #ffa500;
 }
-
-.carb__body__btn {
-  color: white;
-  background-color: #ffa500;
-  display: block;
-  margin: 0 auto;
-  font-weight: 700;
-  margin-top: 2rem;
-  border: none;
-  padding: 1rem;
-  border-radius: 1.1rem;
+.form__icons--blue {
+  color: #38d2c4;
 }

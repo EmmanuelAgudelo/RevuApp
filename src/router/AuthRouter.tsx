@@ -4,10 +4,11 @@ import { useStore } from "zustand";
 import { authStore } from "../store";
 import { setLocalStorage } from "../localstorage";
 import { Layout } from "../components";
-import Login from "../pages/auth/Login";
-import Register from "../pages/auth/Register";
-import RecoverPassword from "../pages/auth/RecoverPassword";
-import ResetPassword from "../pages/auth/ResetPassword";
+import LoginPage from "../pages/auth/LoginPage";
+import RegisterPage from "../pages/auth/RegisterPage";
+import RecoverPasswordPage from "../pages/auth/RecoverPasswordPage";
+import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
+import { toastSuccess } from "../helpers";
 
 
 export const AuthRouter = () => {
@@ -23,7 +24,10 @@ export const AuthRouter = () => {
   useEffect(() => {
     if (login && login.message === "success") {
       setLocalStorage('token_authorization',login.data.access_token);
-      window.location.href = "/dashboard/user"
+      toastSuccess('Bienvenido');
+      setTimeout(()=>{
+        window.location.href = "/dashboard/user";
+      },2000);
     }    
   }, [login])
 
@@ -41,10 +45,10 @@ export const AuthRouter = () => {
   return (
     <Layout>
       <Routes>
-        <Route path="login" element={<Login/>}/>
-        <Route path="register" element={<Register/>}/>
-        <Route path="recoverPassword" element={<RecoverPassword/>}/>
-        <Route path="resetPassword" element={<ResetPassword/>}/>
+        <Route path="login" element={<LoginPage/>}/>
+        <Route path="register" element={<RegisterPage/>}/>
+        <Route path="recoverPassword" element={<RecoverPasswordPage/>}/>
+        <Route path="resetPassword" element={<ResetPasswordPage/>}/>
         <Route path="*" element={<>Error 404 landing</>}/>
       </Routes>
     </Layout>

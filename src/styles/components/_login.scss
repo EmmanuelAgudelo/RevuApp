@@ -1,0 +1,72 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+
+.login {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 2rem;
+    @include m.tablet {
+        width: 60%;
+    }
+
+    @include m.desktop {
+        width: 50%;
+    }
+
+    &__form {
+        width: 60%;
+        padding: 2rem;
+        text-align: left;
+    }
+
+    &__title {
+        font-size: 4rem;
+        color: #ffa500;
+        padding-bottom: 2rem;
+
+        @include m.desktop {
+            font-size: 5rem;
+        }
+    }
+    &__span {
+        color: #38d2c4;
+    }
+
+    &__image {
+        width: 40%;
+        background-image: url("/images/foto_formulario-general.png");
+        background-position: center left;
+        border-radius: 0 2rem 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__logo {
+        width: 60%;
+    }
+
+    &__container__btn {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    &__link {
+        color: #38d2c4;
+        text-decoration: underline;
+    }
+    &__btn {
+        color: white;
+        background-color: #38d2c4;
+        display: block;
+        font-weight: 700;
+        border: none;
+        padding: 1rem;
+        border-radius: 1.1rem;
+    }
+}

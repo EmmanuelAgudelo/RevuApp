@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { setTitle } from '../../helpers';
 
-import LoginComponen from "../../components/auth/LoginComponen";
+import {Login} from "../../components";
 
-const Login = () => {
+const LoginPage = () => {
  
   useEffect(() => {
     setTitle("Revufoods - login✅");
@@ -12,9 +12,9 @@ const Login = () => {
  
   return (
     <>
-      <LoginComponen/>
+      <Login/>
     </>
   )
 }
 
-export default Login;
+export default LoginPage;

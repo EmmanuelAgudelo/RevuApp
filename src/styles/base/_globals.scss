@@ -67,10 +67,29 @@ select{
   outline: none;
   font-family: v.$lexend;
   color: gray;
+  width: 100%;
+  border-radius: 1.1rem;
+}
+
+[class$="--auth"] {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 10rem);
+  background-image: url("/images/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 3rem 0;
 }
 
 [class$="--container"] {
   max-width: 120rem;
   width: 90%;
   margin: 0 auto;
+}
+
+.error {
+  display: block;
+  color: red;
 }

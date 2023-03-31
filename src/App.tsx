@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Router } from "./router/Router"
-
+import { Toaster } from 'react-hot-toast';
 function App() {
   const [online, setOnline] = useState(navigator.onLine);
 
@@ -15,7 +15,12 @@ function App() {
   }, []);
 
   
-  return online?<Router/>:<>No hay internet</>
+  return online
+  ?<>
+    <Router/>
+    <Toaster   position="bottom-center" />
+  </>
+  :<>No hay internet</>
 }
 
 export default App

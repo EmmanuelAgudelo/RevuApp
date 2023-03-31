@@ -55,6 +55,10 @@
     font-size: 2rem;
     margin-top: 2rem;
     color: #666666;
+
+    @include m.tablet {
+      font-size: 2.5rem;
+    }
   }
   &__paragraph--bold {
     color: #494949;

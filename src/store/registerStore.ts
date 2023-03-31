@@ -7,6 +7,7 @@ interface IRegisterStore {
     isLoading:boolean;
     error:string | null;
     register: (body:Omit<IRegister, 'id'>) => void;
+    reset: () => void
 }
 
 export const  registerStore = createStore<IRegisterStore>((set)=>({
@@ -22,5 +23,8 @@ export const  registerStore = createStore<IRegisterStore>((set)=>({
             set({error:e?.response?.data.message});
         }
         set({isLoading:false});
+    },
+    reset: () => {
+        set({error:null,registerResponse:null});
     }
 }));
