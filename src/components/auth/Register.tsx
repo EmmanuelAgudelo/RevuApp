@@ -4,7 +4,7 @@ import { useStore } from "zustand";
 import { toastError, toastSuccess } from "../../helpers";
 import { registerStore } from "../../store";
 import { FormRegister } from "./FormRegister";
-import logo from "/images/logo_blanco.svg";
+import logo from "/images/logos/logo-white.svg";
 
 
 export const Register = () => {

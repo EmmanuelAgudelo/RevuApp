@@ -1,13 +1,12 @@
 import { useFormik } from 'formik';
 import { useEffect } from 'react';
 import { BiLockAlt } from 'react-icons/bi';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useStore } from 'zustand';
 import { toastError, toastSuccess } from '../../helpers';
 import { ResetPasswordSchema } from '../../schemas';
 import { authStore } from '../../store';
-import logo from "/images/logo_blanco.svg";
-
+import logo from "/images/logos/logo-blue.svg";
 
 export const ResetPassword = () => {
     const { search } = useLocation();
@@ -27,7 +26,7 @@ export const ResetPassword = () => {
     })
 
     useEffect(() => {
-        validateCode(search.split('=')[1] ?? '')
+        validateCode(search.split('=')[1] ?? '');
     },[])
 
     useEffect(() => {
@@ -42,8 +41,6 @@ export const ResetPassword = () => {
     useEffect(() => {
         if (error && error === "code_not_found_or_expired") {
             toastError('ya el codigo expiró');
-            console.log(error);
-            
         }
         reset();
     }, [error])
@@ -53,11 +50,11 @@ export const ResetPassword = () => {
     const { password, confirmPassword } = formik.values;
     return (
         <div className="container--auth">
-            <div className="reset">
+            <div className="reset reset--container">
                 <div className="reset__image">
                 </div>
                 <div className="reset__form">
-                    <img src={logo} alt="logo" />
+                    <img src={logo} className='reset__logo' alt="logo" />
                     <h1 className="reset__title">Crea tu nueva contraseña</h1>
                     {(code && code.data) ?
                     <form onSubmit={formik.handleSubmit} className="form">

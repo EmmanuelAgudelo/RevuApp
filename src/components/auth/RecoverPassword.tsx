@@ -5,7 +5,7 @@ import { useStore } from 'zustand';
 import { toastError, toastSuccess } from '../../helpers';
 import { RecoverSchema } from '../../schemas';
 import { authStore } from '../../store';
-import logo from "/images/logo-blue.jpeg";
+import logo from "/images/logos/logo-blue.svg";
 
 export const RecoverPassword = () => {
     const { isLoading,recoverPassword,error, validateRecoverPassword,reset } = useStore(authStore);
@@ -43,7 +43,7 @@ export const RecoverPassword = () => {
     const { email } = formik.values;
     return (
         <div className="container--auth">
-            <div className="recover">
+            <div className="recover recover--container">
                 <div className="recover__image">
                 </div>
                 <div className="recover__form">

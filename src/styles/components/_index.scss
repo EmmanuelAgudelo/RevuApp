@@ -6,5 +6,7 @@
 @forward 'login';
 @forward 'recover';
 @forward 'reset';
+@forward 'error404';
+@forward 'networkError';
 
 

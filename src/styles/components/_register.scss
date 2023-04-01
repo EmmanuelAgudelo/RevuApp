@@ -25,27 +25,39 @@
     background-position: center right ;
     width: 100%;
     padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
     border-radius: 2rem 2rem 0 0;
+    position: relative;
+    @include m.tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      align-items: center;
+    }
   }
   &__title {
     display: flex;
     align-items: center;
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
+
+    @include m.tablet{
+      font-size: 2rem;
+    }
   }
   &__logo {
     width: 10rem;
-    position: relative;
-    left: 20rem;
+    position: absolute;
+    right: 2rem;
+    display: none;
+
+    @include m.tablet{
+      display: block;
+    }
   }
   &__body {
     width: 80%;
     &__title {
       margin-top: 2rem;
       margin-bottom: 2rem;
-  
       text-align: center;
       color: rgb(53, 53, 53);
       font-size: 2rem;

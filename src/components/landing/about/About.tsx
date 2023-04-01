@@ -18,7 +18,7 @@ export const About = () => {
           <Link to="" className="about__btn__btn">
             Quiero comprar en Revu
           </Link>
-          <Link to="" className="about__btn__btn about__btn__btn--blue">
+          <Link to="/auth/register" className="about__btn__btn about__btn__btn--blue">
             Quiero vender en Revu
           </Link>
         </div>

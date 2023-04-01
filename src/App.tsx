@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Router } from "./router/Router"
 import { Toaster } from 'react-hot-toast';
+import { NetworkError } from "./components";
 function App() {
   const [online, setOnline] = useState(navigator.onLine);
 
@@ -20,7 +21,7 @@ function App() {
     <Router/>
     <Toaster   position="bottom-center" />
   </>
-  :<>No hay internet</>
+  :<NetworkError/>
 }
 
 export default App

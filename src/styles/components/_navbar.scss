@@ -7,7 +7,11 @@
   background: white;
   z-index: 100;
   top: 0;
-  box-shadow: 0 0.4rem 0.4rem #e9e4e4;
+  box-shadow: 0 0.4rem 0.4rem #e9e4e4;  
+}
+
+.header--anim {
+  transition: height 0.3s ease-in-out;
 }
 
 .nav {
@@ -16,7 +20,20 @@
   justify-content: space-between;
   margin: 0 auto;
   align-items: center;
+  z-index: 100;
 
+  &--hidden {
+    width: 100%;
+    position: relative;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    @include m.desktop {
+      display: none;
+    }
+
+  }
   &__logo {
     width: 11rem;
     margin: auto 0;
@@ -27,15 +44,29 @@
       display: block;
     }
   }
+  &__links {
+    &--hidden {
+      @include m.desktop {
+        display: none;
+      }
+    }
+  }
 
   &__items {
     display: flex;
     line-height: 10rem;
     flex-direction: row;
     gap: 2rem;
+
+    &--hidden {
+      text-align: center;
+    }
   }
 
   &__link {
+    &--hidden {
+      margin-right: 1rem;
+    }
     &--active {
       position: relative;
       &::after {
@@ -48,6 +79,10 @@
         bottom:  -1rem;
         left: 0;
       }
+
+      &--hidden{
+        color: #ffa500;
+      }
     }
     &--register {
       color: #fff;
@@ -58,6 +93,9 @@
     }
   } 
 
+  &__item--hidden {
+    margin-top: 1rem;
+  }
   &__toogle {
     display: block;
     @include m.desktop {
@@ -67,6 +105,10 @@
 
   &__hamburger {
     font-size: 3rem;
-    color: #ffa500;
+    color: #14beaf;
   }
+}
+.auth--hidden {
+  display: flex;
+  padding-top: 2rem;
 }

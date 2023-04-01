@@ -7,7 +7,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { ILogin } from "../../interfaces";
 import { LoginSchema } from "../../schemas";
 import { authStore } from "../../store";
-import logo from "/images/logo_blanco.svg";
+import logo from "/images/logos/logo-white.svg";
 import { toastError } from "../../helpers";
 
 export const Login = () => {
@@ -40,7 +40,7 @@ export const Login = () => {
 
   return (
     <div className="container--auth">
-      <div className="login">
+      <div className="login login--container">
         <div className="login__form">
           <h1 className="login__title">¡Hola de nuevo ! <span className="login__span"> aliado revu.</span></h1>
           <form onSubmit={formik.handleSubmit} className="form">
