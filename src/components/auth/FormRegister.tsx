@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useStore } from "zustand";
 import { useFormik } from "formik";
 import { FaAddressCard,FaCity } from "react-icons/fa";
@@ -10,10 +11,11 @@ import { AiOutlinePhone } from "react-icons/ai";
 import { IRegister } from "../../interfaces";
 import { RegisterSchema } from "../../schemas";
 import { registerStore } from "../../store";
+import Colombia from "../../json/colombia.json";
 
 export const FormRegister = () => {
     const {register,isLoading} = useStore(registerStore);
-
+  
     const formik = useFormik<IRegister>({
         initialValues: {
             names: '',
@@ -39,6 +41,11 @@ export const FormRegister = () => {
 
     const { names, last_names, email, cellphone, document_type, document, password, name, category, department, city, address, phone, banking_information } = formik.values;
 
+
+    useEffect(() => {
+     formik.setFieldValue('city','') 
+    }, [department])
+    
 
     return (
         <form onSubmit={formik.handleSubmit} className="form">
@@ -202,34 +209,41 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <FaCity className="form__icons--blue" size={30}  />
-                        <input
-                            type="text"
-                            id="city"
-                            placeholder="Ciudad"
-                            value={city}
+                        <BsHouseGear  className="form__icons--blue" size={30} />
+                        <select
+                            id="department"
+                            value={department}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                        />
+                        >
+                            <option value="">Departamento</option>
+                            {Colombia.map(({departamento})=>(
+                                <option key={departamento} value={departamento}>{departamento}</option>
+                            ))}
+                        </select>
                     </div>
-                    {formik.touched.city && formik.errors.city && (
-                        <small className="form__error">{formik.errors.city}</small>
+                    {formik.touched.department && formik.errors.department && (
+                        <small className="form__error">{formik.errors.department}</small>
                     )}
                 </div>
                 <div className="form__col">
                     <div className="form__group">
-                        <BsHouseGear  className="form__icons--blue" size={30} />
-                        <input
-                            type="text"
-                            id="department"
-                            placeholder="Departamento"
-                            value={department}
+                        <FaCity className="form__icons--blue" size={30}  />
+                        <select
+                            id="city"
+                            value={city}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                        />
+                            disabled={department===''}
+                        >
+                            <option value="">Cuida</option>
+                            {department&&Colombia.find(c=>c.departamento == department)?.ciudades.map((c)=>(
+                                <option key={c} value={c}>{c}</option>
+                            ))}
+                        </select>
                     </div>
-                    {formik.touched.department && formik.errors.department && (
-                        <small className="form__error">{formik.errors.department}</small>
+                    {formik.touched.city && formik.errors.city && (
+                        <small className="form__error">{formik.errors.city}</small>
                     )}
                 </div>
             </div>

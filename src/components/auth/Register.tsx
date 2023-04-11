@@ -37,7 +37,7 @@ export const Register = () => {
   
   return (
     <div className="container--auth">
-      <div className="register">
+      <div className="register register--container">
         <div className="register__head">
           <h1 className="register__title">Bienvenido al registro Revu.</h1>
           <img src={logo} alt="" className="register__logo" />

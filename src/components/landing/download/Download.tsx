@@ -13,9 +13,15 @@ export const Download = () => {
         <p className="download__paragraph">
           y comienza a comer de manera sostenible
         </p>
-        <Link to="#" className="download__button">Google play</Link>
-        <Link to="#" className="download__button">App store</Link>
-        <Link to="#" className="download__button">App galery</Link>
+        <Link to="#" className="download__button">
+          <img src="/images/buttons/google.png" alt="gooogle play" className="download__network" />
+        </Link>
+        <Link to="#" className="download__button">
+          <img src="/images/buttons/apple.png" alt="apple store"  className="download__network"/>
+        </Link>
+        <Link to="#" className="download__button">
+          <img src="/images/buttons/huawei.png" alt="App galery"  className="download__network"/>
+        </Link>
       </div>
     </section>
   )

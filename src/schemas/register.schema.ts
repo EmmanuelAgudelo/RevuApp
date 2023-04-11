@@ -1,11 +1,13 @@
 import * as yup from "yup";
+import Colombia from "../json/colombia.json";
+
 
 export const RegisterSchema = yup
 .object({
   names: yup
     .string()
     .required("Este campo es obligatorio")
-    .min(5, ({ min }) => `Mínimo ${min} caracteres`)
+    .min(3, ({ min }) => `Mínimo ${min} caracteres`)
     .max(20, ({ max }) => `Máximo ${max} caracteres`),
   last_names: yup
     .string()
@@ -26,7 +28,8 @@ export const RegisterSchema = yup
     .max(15,({ max }) => `Máximo ${max} caracteres`),
   document_type: yup
     .string()
-    .required("Este campo es obligatorio"),
+    .required("Este campo es obligatorio")
+    .oneOf(['C.C', 'C.E', 'T.I'], 'Tipo de documento no válido'),
   document: yup
     .string()
     .required("Este campo es obligatorio")
@@ -48,13 +51,13 @@ export const RegisterSchema = yup
   department: yup
     .string()
     .required("Este campo es obligatorio")
-    .min(3, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(15, ({ max }) => `Máximo ${max} caracteres`),
+    .oneOf(Colombia.map((e)=>(
+      e.departamento
+    )),'Departamento no valido'),
   city: yup
     .string()
     .required("Este campo es obligatorio")
-    .min(3, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(15, ({ max }) => `Máximo ${max} caracteres`),
+    .oneOf(Colombia.flatMap((dep) => dep.ciudades),'Cuidad no valida'),
   address: yup
     .string()
     .required("Este campo es obligatorio")

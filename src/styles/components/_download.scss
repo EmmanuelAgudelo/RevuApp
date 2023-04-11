@@ -70,10 +70,11 @@
   }
 
   &__button {
-    background-color: black;
-    margin-top: 1rem;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.3rem;
+    width: 20rem;
+
+    &:first-of-type {
+      margin-top: 5rem;
+    }
   }
+
 }
