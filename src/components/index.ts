@@ -14,6 +14,7 @@ export * from "./landing/download/Download";
 
 /* About */
 export * from './landing/about/About';
+export * from './landing/about/Functionality';
 
 /* error */
 export * from "./landing/error/Error404";

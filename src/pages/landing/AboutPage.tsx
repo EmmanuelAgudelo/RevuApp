@@ -1,9 +1,10 @@
-import { About } from "../../components";
+import { About, Functionality } from "../../components";
 
 const AboutPage = () => {
   return (
     <>
       <About />
+      <Functionality/>
     </>
   );
 };
