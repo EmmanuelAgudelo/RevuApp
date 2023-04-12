@@ -2,21 +2,29 @@
 @use "../base/mixins" as m;
 .container__functionality {
   width: 100%;
-  background: linear-gradient(to bottom, #fff 50%, #ffa500 50%);
+  background: linear-gradient(to bottom, #fff 50%, #ffb60d 50%);
 }
 .section {
-  padding-top: 3rem;
   width: 70%;
   margin: 0 auto;
   &__title {
     //TODO: Cambiar el color a amarillo
-    color: #ffa500;
+    margin-top: 2rem;
+    color: #ffb60d;
     text-align: center;
-    font-size: 5rem;
+    font-size: 3.5rem;
+
+    @include m.tablet {
+      font-size: 5.5rem;
+    }
+
+    @include m.desktop {
+      font-size: 6rem;
+    }
   }
   .article {
     width: 85%;
-    padding-top: 6rem;
+    padding: 3rem 0;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 5rem;
@@ -24,7 +32,7 @@
     @include m.tablet {
       grid-template-columns: repeat(2, 1fr);
     }
-    @include m.tablet {
+    @include m.desktop {
       grid-template-columns: repeat(3, 1fr);
     }
   }
