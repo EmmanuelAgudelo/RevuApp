@@ -2,6 +2,9 @@
 @use "../base/mixins" as m;
 .container__functionality {
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   background: linear-gradient(to bottom, #fff 50%, #ffb60d 50%);
 }
 .section {

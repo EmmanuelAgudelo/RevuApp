@@ -23,6 +23,29 @@
   text-align: center;
   font-size: 5rem;
   text-align: left;
+
+    &--azul {
+      display: inline-block;
+      &::after {
+        content: '';
+        background-color: #38d2c4;
+        height: 0.5rem;
+        width: 100%;
+        display: block;
+        margin-top: -1rem;
+
+        @include m.tablet {
+          margin-top: -2rem;
+          height: 1rem;
+        } 
+
+        @include m.desktop {
+          margin-top: -2rem;
+          height: 1.5rem;
+        } 
+      }
+    }
+
 }
 .section_paragraph {
   margin-top: 2rem;
@@ -45,11 +68,23 @@
     transform-style: preserve-3d;
   }
   &__front {
-    background-color: #38d2c4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &--glasses{
+      background-image: url("/images/glasses.jpeg");
+    }
+    &--eating{
+      background-image: url("/images/eating.jpeg");
+    }
+    &--food{
+      background-image: url("/images/food.jpeg");
+    }
   }
   &__icon {
     color: #fff;
@@ -62,6 +97,7 @@
     text-align: center;
   }
   &__back {
+    background: linear-gradient(to bottom, #EDEDED 95%,  #38d2c4 5%);
     font-size: 1.25rem;
     text-align: center;
     display: grid;
@@ -73,6 +109,7 @@
       font-size: 16px;
     }
   }
+
 }
 
 .card__front,

@@ -19,7 +19,7 @@ export const Winners = () => {
       </div>
       <article className="card">
         <div className="card__inner">
-          <div className="card__front">
+          <div className="card__front card__front--glasses">
             <RiStore3Line className="card__icon" size="65" />
             <h3 className="card__title">Nuestros aliados</h3>
           </div>
@@ -33,7 +33,7 @@ export const Winners = () => {
       </article>
       <article className="card">
         <div className="card__inner">
-          <div className="card__front">
+          <div className="card__front  card__front--eating">
             <AiOutlineUser className="card__icon" size="65" />
             <h3 className="card__title">Nuestros usuarios</h3>
           </div>
@@ -47,7 +47,7 @@ export const Winners = () => {
       </article>
       <article className="card">
         <div className="card__inner">
-          <div className="card__front">
+          <div className="card__front  card__front--food">
             <FiUsers className="card__icon" size="65" />
             <h3 className="card__title">Todas las personas</h3>
           </div>
