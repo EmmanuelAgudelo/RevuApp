@@ -42,7 +42,7 @@ export const Login = () => {
     <div className="container--auth">
       <div className="login login--container">
         <div className="login__form">
-          <h1 className="login__title">¡Hola de nuevo ! <span className="login__span"> aliado revu.</span></h1>
+          <h1 className="login__title">¡Hola de nuevo! <span className="login__span"> aliado revu.</span></h1>
           <form onSubmit={formik.handleSubmit} className="form">
             <div className="form__row">
               <div className="form__col">
