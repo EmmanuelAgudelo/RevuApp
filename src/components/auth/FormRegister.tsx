@@ -3,7 +3,7 @@ import { useStore } from "zustand";
 import { useFormik } from "formik";
 import { FaAddressCard,FaCity } from "react-icons/fa";
 import { RiCellphoneFill,RiRestaurantLine } from "react-icons/ri";
-import { BsBank, BsCashCoin,BsHouseGear } from "react-icons/bs";
+import { BsBank,BsHouseGear } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { BiUserCircle, BiLockAlt } from "react-icons/bi";
 import { HiOutlineMail,HiOutlineDocumentText } from "react-icons/hi";
@@ -30,8 +30,7 @@ export const FormRegister = () => {
             department: '',
             city: '',
             address: '',
-            phone: '',
-            banking_information: ''
+            phone: ''
         },
         validationSchema: RegisterSchema,
         onSubmit: (data) => {
@@ -39,7 +38,7 @@ export const FormRegister = () => {
         },
     })
 
-    const { names, last_names, email, cellphone, document_type, document, password, name, category, department, city, address, phone, banking_information } = formik.values;
+    const { names, last_names, email, cellphone, document_type, document, password, name, category, department, city, address, phone } = formik.values;
 
 
     useEffect(() => {
@@ -306,23 +305,12 @@ export const FormRegister = () => {
                     )}
                 </div>
             </div>
-
             <div className="form__row">
                 <div className="form__col">
-                    <div className="form__group">
-                        <BsCashCoin className="form__icons--blue" size={30} />
-                        <input
-                            type="text"
-                            id="banking_information"
-                            placeholder="Información bancaria"
-                            value={banking_information}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                        />
+                    <div className="form__group" style={{marginTop:10}}>
+                        <input type="checkbox" name="" id="" />
+                        <label htmlFor="">Aceptar Términos y condiciones </label>
                     </div>
-                    {formik.touched.banking_information && formik.errors.banking_information && (
-                        <small className="form__error">{formik.errors.banking_information}</small>
-                    )}
                 </div>
             </div>
 

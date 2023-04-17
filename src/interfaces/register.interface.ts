@@ -14,5 +14,5 @@ export interface IRegister {
     city:string;
     address:string;
     phone:string;
-    banking_information:string;
+
 }
