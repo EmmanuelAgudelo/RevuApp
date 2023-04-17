@@ -77,7 +77,7 @@ export const RecoverPassword = () => {
                             /> :
                             <input
                                 type="submit"
-                                value="Recuperar contraseña"
+                                value="Enviar"
                                 className="recover__btn"
                             />}
 

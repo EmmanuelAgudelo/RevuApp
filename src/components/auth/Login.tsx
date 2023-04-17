@@ -81,7 +81,7 @@ export const Login = () => {
               </div>
             </div>
             <div className="login__container__btn">
-              <Link className="login__link" to={"/auth/recoverPassword"}>Olvide mi contraseña</Link>
+              <Link className="login__link" to={"/auth/recoverPassword"}>Olvidé mi contraseña</Link>
               {isLoading?
                 <input
                 type="submit"
@@ -91,7 +91,7 @@ export const Login = () => {
               />:
               <input
                 type="submit"
-                value="Iniciar sesion"
+                value="¡Comencemos!"
                 className="login__btn"
               />}
             </div>

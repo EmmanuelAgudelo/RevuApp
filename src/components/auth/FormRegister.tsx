@@ -149,7 +149,7 @@ export const FormRegister = () => {
                         <input
                             type="text"
                             id="document"
-                            placeholder="Numero de documento"
+                            placeholder="Número de documento"
                             value={document}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -236,7 +236,7 @@ export const FormRegister = () => {
                             onBlur={formik.handleBlur}
                             disabled={department===''}
                         >
-                            <option value="">Cuida</option>
+                            <option value="">ciudad</option>
                             {department&&Colombia.find(c=>c.departamento == department)?.ciudades.map((c)=>(
                                 <option key={c} value={c}>{c}</option>
                             ))}
@@ -276,7 +276,7 @@ export const FormRegister = () => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                         >
-                            <option value="">Categoria del establecimiento</option>
+                            <option value="">Categoría del establecimiento</option>
 
                             <option value="1">Comida</option>
                             <option value="2">Supermercados</option>
