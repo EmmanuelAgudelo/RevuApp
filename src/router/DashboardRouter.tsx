@@ -4,7 +4,6 @@ import { useStore } from "zustand";
 import { removeLocalStorage } from "../localstorage";
 import Users from "../pages/dashboard/Users";
 import { authStore } from "../store";
-import Error404Page from "../pages/Error404Page";
 
 export const DashboardRouter = () => {
   const {authentication,logout,validateAuthentication} = useStore(authStore);
@@ -35,7 +34,7 @@ export const DashboardRouter = () => {
   return (
     <Routes>
       <Route path="/user" element={<Users/>}/>
-      <Route path="*" element={<Error404Page/>}/>
+      <Route path="*" element={<Navigate to='/error-404'/>}/>
     </Routes>
   )
 }

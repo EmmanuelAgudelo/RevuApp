@@ -68,6 +68,10 @@ export const RegisterSchema = yup
     .required("Este campo es obligatorio")
     .matches(/^[^A-Za-z]+$/, 'El campo no debe contener letras')
     .min(3, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(10, ({ max }) => `Máximo ${max} caracteres`)
+    .max(10, ({ max }) => `Máximo ${max} caracteres`),
+  tyc: yup
+    .boolean()
+    .default(false)
+    .oneOf([true], "Debes aceptar los términos y condiciones"),
 })
 .required();

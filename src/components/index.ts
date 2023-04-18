@@ -9,18 +9,21 @@ export * from "./auth/RecoverPassword";
 export * from "./auth/resetPassword";
 
 
-/* Download */
-export * from "./landing/download/Download";
-
 /* About */
 export * from './landing/about/About';
 export * from './landing/about/Functionality';
 export * from './landing/about/Winners';
 
+/* Download */
+export * from "./landing/download/Download";
+
+/* partners */
+
+export * from "./landing/partners/Partners";
 
 /* error */
-export * from "./landing/error/Error404";
-export * from "./landing/error/NetworkError";
+export * from "./error/Error404";
+export * from "./error/NetworkError";
 
 
 /* =================== dashboard ======================================= */

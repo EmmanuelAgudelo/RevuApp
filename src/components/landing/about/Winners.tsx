@@ -4,13 +4,13 @@ import { RiStore3Line } from "react-icons/ri";
 
 export const Winners = () => {
   return (
-    <div className="section__winners">
-      <div className="section_texts">
-        <h3 className="section__titlee">
-          Aquí <span className="section__titlee--azul">todos</span> ganan
+    <div className="winners">
+      <div className="winners__texts">
+        <h3 className="winners__title">
+          Aquí <span className="winners__title--azul">todos</span> ganan
         </h3>
-        <p className="section_paragraph">
-          <span className="section_paragraph--bold">
+        <p className="winners__paragraph">
+          <span className="winners__paragraph--bold">
             En Revu el más beneficiado es definitivamente el medio ambiente,{" "}
           </span>
           ya que al reducir la comida desperdiciada se da un paso más hacia la

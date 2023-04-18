@@ -9,7 +9,6 @@ import RegisterPage from "../pages/auth/RegisterPage";
 import RecoverPasswordPage from "../pages/auth/RecoverPasswordPage";
 import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 import { toastSuccess } from "../helpers";
-import Error404Page from "../pages/Error404Page";
 
 
 export const AuthRouter = () => {
@@ -50,7 +49,7 @@ export const AuthRouter = () => {
         <Route path="register" element={<RegisterPage/>}/>
         <Route path="recoverPassword" element={<RecoverPasswordPage/>}/>
         <Route path="resetPassword" element={<ResetPasswordPage/>}/>
-        <Route path="*" element={<Error404Page/>}/>
+        <Route path="*" element={<Navigate to='/error-404'/>}/>
       </Routes>
     </Layout>
   )

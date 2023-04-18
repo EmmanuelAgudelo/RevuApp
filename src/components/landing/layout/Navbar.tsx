@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useStore } from "zustand";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FaHamburger } from 'react-icons/fa';
 import logo from "/images/logos/logo-yellow.svg";
 import { routes } from "../../../router/routes";
@@ -10,6 +10,11 @@ import { authStore } from "../../../store";
 export const Navbar = () => {
   const { authentication, validateAuthentication } = useStore(authStore);
   const [showMenu, setShowMenu] = useState(false);
+
+  const {pathname} = useLocation();
+
+  console.log(pathname);
+  
 
   function toggleMenu() {
     setShowMenu(!showMenu);
@@ -34,7 +39,7 @@ export const Navbar = () => {
             {/* dynamic routes */}
             {routes.landing.map(({ title, path },i) => (
               <li className="nav__item" key={i}>
-                <NavLink to={path} className={({ isActive }) => isActive ? 'nav__link nav__link--active' : 'nav__link'}>{title}</NavLink>
+                <NavLink to={path} className={({ isActive }) => isActive || (i===0 && pathname === '/') ? 'nav__link nav__link--active' : 'nav__link'}>{title}</NavLink>
               </li>
             ))}
           </ul>
@@ -48,7 +53,7 @@ export const Navbar = () => {
                 <Link to="/auth/login" className="nav__link">Ingresa</Link>
               </li>
               <li className="nav__item">
-                <Link to="/auth/register" className="nav__link nav__link--register">Registra tu establecimiento</Link>
+                <Link to="/auth/register" className="nav__link nav__link--register">Regístra tu establecimiento</Link>
               </li>
             </>
             }
@@ -79,7 +84,7 @@ export const Navbar = () => {
                 <Link to="/auth/login" className="nav__link--hidden">Ingresa</Link>
               </li>
               <li className="nav__item">
-                <Link to="/auth/register" className="nav__link nav__link--register">Registra tu establecimiento</Link>
+                <Link to="/auth/register" className="nav__link nav__link--register">Regístra tu establecimiento</Link>
               </li>
             </>
             }

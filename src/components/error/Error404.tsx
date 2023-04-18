@@ -7,7 +7,7 @@ export const Error404 = () => {
                <div className="error404__description">
                     <p className="error404__text">¡Ops! tenemos un pequeño error aqui.</p>
                     <h1 className="error404__number">404</h1>
-                    <Link to="/" className="error404__link error404__link--description">Pagina de inicio </Link>
+                    <Link to="/" className="error404__link error404__link--description">Tranqui, regresa a la pagina de inicio</Link>
                </div>
 
                <div className="error404__image">

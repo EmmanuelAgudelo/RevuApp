@@ -3,13 +3,14 @@
 
 .error404 {
     width: 100%;
-    height: calc(100vh - 10rem);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #F5F5F5;
 
     &__info {
+        width: 70%;
         @include m.desktop {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -33,7 +34,7 @@
             font-size: 2.5rem;
         }
         @include m.desktop {
-            font-size: 3rem;
+            font-size: 2rem;
         }
     }
     &__number {
@@ -64,6 +65,7 @@
 
         &--description{
             display: none;
+            font-size: 1.4rem;
             @include m.desktop {
                 display: block;
             }
@@ -82,7 +84,7 @@
             height: 30rem;
         }
         @include m.desktop {
-            height: 40rem;
+            height: 35rem;
         }
     }
 }

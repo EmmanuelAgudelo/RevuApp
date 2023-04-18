@@ -12,6 +12,7 @@ import { IRegister } from "../../interfaces";
 import { RegisterSchema } from "../../schemas";
 import { registerStore } from "../../store";
 import Colombia from "../../json/colombia.json";
+import { Link } from "react-router-dom";
 
 export const FormRegister = () => {
     const {register,isLoading} = useStore(registerStore);
@@ -30,15 +31,17 @@ export const FormRegister = () => {
             department: '',
             city: '',
             address: '',
-            phone: ''
+            phone: '',
+            tyc: false
         },
         validationSchema: RegisterSchema,
         onSubmit: (data) => {
-            register(data);
+            const {tyc,...data2} = data;
+            register(data2);
         },
     })
 
-    const { names, last_names, email, cellphone, document_type, document, password, name, category, department, city, address, phone } = formik.values;
+    const { names, last_names, email, cellphone, document_type, document, password, name, category, department, city, address, phone,tyc } = formik.values;
 
 
     useEffect(() => {
@@ -308,9 +311,17 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group" style={{marginTop:10}}>
-                        <input type="checkbox" name="" id="" />
-                        <label htmlFor="">Aceptar Términos y condiciones </label>
+                        <input
+                            type="checkbox"
+                            id="tyc"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        />
+                        <label className="tyc" >Aceptar <Link to="/tyc">Términos y condiciones</Link> </label>
                     </div>
+                    {formik.touched.tyc && formik.errors.tyc && (
+                        <small className="form__error">{formik.errors.tyc}</small>
+                    )}
                 </div>
             </div>
 

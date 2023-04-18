@@ -6,7 +6,7 @@ interface IRegisterStore {
     registerResponse: IResponse | null;
     isLoading:boolean;
     error:string | null;
-    register: (body:Omit<IRegister, 'id'>) => void;
+    register: (body:Omit<IRegister, 'id' | 'tyc'>) => void;
     reset: () => void
 }
 
@@ -14,7 +14,7 @@ export const  registerStore = createStore<IRegisterStore>((set)=>({
     registerResponse: null,
     isLoading: false,
     error:null,
-    register: async (body:Omit<IRegister, 'id'>) => {
+    register: async (body:Omit<IRegister, 'id' | 'tyc'>) => {
         try {
             set({isLoading:true});
             const {data} = await API.post<IResponse>('/register',body);

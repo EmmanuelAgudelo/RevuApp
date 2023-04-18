@@ -1,30 +1,33 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
+
 .container__functionality {
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, #fff 50%, #ffb60d 50%);
+  background: linear-gradient(to bottom, #fff 50%, #FF9C01 50%);
 }
+
 .section {
   width: 70%;
   margin: 0 auto;
+
   &__title {
-    //TODO: Cambiar el color a amarillo
     margin-top: 2rem;
-    color: #ffb60d;
+    color: #FF9900;
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 3rem;
 
     @include m.tablet {
       font-size: 5.5rem;
     }
 
     @include m.desktop {
-      font-size: 6rem;
+      font-size: 5rem;
     }
   }
+
   .article {
     width: 85%;
     padding: 3rem 0;
@@ -32,15 +35,18 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 5rem;
     margin: 0 auto;
+
     @include m.tablet {
       grid-template-columns: repeat(2, 1fr);
     }
+
     @include m.desktop {
       grid-template-columns: repeat(3, 1fr);
     }
   }
+
   .card {
-    width: 22rem;
+    width: 100%;
     height: 18rem;
     background: #fff;
     border-radius: 0.5rem;
@@ -50,6 +56,7 @@
       background: #14beaf;
       border-radius: 0.5rem 0.5rem 0 0;
     }
+
     &__head__title {
       color: #fff;
       font-weight: 700;
@@ -57,14 +64,17 @@
       padding: 1rem 0;
       text-align: center;
     }
+
     &__body__paragraph {
       padding: 2rem;
       color: #757575;
       text-align: center;
+      font-weight: 300;
     }
+
     &__body__paragraph--bold {
       font-weight: 700;
-      color: gray;
+      color: #4D4D4D;
     }
   }
 }

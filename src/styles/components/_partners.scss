@@ -1,0 +1,129 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.partners {
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 10rem);
+
+    &__container {
+        width: 90%;
+        margin: 0 auto;
+
+        @include m.tablet {
+            display: flex;
+        }
+    }
+
+    &__content {
+        @include m.tablet {
+            width: 40%;
+        }
+    }
+
+    &__title {
+        color: #14beaf;
+        font-size: 4.5rem;
+        text-align: center;
+
+        @include m.tablet {
+            font-size: 5.5rem;
+            text-align: left;
+
+            &--span {
+                display: inline-block;
+
+                &::after {
+                    content: '';
+                    background-color: #FF9900;
+                    height: 0.5rem;
+                    width: 100%;
+                    display: block;
+                    margin-top: -1.2rem;
+
+                    @include m.tablet {
+                        margin-top: -2rem;
+                        height: 1rem;
+                    }
+
+                    @include m.desktop {
+                        margin-top: -2rem;
+                        height: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        @include m.desktop {
+            font-size: 6rem;
+        }
+
+
+    }
+
+    &__description {
+        font-size: 1.7rem;
+        font-weight: 300;
+        color: #757575;
+        line-height: 2;
+        text-align: center;
+
+        @include m.tablet {
+            text-align: left;
+        }
+    }
+
+    &__companies {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        
+        @include m.tablet {
+            width: 60%;
+        }
+    }
+
+    &__link {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @include m.tablet {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
+
+    &__button {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        padding: .8rem;
+        border-radius: 2rem;
+        font-weight: 700;
+
+        @include m.tablet {
+            width: 40%;
+        }
+
+        &--orange {
+            background-color: #FF9900;
+            color: white;
+        }
+
+        &--white {
+            background-color: white;
+            color: #FF9900;
+            border: 1px solid #FF9900;
+        }
+
+        &:last-of-type {
+            margin-top: 1rem;
+
+            @include m.tablet {
+                margin-top: 0;
+            }
+        }
+    }
+}
