@@ -1,18 +1,19 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useStore } from "zustand";
 import { useFormik } from "formik";
-import { FaAddressCard,FaCity } from "react-icons/fa";
-import { RiCellphoneFill,RiRestaurantLine } from "react-icons/ri";
+import { FaRegAddressCard,FaCity } from "react-icons/fa";
+import { RiRestaurantLine } from "react-icons/ri";
 import { BsBank,BsHouseGear } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { BiUserCircle, BiLockAlt } from "react-icons/bi";
 import { HiOutlineMail,HiOutlineDocumentText } from "react-icons/hi";
 import { AiOutlinePhone } from "react-icons/ai";
+import { MdSettingsCell } from "react-icons/md";
 import { IRegister } from "../../interfaces";
 import { RegisterSchema } from "../../schemas";
 import { registerStore } from "../../store";
 import Colombia from "../../json/colombia.json";
-import { Link } from "react-router-dom";
 
 export const FormRegister = () => {
     const {register,isLoading} = useStore(registerStore);
@@ -109,7 +110,7 @@ export const FormRegister = () => {
                 </div>
                 <div className="form__col">
                     <div className="form__group">
-                        <RiCellphoneFill className="form__icons--orange" size={30} />
+                        <MdSettingsCell className="form__icons--orange" size={30} />
                         <input
                             type="text"
                             id="cellphone"
@@ -128,7 +129,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <FaAddressCard className="form__icons--orange" size={30} />
+                        <FaRegAddressCard className="form__icons--orange" size={30} />
                         <select
                             id="document_type"
                             value={document_type}

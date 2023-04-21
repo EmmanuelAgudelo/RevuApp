@@ -1,0 +1,74 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.team {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 0;
+    align-items: center;
+
+    @include m.desktop {
+        flex-direction: row-reverse;
+    }
+    &__content {
+        padding: 0 2rem;
+
+        @include m.desktop {
+            width: 60%;
+            padding: 0 4rem;
+            text-align: right;
+        }
+    }
+    &__title {
+        font-size: 4rem;
+        text-align: center;
+        color: #14beaf;
+        font-weight: 700;
+
+        &--point {
+            color: #ffa500;
+        }
+        @include m.desktop {
+           text-align: right;
+           font-size: 5.5rem;
+        }
+    }
+
+    &__text {
+        font-weight: 300;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        color: #747474;
+        margin-top: 2rem;
+    
+        @include m.desktop {
+            width: 60%;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        margin-top: 2rem;
+        background-image: url("/images/team.jpg");
+        background-repeat: no-repeat;
+        background-size: 130%;
+        height: 28rem;
+        border-radius: 4rem 0 4rem 0;
+
+        @include m.desktop {
+            width: 40%;
+            height: 70vh;
+            border-radius:0 10rem 10rem 0;
+            background-size: 170%;
+            background-position: top;
+        }
+    }
+}
+.p {
+    @include m.desktop {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+}

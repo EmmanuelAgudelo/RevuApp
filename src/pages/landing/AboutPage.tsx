@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { About, Functionality, Winners } from "../../components";
+import { About, Figures, Functionality, Team, Winners } from "../../components";
 import { setTitle } from "../../helpers";
 
 const AboutPage = () => {
@@ -13,6 +13,8 @@ const AboutPage = () => {
       <About />
       <Functionality/>
       <Winners/>
+      <Team/>
+      <Figures/>
     </>
   );
 };

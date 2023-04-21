@@ -1,0 +1,91 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.figures {
+    width: 100%;
+    padding: 2rem 0;
+    background-image: url("/images/figures.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    &__container {
+        width: 80%;
+        margin: 0 auto;
+        @include m.desktop {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__info {
+        width: 100%;
+        padding: 2rem 4rem;
+        
+        @include m.desktop {
+            width: 44%;
+
+            &:first-of-type {
+                border-right: .1rem dotted white;
+            }
+
+            &:last-of-type {
+                border-top: .1rem dotted white;
+                margin-top: 2rem;
+            }
+        }
+
+    }
+
+    &__text {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-align: center;
+
+        @include m.desktop {
+            font-size: 2.8rem;
+        }
+        
+        &:not(:first-child){
+            padding-bottom: 3rem;
+            border-bottom: .1rem dotted white;
+
+            @include m.desktop {
+                border-bottom: unset;
+                padding-bottom: 0;
+            }
+        }
+
+    }
+    &__bigFont {
+        font-size: 4rem;
+        text-align: center;
+        margin: 1rem 0;
+
+        @include  m.desktop {
+            font-size: 6rem;
+        }
+        &--orange {
+            color:  #ffa500;
+        }
+        &--blue {
+            color:  #14beaf;
+            @include  m.desktop {
+                color:  #ffa500;
+            }
+        }
+    }
+    &__changeColor {
+        @include m.desktop {
+            color: #14beaf;
+        }
+    }
+    &__span {
+        font-weight: 700;
+    }
+}

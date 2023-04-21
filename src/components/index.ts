@@ -13,6 +13,9 @@ export * from "./auth/resetPassword";
 export * from './landing/about/About';
 export * from './landing/about/Functionality';
 export * from './landing/about/Winners';
+export * from './landing/about/Team';
+export * from './landing/about/Figures';
+
 
 /* Download */
 export * from "./landing/download/Download";
