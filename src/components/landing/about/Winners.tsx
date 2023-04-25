@@ -25,7 +25,7 @@ export const Winners = () => {
           </div>
           <div className="card__back">
             <p className="card__back__paragraph">
-              quienes pueden recuperar hasta el 50% de las ganancias de la
+              Quienes pueden recuperar hasta el 50% de las ganancias de la
               comida que se hubieradesperdiciado.
             </p>
           </div>
@@ -39,7 +39,7 @@ export const Winners = () => {
           </div>
           <div className="card__back">
             <p className="card__back__paragraph">
-              que pueden comprar en sus lugares favoritos a un 50% de descuento
+              Que pueden comprar en sus lugares favoritos a un 50% de descuento
               o más.
             </p>
           </div>
@@ -54,7 +54,7 @@ export const Winners = () => {
           <div className="card__back">
             <p className="card__back__paragraph">
               {" "}
-              quienes tendran la oportunidad de disfrutar de diferentes
+              Quienes tendran la oportunidad de disfrutar de diferentes
               restaurantes.
             </p>
           </div>

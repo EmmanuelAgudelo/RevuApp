@@ -239,7 +239,7 @@ export const FormRegister = () => {
                             onBlur={formik.handleBlur}
                             disabled={department===''}
                         >
-                            <option value="">ciudad</option>
+                            <option value="">Ciudad</option>
                             {department&&Colombia.find(c=>c.departamento == department)?.ciudades.map((c)=>(
                                 <option key={c} value={c}>{c}</option>
                             ))}

@@ -45,7 +45,7 @@ export const Register = () => {
         <div className="register__body">
           <h2 className="register__body__title register__body__title--orange">
             Primer paso:{" "}
-            <span className="register__body__title ">Registrate como aliado</span>
+            <span className="register__body__title ">Regístrate como aliado</span>
           </h2>
           <FormRegister/>
         </div>

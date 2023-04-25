@@ -10,7 +10,7 @@ export const Figures = () => {
             <div className="figures__info">
                 <p className="figures__text"><span className="figures__span">América latina y el Caribe</span> son responsables</p>
                 <h2 className="figures__bigFont figures__bigFont--blue">del 20%</h2>
-                <p className="figures__text">de los alimentos que se<span className="figures__span">desperdician en el mundo</span></p>
+                <p className="figures__text">de los alimentos que se<span className="figures__span"> desperdician en el mundo</span></p>
             </div>
             <div className="figures__info">
                 <p className="figures__text">Según la ONU, entre el</p>
