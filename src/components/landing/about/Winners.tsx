@@ -1,4 +1,4 @@
-import { AiOutlineUser } from "react-icons/ai";
+import { FiUser } from "react-icons/fi";
 import { FiUsers } from "react-icons/fi";
 import { RiStore3Line } from "react-icons/ri";
 
@@ -34,7 +34,7 @@ export const Winners = () => {
       <article className="card">
         <div className="card__inner">
           <div className="card__front  card__front--eating">
-            <AiOutlineUser className="card__icon" size="65" />
+            <FiUser className="card__icon" size="65" />
             <h3 className="card__title">Nuestros usuarios</h3>
           </div>
           <div className="card__back">
