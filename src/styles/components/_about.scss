@@ -3,7 +3,6 @@
 
 .about {
   height: calc(100vh - 10rem);
-
   @include m.desktop {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -34,18 +33,22 @@
     justify-content: center;
     align-items: center;
     text-align: left;
+    padding: 0 3rem;
+
   }
 
   &__title {
     color: #14beaf;
     font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
 
     @include m.tablet {
       font-size: 5.5rem;
     }
 
     @include m.desktop {
-      font-size: 6rem;
+      font-size: 5.5rem;
     }
   }
 
@@ -55,28 +58,31 @@
   &__paragraph {
     font-size: 2rem;
     margin-top: 2rem;
+    font-weight: 300;
+    line-height: 2;
     color: #666666;
-    text-align: justify;
+    text-align: left;
 
+    &--bold{
+      color: #494949;
+      font-weight: bold;
+    }
     @include m.tablet {
       font-size: 1.5rem;
     }
   }
-  &__paragraph--bold {
-    color: #494949;
-    font-weight: bold;
-  }
+  
 
   &__btn {
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: start;
     flex-direction: column;
     margin-top: 4rem;
 
     @include m.tablet {
       flex-direction: row;
-      margin-top: 5rem;
+      margin-top: 2rem;
     }
   }
 
@@ -85,6 +91,8 @@
     padding: 0.7rem 2.5rem;
     border-radius: 3rem;
     color: white;
+
+    margin-right: 1.5rem;
 
     @include m.tablet {
       display: inline-block;

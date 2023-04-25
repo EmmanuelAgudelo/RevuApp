@@ -53,7 +53,7 @@ export const Navbar = () => {
                 <Link to="/auth/login" className="nav__link">Ingresa</Link>
               </li>
               <li className="nav__item">
-                <Link to="/auth/register" className="nav__link nav__link--register">Regístra tu establecimiento</Link>
+                <Link to="/auth/register" className="nav__link nav__link--register">Registra tu establecimiento</Link>
               </li>
             </>
             }
@@ -84,7 +84,7 @@ export const Navbar = () => {
                 <Link to="/auth/login" className="nav__link--hidden">Ingresa</Link>
               </li>
               <li className="nav__item">
-                <Link to="/auth/register" className="nav__link nav__link--register">Regístra tu establecimiento</Link>
+                <Link to="/auth/register" className="nav__link nav__link--register">Registra tu establecimiento</Link>
               </li>
             </>
             }

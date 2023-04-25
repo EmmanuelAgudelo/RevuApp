@@ -5,14 +5,14 @@ export const About = () => {
     <section className="about">
       <div className="about__content about__content--container">
         <h1 className="about__title">
-          Llegamos para hacer las cosas diferentes<span className="section__title section__title--orange">.</span>
+          Llegamos para hacer las cosas diferente<span className="section__title section__title--orange">.</span>
         </h1>
         <p className="about__paragraph">
           En Revu, nuestro objetivo principal es reducir el desperdicio de
           comida en Colombia. Somos una plataforma que conecta
           establecimientos con sobreproducción de comida con usuarios que la
           compran a un menor precio. Queremos revolucionar la industria
-          gastronómica, <span className="section__paragraph--bold">¿podemos contar contigo?</span>
+          gastronómica, <span className="about__paragraph--bold">¿podemos contar contigo?</span>
         </p>
         <div className="about__btn">
           <Link to="" className="about__btn__btn">
