@@ -10,9 +10,9 @@ const AboutPage = () => {
   
   return (
     <>
-    <Download/>
       <About />
       <Functionality/>
+      <Download/>
       <Winners/>
       <Team/>
       <Figures/>
