@@ -7,7 +7,7 @@ export const Download = () => {
         <div className="download__title--container">
           <h1 className="download__title">
             Haz parte de la{" "}
-            <span className="download__title--span">revolucion</span> de la
+            <span className="download__title--span">revolución</span> de la
             comida
           </h1>
         </div>
