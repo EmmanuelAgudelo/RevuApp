@@ -56,7 +56,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BiUserCircle className="form__icons--orange" size={30} />
+                        <BiUserCircle className="form__icons--orange" size={30} style={{marginRight:5}} />
                         <input
                             type="text"
                             id="names"
@@ -75,7 +75,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BiUserCircle className="form__icons--orange" size={30} />
+                        <BiUserCircle className="form__icons--orange" size={30} style={{marginRight:5}} />
                         <input
                             type="text"
                             placeholder="Apellidos"
@@ -94,7 +94,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <HiOutlineMail className="form__icons--orange" size={30} />
+                        <HiOutlineMail className="form__icons--orange" size={30} style={{marginRight:5}} />
                         <input
                             type="email"
                             id="email"
@@ -110,7 +110,7 @@ export const FormRegister = () => {
                 </div>
                 <div className="form__col">
                     <div className="form__group">
-                        <MdSettingsCell className="form__icons--orange" size={30} />
+                        <MdSettingsCell className="form__icons--orange" size={30} style={{marginRight:5}} />
                         <input
                             type="text"
                             id="cellphone"
@@ -129,7 +129,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <FaRegAddressCard className="form__icons--orange" size={30} />
+                        <FaRegAddressCard className="form__icons--orange" size={25} style={{marginRight:5}} />
                         <select
                             id="document_type"
                             value={document_type}
@@ -148,7 +148,7 @@ export const FormRegister = () => {
                 </div>
                 <div className="form__col">
                     <div className="form__group">
-                        <HiOutlineDocumentText className="form__icons--orange" size={30} />
+                        <HiOutlineDocumentText className="form__icons--orange" size={30} style={{marginRight:5}} />
                         <input
                             type="text"
                             id="document"
@@ -167,7 +167,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BiLockAlt className="form__icons--orange" size={30} />
+                        <BiLockAlt className="form__icons--orange" size={30} style={{marginRight:5}} />
                         <input
                             type="password"
                             id="password"
@@ -193,7 +193,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BsBank className="form__icons--blue" size={30} />
+                        <BsBank className="form__icons--blue" size={25} style={{marginRight:5}} />
                         <input
                             type="text"
                             id="name"
@@ -212,7 +212,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BsHouseGear  className="form__icons--blue" size={30} />
+                        <BsHouseGear  className="form__icons--blue" size={30} style={{marginRight:5}} />
                         <select
                             id="department"
                             value={department}
@@ -231,7 +231,7 @@ export const FormRegister = () => {
                 </div>
                 <div className="form__col">
                     <div className="form__group">
-                        <FaCity className="form__icons--blue" size={30}  />
+                        <FaCity className="form__icons--blue" size={25} style={{marginRight:5}}  />
                         <select
                             id="city"
                             value={city}
@@ -254,7 +254,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <GoLocation className="form__icons--blue" size={30} />
+                        <GoLocation className="form__icons--blue" size={30} style={{marginRight:5}} />
                         <input
                             type="text"
                             id="address"
@@ -272,7 +272,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <RiRestaurantLine className="form__icons--blue" size={30} />
+                        <RiRestaurantLine className="form__icons--blue" size={30} style={{marginRight:5}} />
                         <select
                             id="category"
                             value={category}
@@ -294,7 +294,7 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <AiOutlinePhone className="form__icons--blue" size={30} />
+                        <AiOutlinePhone className="form__icons--blue" size={30} style={{marginRight:5}} />
                         <input
                             type="text"
                             id="phone"

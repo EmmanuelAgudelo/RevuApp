@@ -53,7 +53,9 @@ export const RecoverPassword = () => {
                         <div className="form__row">
                             <div className="form__col">
                                 <div className="form__group">
-                                    <HiOutlineMail className="form__icons--blue" size={30} />
+                                    <div className="form__icon">
+                                        <HiOutlineMail className="form__icons--blue" size={20} color='white' />
+                                    </div>
                                     <input
                                         type="email"
                                         id="email"
@@ -61,6 +63,7 @@ export const RecoverPassword = () => {
                                         value={email}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
+                                        className='radius'
                                     />
                                 </div>
                                 {formik.touched.email && formik.errors.email && (

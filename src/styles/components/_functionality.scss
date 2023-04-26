@@ -52,6 +52,13 @@
     border-radius: 0.5rem;
     box-shadow: 35px 30px 4px rgba(0, 0, 0, 0.07);
 
+    &__body {
+      height: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     &__head {
       background: #14beaf;
       border-radius: 0.5rem 0.5rem 0 0;

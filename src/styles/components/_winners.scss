@@ -20,10 +20,11 @@
 
   &__title {
     color: #ffb60d;
-    font-size: 6rem;
+    font-size: 4rem;
     text-align: center;
 
-    @include m.tablet {
+    @include m.desktop {
+      font-size: 6rem;
       text-align: left;
     }
 
@@ -33,10 +34,10 @@
       &::after {
         content: '';
         background-color: #38d2c4;
-        height: 0.5rem;
+        height: 1rem;
         width: 100%;
         display: block;
-        margin-top: -1.2rem;
+        margin-top: -1.8rem;
 
         @include m.tablet {
           margin-top: -2rem;
@@ -57,7 +58,7 @@
     color: #A1A1A1;
     font-weight: 300;
     text-align: center;
-    line-height: 1.5;
+    line-height: 2;
 
     @include m.tablet {
       text-align: left;
@@ -131,6 +132,7 @@
       color: gray;
       font-size: 16px;
       font-weight: 300;
+      line-height: 2;
     }
   }
 

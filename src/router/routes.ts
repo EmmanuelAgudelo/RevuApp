@@ -21,9 +21,9 @@ export const routes: IRoutes = {
             title:'Aliados',
             path: "/partners"
         },
-        {
+       /*  {
             title:'Descarga',
             path: "/download"
-        },
+        }, */
     ]
 }

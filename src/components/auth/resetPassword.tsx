@@ -61,7 +61,9 @@ export const ResetPassword = () => {
                         <div className="form__row">
                             <div className="form__col">
                                 <div className="form__group">
-                                    <BiLockAlt className="form__icons--blue" size={30} />
+                                    <div className="form__icon">
+                                        <BiLockAlt className="form__icons--blue" size={20} />
+                                    </div>
                                     <input
                                         type="password"
                                         id="password"
@@ -69,6 +71,7 @@ export const ResetPassword = () => {
                                         value={password}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
+                                        className='radius'
                                     />
                                 </div>
                                 {formik.touched.password && formik.errors.password && (
@@ -79,7 +82,9 @@ export const ResetPassword = () => {
                         <div className="form__row">
                             <div className="form__col">
                                 <div className="form__group">
-                                    <BiLockAlt className="form__icons--blue" size={30} />
+                                    <div className="form__icon">
+                                        <BiLockAlt className="form__icons--blue" size={20} />
+                                    </div>
                                     <input
                                         type="password"
                                         id="confirmPassword"
@@ -87,6 +92,7 @@ export const ResetPassword = () => {
                                         value={confirmPassword}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
+                                        className='radius'
                                     />
                                 </div>
                                 {formik.touched.confirmPassword && formik.errors.confirmPassword && (
@@ -112,12 +118,15 @@ export const ResetPassword = () => {
                         <div className="form__row">
                             <div className="form__col">
                                 <div className="form__group">
-                                    <BiLockAlt className="form__icons--blue" size={30} />
+                                    <div className="form__icon">
+                                        <BiLockAlt className="form__icons--blue" size={20} color='white' />
+                                    </div>
                                     <input
                                         type="password"
                                         id="password"
                                         placeholder="Contraseña"
                                         disabled
+                                        className='radius'
                                     />
                                 </div>
                             </div>
@@ -125,12 +134,15 @@ export const ResetPassword = () => {
                         <div className="form__row">
                             <div className="form__col">
                                 <div className="form__group">
-                                    <BiLockAlt className="form__icons--blue" size={30} />
+                                    <div className="form__icon">
+                                        <BiLockAlt className="form__icons--blue" size={20} color='white' />
+                                    </div>
                                     <input
                                         type="password"
                                         id="confirmPassword"
                                         placeholder="Confirmar Contraseña"
                                         disabled
+                                        className='radius'
                                     />
                                 </div>
                             </div>

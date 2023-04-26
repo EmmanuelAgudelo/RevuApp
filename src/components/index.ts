@@ -15,10 +15,8 @@ export * from './landing/about/Functionality';
 export * from './landing/about/Winners';
 export * from './landing/about/Team';
 export * from './landing/about/Figures';
+export * from "./landing/about/Download";
 
-
-/* Download */
-export * from "./landing/download/Download";
 
 /* partners */
 

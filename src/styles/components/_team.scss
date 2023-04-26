@@ -12,11 +12,11 @@
         flex-direction: row-reverse;
     }
     &__content {
-        padding: 0 2rem;
+        padding: 0 3rem;
 
         @include m.desktop {
             width: 50%;
-            padding: 0 4rem;
+            padding: 0 3rem;
             text-align: right;
         }
     }
@@ -31,19 +31,21 @@
         }
         @include m.desktop {
            text-align: right;
-           font-size: 5.5rem;
+           font-size: 4.5rem;
         }
     }
 
     &__text {
         font-weight: 300;
         font-size: 1.5rem;
-        line-height: 1.5;
+        line-height: 2;
         color: #747474;
+        text-align: center;
         margin-top: 2rem;
     
         @include m.desktop {
             width: 60%;
+            text-align: right;
         }
     }
 

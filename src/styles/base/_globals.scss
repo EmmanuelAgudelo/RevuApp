@@ -71,6 +71,14 @@ select{
   border-radius: 1.1rem;
 }
 
+input.radius[type="text"],
+input.radius[type="number"],
+input.radius[type="email"],
+input.radius[type="password"],
+select.radius{
+  border-radius: 0 1.1rem 1.1rem 0;
+}
+
 [class$="--auth"] {
   display: flex;
   align-items: center;

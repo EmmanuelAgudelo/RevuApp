@@ -3,7 +3,7 @@
 
 
 .download {
-  height: calc(100vh - 10rem);
+  min-height: calc(100vh - 10rem);
 
   @include m.tablet {
     display: grid;
@@ -26,6 +26,12 @@
 
   &__title {
     color: white; 
+    font-size: 3rem;
+
+    @include m.desktop {
+      font-size: 8rem;
+    }
+    
     &--span {
       display: inline-block;
       &::after {
@@ -60,20 +66,31 @@
   &__subtitle {
     font-size: 3rem;
     color: #363535;
+    margin-bottom: 1rem;
   }
 
   &__paragraph {
-    margin-top: 2rem;
     font-weight: 500;
-    font-size: 3rem;
     color: #666666;
+    font-size: 2rem;
+    @include m.desktop {
+      font-size: 3rem;
+    }
   }
 
   &__button {
-    width: 20rem;
+    width: 15rem;
+
+    @include m.desktop {
+      width: 20rem;
+    }
 
     &:first-of-type {
-      margin-top: 5rem;
+      margin-top: 2rem;
+
+      @include m.desktop {
+        margin-top: 5rem;
+      }
     }
   }
 

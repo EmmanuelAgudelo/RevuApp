@@ -5,7 +5,20 @@
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 1rem;
+    /* gap: 1rem; */
+  }
+  &__icon {
+    width: 12%;
+    background: #17B9AD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.7rem;
+    border-radius: 1.1rem 0 0 1.1rem;
+
+    @include m.tablet {
+      width: 8%;
+    }
   }
   &__row {
     width: 100%;
