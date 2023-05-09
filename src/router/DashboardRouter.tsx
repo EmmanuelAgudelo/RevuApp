@@ -3,6 +3,7 @@ import { Routes, Route,Navigate } from "react-router-dom";
 import { useStore } from "zustand";
 import { removeLocalStorage } from "../localstorage";
 import Users from "../pages/dashboard/Users";
+import ProfilePage from "../pages/dashboard/partner/ProfilePage";
 import { authStore } from "../store";
 
 export const DashboardRouter = () => {
@@ -33,7 +34,10 @@ export const DashboardRouter = () => {
   
   return (
     <Routes>
-      <Route path="/user" element={<Users/>}/>
+      <Route path="/partner/home" element={<ProfilePage />} />
+      <Route path="/partner/profile" element={<ProfilePage />} />
+      <Route path="/partner/revu-surprise" element={<ProfilePage />} />
+      <Route path="/partner/notifications" element={<ProfilePage />} />
       <Route path="*" element={<Navigate to='/error-404'/>}/>
     </Routes>
   )

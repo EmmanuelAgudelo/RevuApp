@@ -26,7 +26,7 @@ export const AuthRouter = () => {
       setLocalStorage('token_authorization',login.data.access_token);
       toastSuccess('Bienvenido');
       setTimeout(()=>{
-        window.location.href = "/dashboard/user";
+        window.location.href = "/dashboard/partner/home";
       },2000);
     }    
   }, [login])

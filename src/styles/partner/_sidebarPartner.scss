@@ -1,0 +1,119 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.sidebarPartner {
+    background-color: #1FBAAC;
+    color: #fff;
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15rem;
+        padding: 2rem;
+        background-color: #1B978D;
+        display: flex;
+        img {
+            max-height: 7rem;
+            max-width: 7rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__greeting {
+        font-size: 3rem;
+        font-weight: 300;
+
+        &--span {
+            font-weight: 500;
+            display: block;
+        }
+    }
+
+    &__links {
+        padding: 2rem 3rem;
+        margin: 0;
+
+        li {
+            a {
+                display: flex;
+                align-items: center;
+                padding: 1rem 0;
+                font-size: 1.7rem;
+                color: #fff;
+                font-weight: 500;
+                transition: background-color 0.3s ease;
+            }
+
+            .toggle-submenu {
+                display: block;
+                padding: 10px 20px;
+                color: #fff;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                text-align: left;
+                transition: background-color 0.3s ease;
+            }
+        }
+    }
+    &__submenu {
+        display: block;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            a {
+                display: block;
+                padding: 10px 40px;
+                color: #fff;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+                font-weight: 300;
+            }
+        }
+    }
+
+    &__icon {
+        margin-right: 1rem;
+        font-size: 2.5rem;
+    }
+
+    &__btns {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 2rem;
+    }
+
+    &__btn {
+        width: 70%;
+        margin: 0 auto;
+        padding: 1rem;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #fff;
+        border: none;
+        border-radius: 2rem;
+
+        &:last-of-type {
+            margin-top: 1rem;
+        }
+
+        &--support {
+            background-color: transparent;
+            border: 1px solid white;
+        }
+        &--logout {
+            background-color: #1B978D;
+            border: 1px solid transparent;
+        }
+    }
+}

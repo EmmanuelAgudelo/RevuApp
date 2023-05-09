@@ -27,3 +27,5 @@ export * from "./error/NetworkError";
 
 
 /* =================== dashboard ======================================= */
+
+export * from "./dashboard/partner/layout/LayoutPartner";

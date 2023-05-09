@@ -1,0 +1,18 @@
+.navbarPartner {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem 0;
+    &__text {
+        font-weight: 300;
+        color: gray;
+        margin-right: 1rem;
+        padding-right: 1rem;
+        border-right: 2px solid orange;
+    }
+    &__image {
+        width: 8rem;
+        height: 8rem;
+    }
+}
