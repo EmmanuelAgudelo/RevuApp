@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export const Partners = () => {
     return (
-        <section className="partners">
+        <section className="partners" id="partners">
             <div className="partners__container">
                 <div className="partners__content">
                     <h3 className="partners__title">Nuestros <span className="partners__title--span">aliados</span> Revu</h3>

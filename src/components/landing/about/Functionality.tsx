@@ -1,83 +1,30 @@
 export const Functionality = () => {
+
   return (
- <div className="container__functionality">
-     <section className="section">
-      <h3 className="section__title">Así funciona nuestra revolución:</h3>
-      <div className="article">
-        <article className="card">
-          <div className="card__head">
-            <h4 className="card__head__title">Paso 1</h4>
-          </div>
-          <div className="card__body">
-            <p className="card__body__paragraph">
-              <span className="card__body__paragraph--bold">Registrate</span> y
-              confirma tu contraseña
-            </p>
-          </div>
-        </article>
-        <article className="card">
-          <div className="card__head">
-            <h4 className="card__head__title">Paso 2</h4>
-          </div>
-          <div className="card__body">
-            <p className="card__body__paragraph">
-              Descubre un{" "}
-              <span className="card__body__paragraph--bold">
-                establecimiento
-              </span>
-              o busca el que mas te guste
-            </p>
-          </div>
-        </article>
-        <article className="card">
-          <div className="card__head">
-            <h4 className="card__head__title">Paso 3</h4>
-          </div>
-          <div className="card__body">
-            <p className="card__body__paragraph">
-              Reserva tu{" "}
-              <span className="card__body__paragraph--bold">Revu sorpresa</span>{" "}
-              en un clic
-            </p>
-          </div>
-        </article>
-        <article className="card">
-          <div className="card__head">
-            <h4 className="card__head__title">Paso 4</h4>
-          </div>
-          <div className="card__body">
-            <p className="card__body__paragraph">
-              <span className="card__body__paragraph--bold">Paga</span> en linea
-              o en efectivo directamente en el establecimiento
-            </p>
-          </div>
-        </article>
-        <article className="card">
-          <div className="card__head">
-            <h4 className="card__head__title">Paso 5</h4>
-          </div>
-          <div className="card__body">
-            <p className="card__body__paragraph">
-              <span className="card__body__paragraph--bold">
-                Usa tu bici, camina o ve entransporte publico
-              </span>{" "}
-              hacia el establecimiento
-            </p>
-          </div>
-        </article>
-        <article className="card">
-          <div className="card__head">
-            <h4 className="card__head__title">Paso 6</h4>
-          </div>
-          <div className="card__body">
-            <p className="card__body__paragraph">
-              <span className="card__body__paragraph--bold">¡Recibe</span> tu
-              revu sorpresa y disfrutala!
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
- </div>
+    <div className="container__functionality" id="funcionality">
+      <section className="section">
+        <h3 className="section__title">Así funciona nuestra revolución:</h3>
+        <div className="article">
+          <article className="card">
+            <img src="/images/paso_01.png" alt="paso 1" className="card__image" />
+          </article>
+          <article className="card">
+            <img src="/images/paso_02.png" alt="paso 2" className="card__image" />
+          </article>
+          <article className="card">
+            <img src="/images/paso_03.png" alt="paso 3" className="card__image" />
+          </article>
+          <article className="card">
+            <img src="/images/paso_04.png" alt="paso 4" className="card__image" />
+          </article>
+          <article className="card">
+            <img src="/images/paso_05.png" alt="paso 5" className="card__image" />
+          </article>
+          <article className="card">
+            <img src="/images/paso_06.png" alt="paso 6" className="card__image" />
+          </article>
+        </div>
+      </section>
+    </div>
   );
 };

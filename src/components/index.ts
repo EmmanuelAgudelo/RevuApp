@@ -16,11 +16,10 @@ export * from './landing/about/Winners';
 export * from './landing/about/Team';
 export * from './landing/about/Figures';
 export * from "./landing/about/Download";
+export * from "./landing/about/Partners";
 
 
-/* partners */
 
-export * from "./landing/partners/Partners";
 
 /* error */
 export * from "./error/Error404";

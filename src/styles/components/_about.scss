@@ -90,12 +90,14 @@
     width: 80%;
     margin: 0 auto;
     background-color: #ffa500;
-    padding: 0.7rem 2.5rem;
+    padding: 0.7rem 1rem;
     border-radius: 3rem;
     color: white;
+    text-align: center;
 
 
     @include m.tablet {
+      padding: 0.7rem 2.5rem;
       display: inline-block;
       margin-right: 1.5rem;
       width: unset;

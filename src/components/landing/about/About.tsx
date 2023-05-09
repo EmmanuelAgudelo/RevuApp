@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const About = () => {
   return (
-    <section className="about">
+    <section className="about" id="aboutMe">
       <div className="about__content about__content--container">
         <h1 className="about__title">
           Llegamos para hacer las cosas diferente<span className="section__title section__title--orange">.</span>

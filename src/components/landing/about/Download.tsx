@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const Download = () => {
   return (
-    <section className="download">
+    <section className="download" id="download">
       <div className="download__image">
         <div className="download__title--container">
           <h1 className="download__title">

@@ -11,9 +11,8 @@ export const Navbar = () => {
   const { authentication, validateAuthentication } = useStore(authStore);
   const [showMenu, setShowMenu] = useState(false);
 
-  const {pathname} = useLocation();
+  const {hash} = useLocation();
 
-  console.log(pathname);
   
 
   function toggleMenu() {
@@ -37,9 +36,10 @@ export const Navbar = () => {
         <div className="nav__links">
           <ul className="nav__items">
             {/* dynamic routes */}
+            
             {routes.landing.map(({ title, path },i) => (
               <li className="nav__item" key={i}>
-                <NavLink to={path} className={({ isActive }) => isActive || (i===0 && pathname === '/') ? 'nav__link nav__link--active' : 'nav__link'}>{title}</NavLink>
+                <a  href={path} className={'/'+hash === path ? 'nav__link nav__link--active' : 'nav__link'}>{title}</a>
               </li>
             ))}
           </ul>
@@ -73,7 +73,7 @@ export const Navbar = () => {
           {/* dynamic routes */}
           {routes.landing.map(({ title, path },i) => (
             <li className="nav__item--hidden" key={i}>
-              <NavLink to={path} className={({ isActive }) => isActive ? 'nav__link nav__link--active--hidden' : 'nav__link'}>{title}</NavLink>
+              <a  href={path} className={'/'+hash === path ? 'nav__link nav__link--active--hidden' : 'nav__link'}>{title}</a>
             </li>
           ))}
           <div className="auth--hidden">
