@@ -29,3 +29,7 @@ export * from "./error/NetworkError";
 /* =================== dashboard ======================================= */
 
 export * from "./dashboard/partner/layout/LayoutPartner";
+export * from "./dashboard/admin/layout/LayoutAdmin";
+
+export * from "./dashboard/admin/home/HomeAdmin";
+export * from "./dashboard/admin/partners/PartnersAdmin";

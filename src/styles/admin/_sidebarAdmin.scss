@@ -2,9 +2,9 @@
 @use "../base/mixins" as m;
 
 
-.sidebarPartner {
+.sidebarAdmin {
     position: fixed;
-    background-color: #1FBAAC;
+    background-color: #000;
     color: #fff;
     width: 20%;
     height: 100vh;
@@ -17,12 +17,10 @@
         align-items: center;
         height: 20%;
         padding: 2rem;
-        background-color: #1B978D;
         display: flex;
         img {
-            max-height: 5rem;
-            max-width: 5rem;
-            margin-right: 1rem;
+            max-height: 8rem;
+            max-width: 8rem;
         }
     }
 
@@ -107,13 +105,8 @@
         &:last-of-type {
             margin-top: 2rem;
         }
-
-        &--support {
-            background-color: transparent;
-            border: 1px solid white;
-        }
         &--logout {
-            background-color: #1B978D;
+            background-color: #ffa500;
             border: 1px solid transparent;
         }
     }

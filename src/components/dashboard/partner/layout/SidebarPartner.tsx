@@ -1,14 +1,19 @@
 import { useState } from 'react';
+import { useStore } from 'zustand';
+import { authStore } from '../../../../store/authStore';
 import { HiOutlineDesktopComputer,HiOutlineMail,HiOutlineDocumentText } from 'react-icons/hi';
 import { RiHotelLine } from 'react-icons/ri';
 import { GoGift } from 'react-icons/go';
 
 export const SidebarPartner = () => {
+
   const [showSubMenu, setShowSubMenu] = useState(false);
+  const {validateLogout,authentication } = useStore(authStore);
 
   const handleSubMenuClick = () => {
     setShowSubMenu(!showSubMenu);
   };
+
 
   
   return (
@@ -60,7 +65,7 @@ export const SidebarPartner = () => {
 
       <div className="sidebarPartner__btns">
         <button className='sidebarPartner__btn sidebarPartner__btn--support'>Contacto soporte</button>
-        <button className='sidebarPartner__btn sidebarPartner__btn--logout'>Cerrar sesion</button>
+        <button className='sidebarPartner__btn sidebarPartner__btn--logout' onClick={()=>validateLogout()}>Cerrar sesion</button>
       </div>
     </div>
   );

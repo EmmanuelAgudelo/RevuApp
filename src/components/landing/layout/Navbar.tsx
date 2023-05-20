@@ -59,7 +59,7 @@ export const Navbar = () => {
             }
 
             {authentication !== 'verifying' && authentication !== "unauthenticated" && <li className="nav__item">
-              <Link to="/dashboard/user" className="nav__link nav__link--register">Dashboard</Link>
+              <Link to="/dashboard/partner/home" className="nav__link nav__link--register">Dashboard</Link>
             </li>}
 
           </ul>
@@ -90,7 +90,7 @@ export const Navbar = () => {
             }
 
             {authentication !== 'verifying' && authentication !== "unauthenticated" && <li className="nav__item">
-              <Link to="/dashboard/user" className="nav__link nav__link--register">Dashboard</Link>
+              <Link to="/dashboard/partner/home" className="nav__link nav__link--register">Dashboard</Link>
             </li>}
           </div>
         </ul>
