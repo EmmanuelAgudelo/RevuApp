@@ -48,27 +48,6 @@ export const RegisterSchema = yup
   category: yup
     .string()
     .required("Este campo es obligatorio"),
-  department: yup
-    .string()
-    .required("Este campo es obligatorio")
-    .oneOf(Colombia.map((e)=>(
-      e.departamento
-    )),'Departamento no valido'),
-  city: yup
-    .string()
-    .required("Este campo es obligatorio")
-    .oneOf(Colombia.flatMap((dep) => dep.ciudades),'Cuidad no valida'),
-  address: yup
-    .string()
-    .required("Este campo es obligatorio")
-    .min(3, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(30, ({ max }) => `Máximo ${max} caracteres`),
-  phone: yup
-    .string()
-    .required("Este campo es obligatorio")
-    .matches(/^[^A-Za-z]+$/, 'El campo no debe contener letras')
-    .min(3, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(10, ({ max }) => `Máximo ${max} caracteres`),
   tyc: yup
     .boolean()
     .default(false)

@@ -1,19 +1,15 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "zustand";
 import { useFormik } from "formik";
-import { FaRegAddressCard,FaCity } from "react-icons/fa";
+import { FaRegAddressCard } from "react-icons/fa";
 import { RiRestaurantLine } from "react-icons/ri";
-import { BsBank,BsHouseGear } from "react-icons/bs";
-import { GoLocation } from "react-icons/go";
+import { BsBank } from "react-icons/bs";
 import { BiUserCircle, BiLockAlt } from "react-icons/bi";
 import { HiOutlineMail,HiOutlineDocumentText } from "react-icons/hi";
-import { AiOutlinePhone } from "react-icons/ai";
 import { MdSettingsCell } from "react-icons/md";
 import { IRegister } from "../../interfaces";
 import { RegisterSchema } from "../../schemas";
 import { registerStore } from "../../store";
-import Colombia from "../../json/colombia.json";
 
 export const FormRegister = () => {
     const {register,isLoading} = useStore(registerStore);
@@ -29,10 +25,6 @@ export const FormRegister = () => {
             password: '',
             name: '',
             category: '',
-            department: '',
-            city: '',
-            address: '',
-            phone: '',
             tyc: false
         },
         validationSchema: RegisterSchema,
@@ -42,13 +34,9 @@ export const FormRegister = () => {
         },
     })
 
-    const { names, last_names, email, cellphone, document_type, document, password, name, category, department, city, address, phone,tyc } = formik.values;
+    const { names, last_names, email, cellphone, document_type, document, password, name, category } = formik.values;
 
 
-    useEffect(() => {
-     formik.setFieldValue('city','') 
-    }, [department])
-    
 
     return (
         <form onSubmit={formik.handleSubmit} className="form">
@@ -212,66 +200,6 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BsHouseGear  className="form__icons--blue" size={30} style={{marginRight:5}} />
-                        <select
-                            id="department"
-                            value={department}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                        >
-                            <option value="">Departamento</option>
-                            {Colombia.map(({departamento})=>(
-                                <option key={departamento} value={departamento}>{departamento}</option>
-                            ))}
-                        </select>
-                    </div>
-                    {formik.touched.department && formik.errors.department && (
-                        <small className="form__error">{formik.errors.department}</small>
-                    )}
-                </div>
-                <div className="form__col">
-                    <div className="form__group">
-                        <FaCity className="form__icons--blue" size={25} style={{marginRight:5}}  />
-                        <select
-                            id="city"
-                            value={city}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            disabled={department===''}
-                        >
-                            <option value="">Ciudad</option>
-                            {department&&Colombia.find(c=>c.departamento == department)?.ciudades.map((c)=>(
-                                <option key={c} value={c}>{c}</option>
-                            ))}
-                        </select>
-                    </div>
-                    {formik.touched.city && formik.errors.city && (
-                        <small className="form__error">{formik.errors.city}</small>
-                    )}
-                </div>
-            </div>
-
-            <div className="form__row">
-                <div className="form__col">
-                    <div className="form__group">
-                        <GoLocation className="form__icons--blue" size={30} style={{marginRight:5}} />
-                        <input
-                            type="text"
-                            id="address"
-                            placeholder="Dirección principal"
-                            value={address}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                        />
-                    </div>
-                    {formik.touched.address && formik.errors.address && (
-                        <small className="form__error">{formik.errors.address}</small>
-                    )}
-                </div>
-            </div>
-            <div className="form__row">
-                <div className="form__col">
-                    <div className="form__group">
                         <RiRestaurantLine className="form__icons--blue" size={30} style={{marginRight:5}} />
                         <select
                             id="category"
@@ -281,8 +209,9 @@ export const FormRegister = () => {
                         >
                             <option value="">Categoría del establecimiento</option>
 
-                            <option value="1">Comida</option>
-                            <option value="2">Supermercados</option>
+                            <option value="BAKERY">Panadería</option>
+                            <option value="RESTAURANT">Restaurante</option>
+                            <option value="SUPERMARKET">Supermecado</option>
                         </select>
                     </div>
                     {formik.touched.category && formik.errors.category && (
@@ -291,24 +220,6 @@ export const FormRegister = () => {
                 </div>
             </div>
 
-            <div className="form__row">
-                <div className="form__col">
-                    <div className="form__group">
-                        <AiOutlinePhone className="form__icons--blue" size={30} style={{marginRight:5}} />
-                        <input
-                            type="text"
-                            id="phone"
-                            placeholder="Teléfono de contacto"
-                            value={phone}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                        />
-                    </div>
-                    {formik.touched.phone && formik.errors.phone && (
-                        <small className="form__error">{formik.errors.phone}</small>
-                    )}
-                </div>
-            </div>
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group" style={{marginTop:10}}>

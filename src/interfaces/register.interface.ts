@@ -10,9 +10,5 @@ export interface IRegister {
     /* businesse */
     name:string;
     category:string;
-    department:string;
-    city:string;
-    address:string;
-    phone:string;
     tyc:boolean;
 }
