@@ -1,0 +1,44 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.partner-info {
+    width: 80%;
+    height: 15rem;
+    background: #fff;
+    border: none;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__card {
+        width: 100%;
+        padding-left: 3.5rem;
+    }
+
+    &__inputs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 2rem;
+
+        input {
+            width: 80%;
+            background: transparent;
+            border: 0;
+            border-bottom: .1rem solid #d4d4d4;
+            margin-bottom: 1rem;
+            padding: .5rem 0 1rem;
+            border-radius: 0;
+            font-weight: 300;
+            &:first-child {
+                font-weight: 500;
+            }
+
+            &:nth-last-child(-n+2) {
+                border: none;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}

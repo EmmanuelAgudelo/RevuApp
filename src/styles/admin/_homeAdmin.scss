@@ -24,10 +24,10 @@
         border-radius: 2rem 0 0 2rem;
 
         &--blue {
-            background-color: #1B978D;
+            background-color: v.$dark-blue;
         }
         &--orange {
-            background-color: #F48600;
+            background-color: v.$dark-orange;
         }
     }
     &__description {
@@ -36,10 +36,10 @@
         text-align: center;
         border-radius: 0 2rem 2rem 0;
         &--blue {
-            background-color:  #1FBAAC;
+            background-color:  v.$blue;
         }
         &--orange {
-            background-color: #FAA002;
+            background-color: v.$orange;
         }
     }
 

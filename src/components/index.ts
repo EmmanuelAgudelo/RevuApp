@@ -33,3 +33,4 @@ export * from "./dashboard/admin/layout/LayoutAdmin";
 
 export * from "./dashboard/admin/home/HomeAdmin";
 export * from "./dashboard/admin/partners/PartnersAdmin";
+export * from "./dashboard/admin/partners/details/PartnersAdminDetails";

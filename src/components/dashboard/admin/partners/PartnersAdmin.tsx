@@ -1,12 +1,13 @@
 import { FiMail } from "react-icons/fi"
 import { TbPointFilled } from "react-icons/tb"
 import { AiOutlineEye } from "react-icons/ai"
-import { BiUserCheck,BiUserX } from "react-icons/bi"
+import { BiUserCheck, BiUserX } from "react-icons/bi"
+import { Link } from "react-router-dom"
 
 export const PartnersAdmin = () => {
   return (
     <div className="partnersAdmin">
-       <div className="partnersAdmin__conatinerTable">
+      <div className="partnersAdmin__conatinerTable">
         <table className="partnersAdmin__table">
           <thead>
             <tr>
@@ -21,62 +22,21 @@ export const PartnersAdmin = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Jose julian jacome martinez</td>
+              <td><span><Link to={'1'}><AiOutlineEye className="partnersAdmin__icon" title="Detalle" /></Link>Frisby</span></td>
               <td>josejuliandlf@gmail.com</td>
               <td>3108278836</td>
               <td>1007338492</td>
-              <td><TbPointFilled color="red"/> Inactivo</td>
-              <td className="center"><BiUserCheck className="partnersAdmin__icon"/> <AiOutlineEye  className="partnersAdmin__icon" title="Detalle"/></td>
-              <td className="center"><FiMail className="partnersAdmin__icon"/></td>
-            </tr>
-            <tr>
-              <td>Jacome martinez jose julian</td>
-              <td>jose@gmail.com</td>
-              <td>3108278836</td>
-              <td>1007338492</td>
-              <td><TbPointFilled color="#60E500"/> Activo</td>
-              <td className="center"><BiUserX className="partnersAdmin__icon"/> <AiOutlineEye  className="partnersAdmin__icon" title="Detalle"/></td>
-              <td className="center"><FiMail className="partnersAdmin__icon"/></td>
-            </tr>
-            <tr>
-              <td>Jose julian jacome martinez</td>
-              <td>josejuliandlf@gmail.com</td>
-              <td>3108278836</td>
-              <td>1007338492</td>
-              <td><TbPointFilled color="red"/> Inactivo</td>
-              <td className="center"><BiUserCheck className="partnersAdmin__icon"/> <AiOutlineEye  className="partnersAdmin__icon" title="Detalle"/></td>
-              <td className="center"><FiMail className="partnersAdmin__icon"/></td>
-            </tr>
-            <tr>
-              <td>Jacome martinez jose julian</td>
-              <td>jose@gmail.com</td>
-              <td>3108278836</td>
-              <td>1007338492</td>
-              <td><TbPointFilled color="#60E500"/> Activo</td>
-              <td className="center"><BiUserX className="partnersAdmin__icon"/> <AiOutlineEye  className="partnersAdmin__icon" title="Detalle"/></td>
-              <td className="center"><FiMail className="partnersAdmin__icon"/></td>
-            </tr>
-            <tr>
-              <td>Jose julian jacome martinez</td>
-              <td>josejuliandlf@gmail.com</td>
-              <td>3108278836</td>
-              <td>1007338492</td>
-              <td><TbPointFilled color="red"/> Inactivo</td>
-              <td className="center"><BiUserCheck className="partnersAdmin__icon"/> <AiOutlineEye  className="partnersAdmin__icon" title="Detalle"/></td>
-              <td className="center"><FiMail className="partnersAdmin__icon"/></td>
-            </tr>
-            <tr>
-              <td>Jacome martinez jose julian</td>
-              <td>jose@gmail.com</td>
-              <td>3108278836</td>
-              <td>1007338492</td>
-              <td><TbPointFilled color="#60E500"/> Activo</td>
-              <td className="center"><BiUserX className="partnersAdmin__icon"/> <AiOutlineEye  className="partnersAdmin__icon" title="Detalle"/></td>
-              <td className="center"><FiMail className="partnersAdmin__icon"/></td>
+              <td><TbPointFilled color="red" /> Inactivo</td>
+              <td className="center">
+                <label className="partnersAdmin__switch">
+                  <input type="checkbox" id="switch__btn" />
+                  <label htmlFor="switch__btn" title="Cambiar estado"></label>
+                </label></td>
+              <td className="center"><FiMail className="partnersAdmin__icon" /></td>
             </tr>
           </tbody>
         </table>
-       </div>
+      </div>
     </div>
   )
 }
