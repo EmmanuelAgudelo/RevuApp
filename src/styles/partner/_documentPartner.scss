@@ -1,13 +1,32 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-
-.partnersAdmin {
-    width: 100%;
+.documentPartner {
     display: flex;
-    padding: 1.5rem 5rem;
-    background-color: #EEEEEE;
-    min-height: 88vh;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: v.$dark-blue;
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+
+        @include m.desktop {
+            font-size: 2.6rem;
+            flex-direction: row;
+            margin-right: 2rem;
+        }
+
+        &--icon{
+            margin-right: 2.5rem;
+            font-size: 2rem;
+        }
+    }
 
     &__icon {
         color: #C2C2C2;
@@ -15,46 +34,10 @@
         margin: auto;
     }
 
-    &__switch{
-
-        input{
-         display: none;
-        }
-
-        input:checked~  label{
-            background: #64e500;
-            &::after{
-                left: 1.4rem;
-            }
-        }
-
-        label{
-            display: inline-block;
-            width: 3rem;
-            height: 1.7rem;
-            background: #aaa;
-            border-radius: 10rem;
-            position: relative;
-            cursor: pointer;
-
-            &::after{
-                position: absolute;
-                content: '';
-                width: 1.5rem;
-                height: 1.5rem;
-                background: #fff;
-                border-radius: 10rem;
-                top: 0.1rem;
-                left: 0.1rem;
-                transition: 0.3s;
-            }
-        }
-    }
-
     &__conatinerTable {
         width: 100%;
         padding: 2rem 0;
-        overflow-x: auto;
+        margin-bottom: 5rem;
     }
 
     &__conatinerTable::-webkit-scrollbar {
@@ -105,12 +88,24 @@
 
             td {
                 padding: 1.5rem 2.5rem;
-                text-align: left;
-                font-size: 1.5rem;
+                text-align: center;
+                font-size: 1.2rem;
                 color: #8E8E8E;
 
                 &:not(:first-of-type) {
-                    font-weight: 300;
+                    font-weight: 400;
+                }
+
+                &:first-of-type {
+                    font-weight: bold;
+                    color: #767676;
+                }
+
+                &:last-of-type {
+                   display: flex;
+                   justify-content: center;
+                   align-items: center;
+                   gap: .6rem;
                 }
 
                 &:not(:last-of-type) {
@@ -123,18 +118,18 @@
             }
 
             tr {
+                background: #EEEEEE;
+
                 &:last-of-type {
                     td {
                         &:first-of-type {
                             border-radius: 0 0 0 2rem;
-                            
-                            span{
+
+                            span {
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: center;
                             }
-
-
                         }
 
                         &:last-of-type {

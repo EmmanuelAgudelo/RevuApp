@@ -6,8 +6,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html {
-  font-size: 62.5%; /* 1REM = 10px */
+  font-size: 62.5%;
+  /* 1REM = 10px */
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
 }
@@ -28,18 +30,22 @@ h3 {
 h1 {
   @include m.tablet {
     font-size: 5rem;
-  } 
+  }
+
   @include m.desktop {
     font-size: 8rem;
-  } 
-  
+  }
+
 }
+
 h2 {
   font-size: 3rem;
 }
+
 h3 {
   font-size: 2rem;
 }
+
 a {
   text-decoration: none;
   color: #000;
@@ -53,6 +59,7 @@ img {
   max-width: 100%;
   display: block;
 }
+
 main {
   padding-top: 10rem;
 }
@@ -61,7 +68,9 @@ input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="password"],
-select{
+input[type="time"],
+select,
+textarea {
   border: none;
   background-color: #f2f2f2;
   padding: 1rem;
@@ -73,11 +82,15 @@ select{
   border-radius: 1.1rem;
 }
 
+textarea {
+  resize: none;
+}
+
 input.radius[type="text"],
 input.radius[type="number"],
 input.radius[type="email"],
 input.radius[type="password"],
-select.radius{
+select.radius {
   border-radius: 0 1.1rem 1.1rem 0;
 }
 
@@ -102,4 +115,81 @@ select.radius{
 .error {
   display: block;
   color: red;
+}
+
+.status {
+  &--red::before {
+    content: '•';
+    color: red;
+    font-size: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  &--green::before {
+    content: '•';
+    color: #60E500;
+    font-size: 2.5rem;
+    margin-right: 1rem;
+  }
+
+  &--orange::before {
+    content: '•';
+    color: rgb(255, 183, 2);
+    font-size: 2.5rem;
+    margin-right: 1rem;
+  }
+}
+
+.btn {
+  border: none;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .9rem 2.5rem;
+  font-weight: bold;
+
+  &--blue {
+    background: v.$blue;
+
+    span {
+      margin-left: 1rem;
+    }
+  }
+
+  &--orange {
+    background: v.$orange;
+  }
+
+  &--dark-blue {
+    background: v.$dark-blue;
+  }
+
+  &--outline {
+    background: #fff;
+    border: .1rem solid v.$blue;
+    color: v.$blue;
+  }
+
+  &--gray {
+    background: #f2f2f2;
+    color: rgb(105, 105, 105);
+    padding: 1rem 3rem;
+  }
+}
+
+.iconPassword {
+  color: #c1c1c1;
+  position: absolute;
+  right: 2rem;
+}
+
+.icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }

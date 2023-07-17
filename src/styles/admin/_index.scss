@@ -2,7 +2,12 @@
 @forward 'navbarAdmin';
 @forward 'sidebarAdmin';
 @forward 'homeAdmin';
-@forward 'partnersAdmin';
-@forward 'partnersDetails';
-@forward 'partnerHeadquartersDetails';
-@forward 'partnerInfo';
+@forward './partners/partnersAdmin';
+@forward './partners/partnersDetails';
+@forward './partners/partnerBranchDetails';
+@forward './partners/partnerInfo';
+@forward './partners/branchModal';
+@forward './partners/partnerSales';
+@forward './partners/partnersRating';
+@forward 'ratingsAdmin';
+@forward 'supportAdmin';

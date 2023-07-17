@@ -2,14 +2,59 @@
 @use "../base/mixins" as m;
 
 
+
+.show {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.711);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+
+    @include m.desktop {
+        width: 20%;
+        transform: translateX(0);
+    }
+}
+
 .sidebarAdmin {
     position: fixed;
     background-color: #000;
     color: #fff;
-    width: 20%;
     height: 100vh;
     top: 0;
     left: 0;
+    z-index: 1;
+    width: 70%;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+
+    @include m.desktop {
+        width: 20%;
+        transform: translateX(0);
+    }
+
+    &--show {
+        transform: translateX(0);
+    }
+
+    &__hamburguer {
+        position: absolute;
+        top: 3rem;
+        right: 2rem;
+        color: #fff;
+        font-weight: 700;
+        color: #000;
+        font-size: 2.5rem;
+        cursor: pointer;
+
+        @include m.desktop {
+            display: none;
+        }
+    }
+
 
     &__logo {
         display: flex;
@@ -17,7 +62,7 @@
         align-items: center;
         height: 20%;
         padding: 2rem;
-        display: flex;
+
         img {
             max-height: 8rem;
             max-width: 8rem;
@@ -43,10 +88,15 @@
                 display: flex;
                 align-items: center;
                 padding: 1rem 0;
-                font-size: 1.5rem;
+                font-size: 2rem;
                 color: #fff;
                 font-weight: 500;
                 transition: background-color 0.3s ease;
+
+                @include m.desktop {
+                    font-size: 1.5rem;
+
+                }
             }
 
             .toggle-submenu {
@@ -61,11 +111,13 @@
             }
         }
     }
+
     &__submenu {
         display: block;
         list-style: none;
         padding: 0;
         margin: 0;
+
         li {
             a {
                 display: block;
@@ -105,6 +157,7 @@
         &:last-of-type {
             margin-top: 2rem;
         }
+
         &--logout {
             background-color: #ffa500;
             border: 1px solid transparent;

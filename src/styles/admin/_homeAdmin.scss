@@ -10,9 +10,13 @@
     justify-content: center;
 
     &__card {
-        width: 42%;
+        width: 100%;
         margin: 2rem;
         display: flex;
+
+        @include m.desktop {
+            width: 42%;
+        }
     }
 
     &__icon {
@@ -26,18 +30,22 @@
         &--blue {
             background-color: v.$dark-blue;
         }
+
         &--orange {
             background-color: v.$dark-orange;
         }
     }
+
     &__description {
         width: 65%;
         padding: 3rem;
         text-align: center;
         border-radius: 0 2rem 2rem 0;
+
         &--blue {
-            background-color:  v.$blue;
+            background-color: v.$blue;
         }
+
         &--orange {
             background-color: v.$orange;
         }

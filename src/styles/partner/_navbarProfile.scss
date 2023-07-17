@@ -1,0 +1,46 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.navbarProfile {
+    display: flex;
+    list-style: none;
+    border-bottom: .2rem solid #e4e4e4;
+    padding-bottom: 2rem;
+    margin-top: 3rem;
+    overflow: auto;
+
+    @include m.desktop {
+    margin-top: 0;
+    overflow: hidden;    
+    }
+
+    li {
+        border-right: .2rem solid #e4e4e4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        a {
+            padding: .1rem 2rem;
+            color: #656565;
+            font-weight: 600;
+            span{
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+.active{
+    color: v.$dark-blue !important;
+    span{
+    color: v.$blue !important;
+        
+    }
+}

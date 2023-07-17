@@ -1,0 +1,23 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.partnersDetails {
+    display: block;
+    margin: auto;
+    width: 100%;
+    @include m.desktop {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+    }
+
+    &__cards {
+        width: 100%;
+        display: flex;
+        padding: 1.5rem 5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 3rem 0px;
+        gap: 5rem;
+    }
+}

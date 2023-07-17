@@ -1,10 +1,9 @@
-@use "../base/variables" as v;
-@use "../base/mixins" as m;
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
 
 
 .partner-info {
-    width: 80%;
-    height: 15rem;
+    width: 90%;
     background: #fff;
     border: none;
     border-radius: 25px;
@@ -12,15 +11,29 @@
     justify-content: center;
     align-items: center;
 
+    @include m.desktop {
+        height: 15rem;
+        width: 80%;
+    }
+
     &__card {
         width: 100%;
         padding-left: 3.5rem;
+        padding-top: 2rem;
+
+        @include m.desktop {
+            padding-top: 0;
+        }
     }
 
     &__inputs {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: 2rem;
+        display: block;
+
+        @include m.desktop {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 2rem;
+        }
 
         input {
             width: 80%;
@@ -31,13 +44,21 @@
             padding: .5rem 0 1rem;
             border-radius: 0;
             font-weight: 300;
+
             &:first-child {
                 font-weight: 500;
             }
 
-            &:nth-last-child(-n+2) {
+            &:nth-last-child(-n+1) {
                 border: none;
                 margin-bottom: 2rem;
+            }
+
+            @include m.desktop {
+                &:nth-last-child(-n+2) {
+                    border: none;
+                    margin-bottom: 2rem;
+                }
             }
         }
     }

@@ -1,5 +1,4 @@
 import * as yup from "yup";
-import Colombia from "../json/colombia.json";
 
 
 export const RegisterSchema = yup

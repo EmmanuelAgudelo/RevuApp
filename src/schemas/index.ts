@@ -2,3 +2,8 @@ export * from "./register.schema";
 export * from "./login.schema";
 export * from "./recover.schema";
 export * from "./resetPassword.schema";
+export * from "./owner.schema";
+export * from "./business.schema";
+export * from "./branch.schema";
+export * from "./revuSurprise.schema";
+export * from "./changePassword.schema";

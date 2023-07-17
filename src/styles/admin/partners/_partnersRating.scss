@@ -1,0 +1,100 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.ratings {
+    width: 90%;
+
+    @include m.desktop {
+        width: 80%;
+    }
+
+    &__card {
+        display: block;
+        background: #fff;
+        border-radius: 2rem;
+        width: 100%;
+
+        @include m.desktop {
+            display: flex;
+        }
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+
+        @include m.desktop {
+            width: 30%;
+            display: block;
+        }
+    }
+
+    &__icon {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2rem 0 0 2rem;
+
+        @include m.desktop {
+            border-radius: 2rem 2rem 0 0;
+        }
+
+        &--blue {
+            background-color: v.$dark-blue;
+            color: v.$blue;
+
+            @include m.desktop {
+                background-color: v.$blue;
+                color: v.$dark-blue;
+            }
+        }
+    }
+
+    &__description {
+        width: 100%;
+        padding: 2rem;
+        text-align: center;
+        border-radius: 0 2rem 2rem 0;
+
+        @include m.desktop {
+            border-radius: 0 0 2rem 2rem;
+        }
+
+        &--blue {
+            background-color: v.$blue;
+            color: v.$dark-blue;
+
+            @include m.desktop {
+                background-color: v.$dark-blue;
+                color: v.$blue;
+            }
+        }
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        color: white;
+        font-weight: 700;
+
+        span {
+            font-weight: 300;
+        }
+    }
+
+    &__number {
+        color: white;
+        font-weight: 300;
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+
+    &__body {
+        width: 70%;
+        padding: 2rem;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+}

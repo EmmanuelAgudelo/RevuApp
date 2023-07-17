@@ -1,19 +1,73 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
 .navbarAdmin {
     width: 100%;
     display: flex;
-    background-color: #DDDDDD;
+    background-color: #000000;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5rem;
+    padding: 1.5rem 2rem;
+
+    @include m.desktop {
+        background-color: #DDDDDD;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5rem;
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20%;
+        padding: 2rem;
+        display: flex;
+        img {
+            margin-left: 2rem;
+            width: 8rem;
+        }
+
+        @include m.desktop {
+            display: none;
+          }
+    }
 
     &__text {
         font-weight: 700;
-        color:#000;
-        font-size: 2.5rem;    
+        color: #000;
+        font-size: 2.5rem;
+        display: none;
+
+        @include m.desktop {
+            display: block;
+          }
     }
-    &__admin {
-        color: #1B978D;
-        font-size: 2rem;
+
+    &__hamburguer {
+        color: #fff;
         font-weight: 700;
+        color: #000;
+        font-size: 2.5rem;
+        display: block;
+        cursor: pointer;
+        
+
+        @include m.desktop {
+            display: none;
+          }
+    }
+
+    &__admin {
+        margin-left: rem;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 700;
+
+        @include m.desktop {
+            color: v.$blue;
+          }
     }
 }

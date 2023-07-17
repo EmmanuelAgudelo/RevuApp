@@ -1,9 +1,20 @@
-import { AiOutlineUsergroupAdd,AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineUsergroupAdd, AiOutlineHeart } from 'react-icons/ai';
 import { FiUsers } from 'react-icons/fi';
 import { GoGift } from 'react-icons/go';
 import { FiSmartphone } from 'react-icons/fi';
+import { useStore } from 'zustand';
+import { userStore } from '../../../../store/userStore';
+import { useEffect, useState } from 'react';
 
 export const HomeAdmin = () => {
+
+    const { numberOfUsers, numberOfPartners, getnumberOfUsers, getnumberOfPartners} = useStore(userStore)
+
+    useEffect(() => {
+        getnumberOfPartners()
+        getnumberOfUsers()
+    }, [])
+
     return (
         <div className="homeAdmin">
             <div className="homeAdmin__card">
@@ -12,7 +23,7 @@ export const HomeAdmin = () => {
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--blue">
                     <p className="homeAdmin__text">Aliados inscritos</p>
-                    <p className="homeAdmin__number">345</p>
+                    <p className="homeAdmin__number">{numberOfPartners}</p>
                 </div>
             </div>
             <div className="homeAdmin__card">
@@ -21,7 +32,7 @@ export const HomeAdmin = () => {
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--blue">
                     <p className="homeAdmin__text">Usuarios inscritos</p>
-                    <p className="homeAdmin__number">345</p>
+                    <p className="homeAdmin__number">{numberOfUsers}</p>
                 </div>
             </div>
             <div className="homeAdmin__card">

@@ -1,0 +1,208 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.homePartner {
+    display: block;
+    padding: 0;
+
+    @include m.desktop {
+        display: flex;
+        padding: 2rem;
+
+    }
+
+    &__sidebar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+        height: 20rem;
+        border-bottom: 10rem;
+
+        @include m.desktop {
+            height: auto;
+            width: 30%;
+            margin-bottom: 0;
+        }
+    }
+
+    &__card {
+        background-image: url('/images/figures.png');
+        flex-direction: row;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        color: white;
+        text-align: start;
+        height: 100%;
+        padding: 1rem 2rem;
+
+
+        @include m.desktop {
+            text-align: center;
+            padding: 12rem 4rem;
+            border-radius: 2.5rem;
+            width: 23rem;
+            flex-direction: column;
+        }
+
+        img {
+            width: 10rem;
+            margin-bottom: 5rem;
+            display: none;
+
+            @include m.desktop {
+                display: block;
+            }
+        }
+
+        p {
+            width: 50%;
+            font-size: 2rem;
+            font-weight: 350;
+            line-height: 3.5rem;
+
+            @include m.desktop {
+                width: 100%;
+                margin-bottom: 5rem;
+
+            }
+
+            span {
+                font-weight: 400;
+                display: block;
+
+                @include m.desktop {
+                    display: flex;
+                }
+            }
+        }
+
+        button {
+            width: 50%;
+
+            @include m.desktop {
+                width: 100%;
+            }
+
+        }
+    }
+
+    &__cards {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        margin-top: 2rem;
+        padding: 2rem;
+
+        @include m.desktop {
+            padding: 0;
+            width: 60%;
+            display: grid;
+            grid-auto-rows: 23rem;
+            grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+            gap: 2rem;
+        }
+
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        margin-bottom: 2rem;
+
+        @include m.desktop {
+            display: block;
+            width: 90%;
+        }
+    }
+
+    &__icon {
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2.5rem 0 0 2.5rem;
+
+        @include m.desktop {
+            border-radius: 2.5rem 2.5rem 0 0;
+        }
+
+        &--blue {
+            background-color: v.$dark-blue;
+            color: v.$blue;
+
+            @include m.desktop {
+                background-color: v.$blue;
+                color: v.$dark-blue;
+            }
+        }
+
+        &--orange {
+            background-color: v.$dark-orange;
+            color: v.$orange;
+
+            @include m.desktop {
+                background-color: v.$orange;
+                color: v.$dark-orange;
+            }
+        }
+    }
+
+    &__description {
+        width: 100%;
+        padding: 2rem;
+        text-align: center;
+        border-radius: 0 2.5rem 2.5rem 0;
+
+        @include m.desktop {
+            border-radius: 0 0 2.5rem 2.5rem;
+        }
+
+        &--blue {
+            background-color: v.$blue;
+            color: v.$dark-blue;
+
+            @include m.desktop {
+                background-color: v.$dark-blue;
+                color: v.$blue;
+            }
+        }
+
+        &--orange {
+            background-color: v.$orange;
+            color: v.$dark-orange;
+
+            @include m.desktop {
+                background-color: v.$dark-orange;
+                color: v.$orange;
+            }
+        }
+    }
+
+    &__text {
+        font-size: 1.7rem;
+        color: white;
+        font-weight: bold;
+        width: 100%;
+        margin: auto;
+
+        @include m.desktop {
+            width: 60%;
+        }
+
+        span {
+            font-weight: 300;
+        }
+    }
+
+    &__number {
+        color: white;
+        font-weight: 300;
+        font-size: 1.7rem;
+        margin-top: 1rem;
+    }
+}

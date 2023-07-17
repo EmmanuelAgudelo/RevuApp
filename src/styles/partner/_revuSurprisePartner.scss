@@ -1,0 +1,276 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.revuSuprise {
+    margin-top: 4rem;
+
+    .form {
+
+        &__error {
+            margin-left: 0;
+
+            @include m.desktop {
+                margin-left: 5rem;
+            }
+        }
+
+        &__group {
+            display: block;
+
+            @include m.desktop {
+                display: flex;
+            }
+
+            label {
+                color: gray;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 5rem;
+
+        @include m.desktop {
+            flex-direction: row;
+        }
+
+        img {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 5rem;
+
+            @include m.desktop {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+    }
+
+    &__title {
+        color: v.$dark-blue;
+        margin-right: 2rem;
+        text-align: center;
+
+        @include m.desktop {
+            text-align: start;
+        }
+
+        span {
+            font-size: 2.3rem;
+            font-weight: bold;
+        }
+
+        p {
+            font-weight: 300;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__form {
+        display: block;
+
+        @include m.desktop {
+            display: flex;
+        }
+    }
+
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+
+        @include m.desktop {
+            flex-direction: row;
+            align-items: start;
+            gap: 0;
+
+        }
+    }
+
+    &__card {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        background: #f2f2f2;
+        border-radius: 1.5rem;
+        color: rgb(105, 105, 105);
+
+        @include m.desktop {
+            width: 70%;
+        }
+    }
+
+    &__box {
+        width: 100%;
+        padding: 0 2rem 1rem 2rem;
+
+        @include m.desktop {
+            width: 50%;
+            padding: 2rem 3rem 2rem 0;
+        }
+
+        &--cash {
+            width: 100%;
+
+            @include m.desktop {
+                width: 50%;
+
+            }
+
+            &--description {
+                padding: 2rem;
+                text-align: center;
+
+                @include m.desktop {
+                    text-align: start;
+                }
+
+                label {
+                    font-size: 1.4rem;
+                }
+
+                textarea {
+                    margin-top: 1rem;
+                    background: #fff;
+                    border-radius: 2rem;
+                    padding: 2rem;
+                }
+            }
+        }
+
+        &--title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 2.5rem;
+            padding: 1rem 2rem;
+            display: flex;
+            position: relative;
+
+            @include m.desktop {
+                border-radius: 1.5rem;
+
+            }
+
+            .partnersAdmin__switch {
+                position: absolute;
+                right: 1.8rem;
+            }
+        }
+
+        &--active {
+            background: v.$blue;
+            color: #fff;
+        }
+
+        &--inactive {
+            background: #878787;
+        }
+    }
+
+    &__form-control {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        input,
+        select {
+            border-radius: 3rem;
+            background: #fff;
+            width: 60%;
+
+            @include m.desktop {
+                width: 50%;
+            }
+        }
+
+        label {
+            font-size: 1.4rem;
+            width: 40%;
+
+            @include m.desktop {
+                text-align: end;
+                width: 50%;
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 3rem;
+        gap: 1rem;
+        margin-bottom: 3rem;
+
+        @include m.desktop {
+            flex-direction: row;
+            justify-content: end;
+            gap: 4rem;
+        }
+
+    }
+
+    &__images {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        @include m.desktop {
+            width: 30%;
+        }
+
+        span {
+            width: 100%;
+
+            @include m.desktop {
+                width: 80%;
+            }
+        }
+    }
+
+    &__control-image {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+
+        input {
+            display: none;
+        }
+
+        label {
+            border: .2rem dashed v.$blue;
+            border-radius: 1rem;
+            padding: 2rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .icon {
+                color: #c4c4c4;
+                font-size: 2rem;
+            }
+        }
+    }
+
+}

@@ -10,7 +10,7 @@ interface IRegisterStore {
     reset: () => void
 }
 
-export const  registerStore = createStore<IRegisterStore>((set)=>({
+export const registerStore = createStore<IRegisterStore>((set)=>({
     registerResponse: null,
     isLoading: false,
     error:null,

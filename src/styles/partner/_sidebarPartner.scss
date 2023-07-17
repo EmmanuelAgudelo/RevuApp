@@ -6,10 +6,37 @@
     position: fixed;
     background-color: #1FBAAC;
     color: #fff;
-    width: 20%;
-    height: 100vh;
+    height: 100%;
     top: 0;
     left: 0;
+    z-index: 1;
+    width: 70%;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+
+    @include m.desktop {
+        width: 20%;
+        transform: translateX(0);
+    }
+
+    &--show {
+        transform: translateX(0);
+    }
+
+    &__hamburguer {
+        position: absolute;
+        top: 3rem;
+        right: 2rem;
+        color: #fff;
+        font-weight: 700;
+        color: #000;
+        font-size: 2.5rem;
+        cursor: pointer;
+
+        @include m.desktop {
+            display: none;
+        }
+    }
 
     &__logo {
         display: flex;
@@ -19,6 +46,7 @@
         padding: 2rem;
         background-color: #1B978D;
         display: flex;
+
         img {
             max-height: 5rem;
             max-width: 5rem;
@@ -63,11 +91,13 @@
             }
         }
     }
+
     &__submenu {
         display: block;
         list-style: none;
         padding: 0;
         margin: 0;
+
         li {
             a {
                 display: block;
@@ -111,7 +141,13 @@
         &--support {
             background-color: transparent;
             border: 1px solid white;
+            cursor: pointer;
+
+            .link{
+                color: #fff;
+            }
         }
+
         &--logout {
             background-color: #1B978D;
             border: 1px solid transparent;

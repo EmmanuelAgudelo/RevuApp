@@ -1,0 +1,56 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+
+.legalTerms {
+    &__header {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        margin-top: 5rem;
+
+        img {
+            width: 15rem;
+        }
+
+        @include m.desktop {
+            margin-top: 0;
+            flex-direction: row;
+        }
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: .6rem;
+
+        &--title {
+            display: block;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        &--subtitle {
+            font-size: 2rem;
+            font-weight: 300;
+        }
+    }
+
+    &__body {
+        padding: 0 4.5rem;
+        margin: 4rem 0;
+        text-align: justify;
+        color: gray;
+        font-weight: 300;
+        line-height: 3rem;
+
+        @include m.desktop {
+            padding: 0 12rem;
+
+        }
+    }
+}

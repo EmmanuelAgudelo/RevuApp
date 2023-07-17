@@ -1,17 +1,27 @@
-import React from 'react'
+import { useStore } from 'zustand';
+import { businesseStore } from '../../../../../store';
+import { formatDate } from '../../../../../helpers';
 
 export const PartnerInfo = () => {
+    
+    const { businessesByIdUser } = useStore(businesseStore);
+    
     return (
         <div className="partner-info">
             <div className="partner-info__card">
                 <div className="partner-info__inputs">
 
-                    <input type="text" disabled value={'Perfil del representante'} />
-                    <input type="text" disabled value={'CC: 1025640633'} />
-                    <input type="text" disabled value={'Emmanuel Agudelo Gaviria'} />
-                    <input type="text" disabled value={'3104113491'} />
-                    <input type="text" disabled value={'Fecha de inscripción: 29/01/2023'} />
-                    <input type="text" disabled value={'emmanuelagudelo1604@gmail.com'} />
+                    {businessesByIdUser &&
+                        <>
+                            <input type="text" disabled value={'Perfil del representante'} />
+                            <input type="text" disabled value={`${businessesByIdUser.owner.document_type} ${businessesByIdUser.owner.document}`} />
+                            <input type="text" disabled value={`${businessesByIdUser.owner.names} ${businessesByIdUser.owner.last_names}`} />
+                            <input type="text" disabled value={`${businessesByIdUser.owner.cellphone}`} />
+                            <input type="text" disabled value={`Fecha de inscripción: ${formatDate(businessesByIdUser.owner.created_at)}`} />
+                            <input type="text" disabled value={`${businessesByIdUser.owner.email}`} />
+                        </>
+                    }
+
 
                 </div>
             </div>

@@ -1,13 +1,20 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
 .layoutAdmin {
     display: flex;
     justify-content: space-between;
 
     &__main {
         background-color: #EEEEEE;
-        width: 80%;
+        width: 100%;
         padding: 0;
         position: absolute;
         right: 0;
         min-height: 100vh;
+
+        @include m.desktop {
+            width: 80%;  
+        }
     }
 }
