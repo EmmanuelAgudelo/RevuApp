@@ -15,6 +15,15 @@
         margin: auto;
     }
 
+    &__comment{
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover{
+            color: v.$blue;
+        }
+    }
+
     &__switch {
 
         input {

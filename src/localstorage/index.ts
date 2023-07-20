@@ -1,4 +1,4 @@
-type key = "token_authorization" | "option";
+type key = "token_authorization";
 
 
 export const getLocalStorage = (key:key):string =>{

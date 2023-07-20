@@ -8,7 +8,7 @@ interface IBranchStore {
     updateBranchResponse: IResponse | null;
     isLoading: boolean;
     error: string | null;
-    createBranch: (body: Omit<IBranches, 'status'>) => void;
+    createBranch: (body: Omit<IBranches, 'status' | '_id'>) => void;
     updateBranch: (id: string, body: Pick<IBranches, 'city' | 'department'>) => void;
     reset: () => void;
 }
@@ -18,7 +18,7 @@ export const branchStore = createStore<IBranchStore>((set) => ({
     updateBranchResponse: null,
     isLoading: false,
     error: null,
-    createBranch: async (body: Omit<IBranches, 'status'>) => {
+    createBranch: async (body: Omit<IBranches, 'status' | '_id'>) => {
         try {
             set({ isLoading: true })
             const { data } = await API.post<IResponse>('/branch/create', body);

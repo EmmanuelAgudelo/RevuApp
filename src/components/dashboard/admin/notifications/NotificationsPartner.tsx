@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa"
 import Modal from "../../modal/Modal";
 import { ModalFormNotifications } from "../../modal/ModalFormNotifications";
+import { useStore } from "zustand";
+import { notificationStore } from "../../../../store/notificationStore";
 
 export const NotificationsPartner = () => {
 
   const [isOpen, setIsOpen] = useState(false);
+  const { getNotificationsPartner, notificationsPartner } = useStore(notificationStore)
+
+  useEffect(() => {
+    getNotificationsPartner();
+  }, [])
 
 
   // Manejo del modal
@@ -17,6 +24,12 @@ export const NotificationsPartner = () => {
   const handleCloseModal = () => {
     setIsOpen(false);
   };
+
+  const handleChange = (id: string) => {
+    console.log(id);
+
+  }
+
   return (
     <div className="notifications">
       <div className="partnersAdmin__conatinerTable">
@@ -31,25 +44,28 @@ export const NotificationsPartner = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Información</td>
-              <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus excepturi accusamus necessitatibus possimus </td>
-              <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</td>
-              <td className="center"><span className="status--green">Activo</span></td>
-              {/* :
-              <td className="status--red  ">Inactivo</td> */}
-              <td className="center">
-                <div className="icons">
-                  <label className="partnersAdmin__switch">
-                    {/* <input type="checkbox" id={`switch__btn ${partner.id}`} onChange={() => handleChange(partner.id)} checked={partner.status} />
-                  <label htmlFor={`switch__btn ${partner.id}`} title="Cambiar estado"></label> */}
-                    <input type="checkbox" id={`switch__btn`} />
-                    <label htmlFor={`switch__btn`} title="Cambiar estado" style={{ display: 'flex' }}></label>
-                  </label>
-                  <FaRegEdit className="partnersAdmin__icon" style={{ cursor: 'pointer' }} onClick={handleOpenModal} />
-                </div>
-              </td>
-            </tr>
+            {notificationsPartner?.map((notification) => (
+              <tr>
+                <td>{notification.type}</td>
+                <td>{notification.message}</td>
+                <td>{notification.description}</td>
+                {notification.status ?
+                  <td className="center"><span className="status--green">Activo</span></td>
+                  :
+                  <td className="center"><span className="status--red">Incativo</span></td>
+                }
+                <td className="center">
+                  <div className="icons">
+                    <label className="partnersAdmin__switch">
+                      <input type="checkbox" id={`switch__btn ${notification.id}`} onChange={() => handleChange(notification.id)} checked={notification.status} />
+                      <label htmlFor={`switch__btn ${notification.id}`} title="Cambiar estado"></label>
+                    </label>
+                    <FaRegEdit className="partnersAdmin__icon" style={{ cursor: 'pointer' }} onClick={handleOpenModal} />
+                  </div>
+                </td>
+              </tr>
+            ))
+            }
           </tbody>
         </table>
       </div>

@@ -42,7 +42,6 @@ export const PartnersAdmin = () => {
               <th>Documento</th>
               <th>Estado</th>
               <th>Acciones</th>
-              <th>Contacto</th>
             </tr>
           </thead>
           <tbody>
@@ -62,7 +61,6 @@ export const PartnersAdmin = () => {
                     <input type="checkbox" id={`switch__btn ${partner.id}`} onChange={() => handleChange(partner.id)} checked={partner.status} />
                     <label htmlFor={`switch__btn ${partner.id}`} title="Cambiar estado"></label>
                   </label></td>
-                <td className="center"><FiMail className="partnersAdmin__icon" /></td>
               </tr>
             ))}
           </tbody>

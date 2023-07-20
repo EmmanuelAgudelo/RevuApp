@@ -38,6 +38,7 @@ export const BusinessProfile = () => {
     if (createBranchResponse && createBranchResponse.message === 'success') {
       toastSuccess('Se creó correctamente');
       handleCloseModal();
+      findBusinessesByOwner();
       reset();
     }
 
@@ -80,7 +81,7 @@ export const BusinessProfile = () => {
   const handleImage = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target && e.target.files) {
       const img = await convertToBase64(e.target.files[0]);
-      
+
       const format: string = e.target.files[0].type.split('/')[1];
       const data: IFormImage = { base64: img, format: format }
       if (e.target.name === 'logo') {

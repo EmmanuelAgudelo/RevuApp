@@ -15,7 +15,7 @@ export const ModalFormBranch = () => {
 
     const { createBranch } = useStore(branchStore);
 
-    const formik = useFormik<IBranches>({
+    const formik = useFormik<Omit<IBranches, '_id'>>({
         initialValues: {
             id: businessesByOwner ? businessesByOwner.id : '',
             number: 0,

@@ -41,7 +41,7 @@ export const HomeAdmin = () => {
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--orange">
                     <p className="homeAdmin__text">Revu sorpresa vendidas</p>
-                    <p className="homeAdmin__number">345</p>
+                    <p className="homeAdmin__number">0</p>
                 </div>
             </div>
             <div className="homeAdmin__card">
@@ -50,7 +50,7 @@ export const HomeAdmin = () => {
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--orange">
                     <p className="homeAdmin__text">Descarga de la app</p>
-                    <p className="homeAdmin__number">345</p>
+                    <p className="homeAdmin__number">0</p>
                 </div>
             </div>
             <div className="homeAdmin__card">
@@ -59,7 +59,7 @@ export const HomeAdmin = () => {
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--blue">
                     <p className="homeAdmin__text">Calificación de la app</p>
-                    <p className="homeAdmin__number">345</p>
+                    <p className="homeAdmin__number">0</p>
                 </div>
             </div>
         </div>
