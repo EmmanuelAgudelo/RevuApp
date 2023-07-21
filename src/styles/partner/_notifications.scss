@@ -1,0 +1,92 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.notifications {
+    padding: 3rem;
+    width: 100%;
+
+    &__title {
+        font-size: 3rem;
+        font-weight: bold;
+        color: v.$dark-blue;
+    }
+
+    &__cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 5rem;
+        gap: 3rem;
+    }
+
+    &__card {
+        width: 100%;
+        border-radius: 1.5rem;
+        background: #f5f5f5;
+
+        &--orange {
+            background: v.$orange;
+        }
+    }
+
+    &__header {
+        background: #f0f0f0;
+        width: 100%;
+        border-radius: 1.5rem;
+        padding: 2.5rem 3.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__text {
+        text-align: left;
+        font-size: 2rem;
+        font-weight: bold;
+        color: gray;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    &__icon {
+        width: 1rem;
+
+        &--blue {
+            color: v.$blue;
+        }
+
+        &--orange {
+            color: v.$orange;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    &__date {
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: gray;
+    }
+
+    &__icons {
+        font-size: 2.5rem;
+        color: rgb(156, 156, 156);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    &__body{
+        padding: 2rem 4rem;
+        color: gray;
+        line-height: 3rem;
+    }
+}

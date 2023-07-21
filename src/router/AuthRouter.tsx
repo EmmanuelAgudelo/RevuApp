@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useStore } from "zustand";
 import { authStore } from "../store";
 import { setLocalStorage } from "../localstorage";
-import { Layout } from "../components";
+import { Layout, Loading } from "../components";
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
 import RecoverPasswordPage from "../pages/auth/RecoverPasswordPage";
@@ -38,7 +38,7 @@ export const AuthRouter = () => {
   };
 
   if (authentication === "verifying") {
-    return <>Loading...</>
+    return <Loading />
   }
 
 

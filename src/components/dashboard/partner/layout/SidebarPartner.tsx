@@ -50,7 +50,7 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
             </Link>
           </li>
           <li>
-            <Link to="#">
+            <Link to="notifications">
               <HiOutlineBellAlert className='sidebarPartner__icon' /> Notificaciones
             </Link>
           </li>

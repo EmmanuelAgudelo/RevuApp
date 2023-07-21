@@ -6,6 +6,7 @@ import Users from "../pages/dashboard/Users";
 import { authStore } from "../store";
 import { PartnerRouter } from "./PartnerRouter";
 import { AdminRouter } from "./AdminRouter";
+import { Loading } from "../components";
 
 export const DashboardRouter = () => {
   const { authentication, logout, validateAuthentication } = useStore(authStore);
@@ -30,18 +31,16 @@ export const DashboardRouter = () => {
   };
 
   if (authentication === "verifying") {
-    return <>Loading...</>
+    return <Loading />
+
   }
 
 
   return (
     <Routes>
-      {authentication.role === 'ADMIN' ?
-        <Route path="admin/*" element={<AdminRouter />} />
-        :
-        <Route path="partner/*" element={<PartnerRouter />} />
-      }
-      <Route path="*" element={<Navigate to='/error-404' />} />
+      <Route path="partner/*" element={<PartnerRouter />} />
+      <Route path="admin/*" element={<AdminRouter />} />
+      <Route path="*" element={<Navigate to='/error-404'/>}/>
     </Routes>
   )
 }

@@ -36,6 +36,7 @@ export * from "./dashboard/partner/profilePartner/BusinessProfile";
 export * from "./dashboard/partner/supports/SupportsPartner";
 export * from "./dashboard/partner/revuSurprise/RevuSurprisePartner";
 export * from "./dashboard/partner/revuSurprise/LayoutRevuSurprisePartner";
+export * from "./dashboard/partner/notifications/Notifications";
 export * from "./dashboard/partner/legalTerms/TermsAndConditions";
 
 
@@ -49,4 +50,9 @@ export * from "./dashboard/admin/support/SupportAdmin";
 export * from "./dashboard/admin/notifications/NotificationsUser";
 export * from "./dashboard/admin/notifications/NotificationsPartner";
 export * from "./dashboard/admin/notifications/LayoutNotificationsAdmin";
+
+
+/* Loading */
+export * from "./loading/Loading";
+
 
