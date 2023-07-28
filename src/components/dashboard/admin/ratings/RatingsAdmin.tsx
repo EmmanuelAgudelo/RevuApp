@@ -5,6 +5,7 @@ import { IRating } from '../../../../interfaces';
 import { formatDate } from '../../../../helpers';
 import Modal from '../../modal/Modal';
 import { ModalCommentRating } from '../../modal/ModalCommentRating';
+import { RatingsStar } from './RatingsStar';
 
 export const RatingsAdmin = () => {
 
@@ -50,7 +51,7 @@ export const RatingsAdmin = () => {
                             <tr key={rating.id}>
                                 <td>{rating.businesse}</td>
                                 <td>{rating.branch}</td>
-                                <td>{rating.rating}</td>
+                                <td className='center'><RatingsStar rating={rating.rating} /></td>
                                 <td>{rating.user}</td>
                                 {rating.comment ?
                                     <td className='center'><span className='ratingsAdmin__comment' onClick={() => handleOpenModal(rating.comment)}>Leer comentario</span></td>

@@ -7,3 +7,4 @@ export * from "./rating.interface";
 export * from "./support.interface";
 export * from "./revuSurprise.interface";
 export * from "./notification.interface";
+export * from "./shopping.interface";

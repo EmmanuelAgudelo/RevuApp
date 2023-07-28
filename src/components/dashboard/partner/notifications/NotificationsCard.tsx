@@ -6,12 +6,14 @@ import {
 } from "react-icons/ai";
 import { BsFillCircleFill } from "react-icons/bs";
 import { INotification } from "../../../../interfaces";
+import { formatDate } from "../../../../helpers";
 
 interface Props {
   notification: INotification;
+  userId: string;
 }
 
-export const NotificationsCard = ({ notification }: Props) => {
+export const NotificationsCard = ({ notification, userId }: Props) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpansion = () => {
@@ -19,30 +21,29 @@ export const NotificationsCard = ({ notification }: Props) => {
   };
 
   return (
-    <div className="notifications__card">
-      <div className="notifications__header">
-        <div className="notifications__text">
+    <div className='notifications__card'>
+      {/* <div className={`notifications__header ${notification.read_by_users.includes(userId) && 'notifications__header--orange'}`}>
+       */}
+      <div className={`notifications__header`}>
+        <div className={`notifications__text`}>
           <BsFillCircleFill className="notifications__icon" />
-          Aliados Revu: Revisa que tus datos estén completos
+          <p> Aliados Revu: Revisa que tus datos estén completos</p>
         </div>
         <div className="notifications__actions">
-          <span className="notifications__date">16/05/2023</span>
+          <span className="notifications__date">{formatDate(notification.created_at)}</span>
           <div className="notifications__icons">
             {expanded ? (
-              <AiFillCaretDown onClick={toggleExpansion} />
+              <AiFillCaretDown onClick={toggleExpansion} style={{cursor: 'pointer'}} />
             ) : (
-              <AiFillCaretRight onClick={toggleExpansion} />
+              <AiFillCaretRight onClick={toggleExpansion} style={{cursor: 'pointer'}} />
             )}
-            <AiOutlineCloseCircle />
+            <AiOutlineCloseCircle style={{cursor: 'pointer'}}/>
           </div>
         </div>
       </div>
       {expanded && (
         <div className="notifications__body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-          quos fugit. Consequuntur perferendis minima, nisi porro laudantium
-          iste sint ab tempora quae natus suscipit ut dolore, vero, non
-          perspiciatis animi?
+          {notification.message}
         </div>
       )}
     </div>

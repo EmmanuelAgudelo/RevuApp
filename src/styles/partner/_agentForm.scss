@@ -40,15 +40,15 @@
 
     &__branches {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        row-gap: 3rem;
+        margin: 3rem 0  ;
 
         @include m.desktop {
-            flex-direction: row;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 3rem 3rem;
         }
 
         &--title {
@@ -86,7 +86,8 @@
 
             @include m.desktop {
                 margin-top: 3rem;
-                height: 100%;
+                display: flex;
+                align-items: center;
             }
         }
 
@@ -102,10 +103,17 @@
     }
 
     &__cards {
-        width: 80%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+    }
+
+    &__cards-add {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

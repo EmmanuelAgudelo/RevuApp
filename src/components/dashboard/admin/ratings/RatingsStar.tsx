@@ -1,11 +1,16 @@
-// import StarRatings from './react-star-ratings'
-// export const RatingsStar = () => {
+import StarRatings from 'react-star-ratings';
 
-//     return (
-//         <StarRatings
-//             rating={2.403}
-//             starDimension="40px"
-//             starSpacing="15px"
-//         />
-//     );
-// }
+interface IProps {
+    rating: number
+}
+
+export const RatingsStar = ({rating}: IProps) => {
+        return (
+            <StarRatings
+                rating={rating}
+                starDimension="20px"
+                starSpacing=".5rem"
+                starRatedColor="#ffc00d"
+            />
+        );
+}

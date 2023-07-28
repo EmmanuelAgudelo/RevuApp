@@ -16,7 +16,8 @@ import { BranchProfile } from './BranchProfile';
 export const BusinessProfile = () => {
 
   const { businessesByOwner, updateBusiness, updateBusinessResponse, findBusinessesByOwner, resetBusiness, uploadLogo, uploadCoverPhoto, uploadCoverPhotoResponse, uploadLogoResponse } = useStore(businesseStore);
-  const { createBranchResponse, reset } = useStore(branchStore);
+    const { updateBranch } = useStore(branchStore);
+  const { createBranchResponse, updateBranchResponse, reset } = useStore(branchStore);
   const [isOpen, setIsOpen] = useState(false);
 
   const formik = useFormik<Pick<IBusinesseUser, "name" | "category">>({
@@ -35,28 +36,21 @@ export const BusinessProfile = () => {
   const { name, category } = formik.values;
 
   useEffect(() => {
-    if (createBranchResponse && createBranchResponse.message === 'success') {
-      toastSuccess('Se creó correctamente');
-      handleCloseModal();
-      findBusinessesByOwner();
-      reset();
-    }
-
-  }, [createBranchResponse])
-
-  useEffect(() => {
     if (businessesByOwner) {
       formik.setValues({ name: businessesByOwner.name, category: businessesByOwner.category })
     }
   }, [businessesByOwner])
 
+  // UPDATE BUSINESS
+
   useEffect(() => {
     if (updateBusinessResponse && updateBusinessResponse.message === 'success') {
       toastSuccess('Datos actualizados correctamente.');
-      findBusinessesByOwner()
       resetBusiness();
     }
   }, [updateBusinessResponse])
+
+  // UPDATE IMAGES
 
   useEffect(() => {
     if (uploadCoverPhotoResponse && uploadCoverPhotoResponse.message === 'success' || uploadLogoResponse && uploadLogoResponse.message === 'success') {
@@ -65,6 +59,15 @@ export const BusinessProfile = () => {
     }
 
   }, [uploadCoverPhotoResponse, uploadLogoResponse])
+
+  // UPDATE BRANCH
+
+  useEffect(() => {
+    if (updateBranchResponse && updateBranchResponse.message === 'success') {
+        toastSuccess('Se ha actualizado la sede correctamente.');
+        reset();
+    }
+}, [updateBranchResponse])
 
 
   // Manejo del modal
@@ -156,7 +159,7 @@ export const BusinessProfile = () => {
       }
       <div className='agentForm__branches'>
         {businessesByOwner?.branches?.map((branch) => (
-          <BranchProfile key={branch._id} branch={branch} />
+          <BranchProfile key={branch._id} branch={branch} business={businessesByOwner.id} />
         ))}
         <div className='agentForm__cards agentForm__cards-add'>
           <div className='agentForm__branches--card agentForm__branches--card-add'>

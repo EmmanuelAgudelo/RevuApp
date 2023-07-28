@@ -7,7 +7,6 @@ import { ModalContentBranch } from '../../../modal/ModalContentBranch'
 import { useStore } from 'zustand'
 import { businesseStore, optionStore } from '../../../../../store'
 import { IBranches, IBusinesseUser } from '../../../../../interfaces'
-import { getLocalStorage, setLocalStorage } from '../../../../../localstorage'
 
 
 export const DetailsBranch = () => {
@@ -15,7 +14,7 @@ export const DetailsBranch = () => {
   // Modal
   const [isOpen, setIsOpen] = useState(false);
   const { businessesByIdUser } = useStore(businesseStore);
-  const { setOption } = useStore(optionStore);
+  const { setOption, option } = useStore(optionStore);
 
 
   // Manejo del modal
@@ -48,7 +47,7 @@ export const DetailsBranch = () => {
         </div>
         <BodyDetails businessesByIdUser={businessesByIdUser} />
       </div>
-      {businessesByIdUser?.branches ?
+      {option !== '' &&
         <div className="headquarters__footer">
           <button className='btn btn--blue' onClick={handleOpenModal}>
             <BsBank size={20} className='headquarters__btn--icon' />
@@ -62,8 +61,6 @@ export const DetailsBranch = () => {
             Desactivar establecimiento
           </button>
         </div>
-        :
-        ''
       }
       <Modal isOpen={isOpen} onClose={handleCloseModal}>
         <ModalContentBranch />

@@ -7,3 +7,4 @@ export * from "./business.schema";
 export * from "./branch.schema";
 export * from "./revuSurprise.schema";
 export * from "./changePassword.schema";
+export * from "./notifications.schema";

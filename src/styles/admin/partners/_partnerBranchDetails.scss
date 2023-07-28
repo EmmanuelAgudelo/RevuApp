@@ -2,14 +2,21 @@
 @use "../../base/mixins" as m;
 
 .headquarters {
-    margin: 6rem 0 0 6rem;
+    margin-top: 6rem;
     background: #fff;
-    width: 27rem;
     border-radius: 2.5rem;
+    width: 75%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 
-    &__null{
+    @include m.desktop {
+        margin: 6rem 0 0 6rem;
+        width: 27rem;
+        justify-content: initial;
+    }
+
+    &__null {
         text-align: center;
         padding: 1rem;
         margin: 3rem;
@@ -93,7 +100,7 @@
         justify-content: center;
         margin-bottom: 3rem;
     }
-    
+
     &__icons {
         padding: 25px;
         font-size: 20px;
@@ -103,4 +110,3 @@
         color: #afafaf;
     }
 }
-

@@ -6,6 +6,7 @@ import { PartnersAdminDetailsPage } from "../pages/dashboard/admin/partners/Part
 import RatingsAdminPage from "../pages/dashboard/admin/RatingsAdminPage";
 import SupportAdminPage from "../pages/dashboard/admin/SupportAdminPage";
 import { NotificationsRouter } from "./NotificationsRouter";
+import ShoppingAdminPage from "../pages/dashboard/admin/ShoppingAdminPage";
 
 export const AdminRouter = () => {
   
@@ -18,6 +19,7 @@ export const AdminRouter = () => {
         <Route path="/ratings" element={<RatingsAdminPage />} />
         <Route path="/support" element={<SupportAdminPage />} />
         <Route path="notifications/*" element={<NotificationsRouter />} />
+        <Route path="/shopping" element={<ShoppingAdminPage />} />
         <Route path="*" element={<Navigate to='/error-404'/>}/>
       </Routes>
     </LayoutAdmin>

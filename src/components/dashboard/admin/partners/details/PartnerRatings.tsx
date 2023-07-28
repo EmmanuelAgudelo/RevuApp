@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { AiOutlineStar } from 'react-icons/ai'
 import { RatingChart } from '../../charts/RatingChart'
 import { useStore } from 'zustand';
 import { businesseStore, optionStore, ratingStore } from '../../../../../store';
-import { getLocalStorage } from '../../../../../localstorage';
 
 
 export const PartnerRatings = () => {
 
   const { businessesByIdUser } = useStore(businesseStore);
-  const { getPromRating} = useStore(ratingStore);
+  const { getPromRating, reset} = useStore(ratingStore);
   const { option } = useStore(optionStore);
 
   useEffect(() => {
-    if (option !== '' && option !== null && businessesByIdUser !== null) {
+    if (option !== '' && businessesByIdUser) {
       getPromRating(businessesByIdUser.id, option)
     }
   }, [option])

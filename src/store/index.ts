@@ -5,3 +5,4 @@ export * from "./ratingStore";
 export * from "./supportStore";
 export * from "./branchStore";
 export * from "./optionStore";
+export * from "./shoppingStore";

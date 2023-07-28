@@ -246,6 +246,26 @@
         }
     }
 
+    &__image{
+        width: 100%;
+        position: relative;
+
+        &--icon{
+            position: absolute;
+            top: .2rem;
+            right: .2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        img{
+            border-radius: 1rem;
+            width: 8rem;
+            height: 8rem;
+            object-fit: cover;
+        }
+    }
+
     &__control-image {
         margin-top: 2rem;
         display: flex;

@@ -16,7 +16,7 @@ export const ModalCommentRating = ({comment}:Props) => {
                     <div className="form__col">
                         <div className="form__group">
                             <textarea
-                                style={{ marginLeft: '1.5rem' }}
+                                style={{ marginLeft: '1.5rem', background: '#fff', fontSize: '1.5rem'}}
                                 placeholder="Mensaje"
                                 id="message"
                                 value={comment}

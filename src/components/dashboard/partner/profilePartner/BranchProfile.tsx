@@ -4,34 +4,50 @@ import { branchStore } from "../../../../store";
 import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { BranchSchema } from "../../../../schemas";
-import { IoLocationOutline } from "react-icons/io5";
 import Modal from "../../modal/Modal";
 import { ModalDocumentPartner } from "../../modal/ModalDocumentPartner";
+import { BsTelephone } from "react-icons/bs";
+import { AiOutlineCreditCard } from "react-icons/ai";
+import { IoLocationOutline } from "react-icons/io5";
 
-interface IBranch {
+interface Props {
     branch: IBranches;
+    business: string;
 }
 
-export const BranchProfile = ({ branch }: IBranch) => {
+export const BranchProfile = ({ branch, business }: Props) => {
 
-    const { updateBranchResponse, updateBranch } = useStore(branchStore);
+    const { updateBranch } = useStore(branchStore);
     const [isOpen, setIsOpen] = useState(false);
 
-    const formik = useFormik<Pick<IBranches, 'city' | 'department'>>({
+    const formik = useFormik<Omit<IBranches, 'status' | '_id'>>({
         initialValues: {
+            id: '',
+            number: 0,
             city: '',
             department: '',
+            address: '',
+            card_number: '',
+            phone: '',
         },
         validationSchema: BranchSchema,
         onSubmit: (data) => {
-            console.log(data);
+            updateBranch(branch._id, data);
         },
     });
 
-    const { city, department } = formik.values;
+    const { city, department, number, address, card_number, phone } = formik.values;
 
     useEffect(() => {
-        formik.setValues({ department: branch.department, city: branch.city })
+        formik.setValues({
+            id: business,
+            number: branch.number,
+            department: branch.department,
+            city: branch.city,
+            address: branch.address,
+            phone: branch.phone,
+            card_number: branch.card_number,
+        })
     }, [])
 
 
@@ -45,45 +61,113 @@ export const BranchProfile = ({ branch }: IBranch) => {
     };
 
     return (
-        <div key={branch._id} className='agentForm__cards'>
-            <span className='agentForm__branches--title'>sede {branch.number}</span>
+        <div className='agentForm__cards'>
+            <span className='agentForm__branches--title'>sede {number}</span>
             <div className='agentForm__branches--card'>
                 <form onSubmit={formik.handleSubmit}>
-                    <div className="agentForm__branches--form-group">
-                        <IoLocationOutline className='agentForm__branches--icon' size={30} />
-                        <input
-                            type="text"
-                            id="city"
-                            value={city}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                        />
+                    <div className="form__row">
+                        <div className="form__col">
+                            <div className="agentForm__branches--form-group">
+                                <input style={{ marginLeft: '2.5rem' }}
+                                    placeholder="Ciudad"
+                                    type="text"
+                                    id="city"
+                                    value={city}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+
+                            </div>
+                            {formik.touched.city && formik.errors.city && (
+                                <small className="form__error">{formik.errors.city}</small>
+                            )}
+                        </div>
+                        <div className="form__col">
+                            <div className="agentForm__branches--form-group">
+                                <input
+                                    style={{ marginLeft: '2.5rem' }}
+                                    placeholder="Departamento"
+                                    type="text"
+                                    id="department"
+                                    value={department}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+
+                            </div>
+                            {formik.touched.department && formik.errors.department && (
+                                <small className="form__error">{formik.errors.department}</small>
+                            )}
+                        </div>
                     </div>
-                    {formik.touched.city && formik.errors.city && (
-                        <small className="form__error">{formik.errors.city}</small>
-                    )}
-                    <div className="agentForm__branches--form-group">
-                        <input
-                            style={{ marginLeft: '3.4rem' }}
-                            type="text"
-                            id="department"
-                            value={department}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                        />
+
+                    <div className="form__row">
+                        <div className="form__col">
+                            <div className="agentForm__branches--form-group">
+                                <IoLocationOutline className="form__icons--blue" size={20} />
+                                <input
+                                    placeholder="Dirección"
+                                    type="text"
+                                    id="address"
+                                    value={address}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+
+                            </div>
+                            {formik.touched.address && formik.errors.address && (
+                                <small className="form__error">{formik.errors.address}</small>
+                            )}
+                        </div>
                     </div>
-                    {formik.touched.department && formik.errors.department && (
-                        <small className="form__error">{formik.errors.department}</small>
-                    )}
+
+                    <div className="form__row">
+                        <div className="form__col">
+                            <div className="agentForm__branches--form-group">
+                                <BsTelephone className="form__icons--blue" size={20} />
+                                <input
+                                    placeholder="Teléfono"
+                                    type="text"
+                                    id="phone"
+                                    value={phone}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+
+                            </div>
+                            {formik.touched.phone && formik.errors.phone && (
+                                <small className="form__error">{formik.errors.phone}</small>
+                            )}
+                        </div>
+
+                        <div className="form__col">
+                            <div className="agentForm__branches--form-group">
+                                <AiOutlineCreditCard className="form__icons--blue" size={20} />
+                                <input
+                                    placeholder="Número de tarjeta"
+                                    type="text"
+                                    id="card_number"
+                                    value={card_number}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+
+                            </div>
+                            {formik.touched.card_number && formik.errors.card_number && (
+                                <small className="form__error">{formik.errors.card_number}</small>
+                            )}
+                        </div>
+                    </div>
+
                     <div className='agentForm__btn' style={{ margin: '2rem 0 0 0' }}>
                         <button className='btn btn--blue' type='button' onClick={handleOpenModal}>Documentos</button>
                         <button className='btn btn--orange' type='submit'>Guardar</button>
                     </div>
                 </form>
-            </div>
+            </div >
             <Modal isOpen={isOpen} onClose={handleCloseModal}>
                 <ModalDocumentPartner />
             </Modal>
-        </div>
+        </div >
     )
 }

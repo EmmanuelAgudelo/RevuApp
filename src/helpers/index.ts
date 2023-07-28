@@ -6,6 +6,13 @@ const ROLES: { [key: string]: string } = {
   USER: "Usuario",
 };
 
+const TYPES: { [key: string]: string } = {
+  INFORMATION: 'Información',
+  LOYALTY: 'Confiabilidad',
+  ACHIEVEMENTS: 'Logros',
+  PROMOTION: 'Promoción'
+};
+
 const ROUTES: { [key: string]: string } = {
   "/dashboard/admin/home": "Inicio",
   "/dashboard/admin/partners": "Aliados Revu",
@@ -13,6 +20,7 @@ const ROUTES: { [key: string]: string } = {
   "/dashboard/admin/support": "Soporte",
   "/dashboard/admin/notifications/partner": "Notificaciones",
   "/dashboard/admin/notifications/user": "Notificaciones",
+  "/dashboard/admin/shopping": "Compras",
 };
 
 export const setTitle = (title: string) => {
@@ -30,6 +38,8 @@ export const convertToBase64 = async (file: Blob) => {
 };
 
 export const getRole = (role: string) => ROLES[role];
+
+export const getType = (type: string) => TYPES[type];
 
 export const getRoute = (route: string) => ROUTES[route];
 

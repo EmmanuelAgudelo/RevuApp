@@ -5,6 +5,7 @@ import { HiMenu, HiOutlineDesktopComputer } from 'react-icons/hi';
 import { RiHotelLine, RiUserSettingsLine } from 'react-icons/ri';
 import { AiOutlineStar } from 'react-icons/ai';
 import { HiOutlineBellAlert } from 'react-icons/hi2';
+import { BiPieChartAlt2 } from 'react-icons/bi';
 
 interface Props {
   showMenu: boolean;
@@ -45,6 +46,11 @@ export const SidebarAdmin = ({ showMenu, onUpdate }: Props) => {
           <li>
             <Link to='notifications/partner'>
               <HiOutlineBellAlert className='sidebarAdmin__icon' /> Notificaciones
+            </Link>
+          </li>
+          <li>
+            <Link to='shopping'>
+              <BiPieChartAlt2 className='sidebarAdmin__icon' /> Compras
             </Link>
           </li>
         </ul>

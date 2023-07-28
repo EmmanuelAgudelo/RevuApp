@@ -10,12 +10,6 @@ interface IProps {
 export const LayoutPartner = ({ children }: IProps) => {
 
     const [showMenu, setShowMenu] = useState<boolean>(false);
-    const { findBusinessesByOwner } = useStore(businesseStore);
-
-    useEffect(() => {
-        findBusinessesByOwner();
-    }, [])
-
     
     const handlecollapse = () => {
         setShowMenu(!showMenu);

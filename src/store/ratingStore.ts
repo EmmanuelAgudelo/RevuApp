@@ -4,15 +4,17 @@ import { IPromRating, IRating, IResponse } from '../interfaces';
 
 interface IRatingStore {
     ratings: IRating[] | null;
-    promRatings: IPromRating[] | null
+    promRatings: IPromRating[];
     isLoading: boolean;
     error: string | null;
     findRating: () => void;
     getPromRating: (businesse:string, branch:string) => void;
+    reset: () => void
+
 }
 export const ratingStore = createStore<IRatingStore>((set) => ({
     ratings: null,
-    promRatings: null,
+    promRatings: [],
     isLoading: false,
     error: null,
     findRating: async () => {
@@ -35,4 +37,7 @@ export const ratingStore = createStore<IRatingStore>((set) => ({
         }
         set({ isLoading: false })
     },
+    reset: () => {
+        set({error:null,promRatings:[]});
+    }
 }));

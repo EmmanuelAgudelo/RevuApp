@@ -9,7 +9,7 @@ interface IBranchStore {
     isLoading: boolean;
     error: string | null;
     createBranch: (body: Omit<IBranches, 'status' | '_id'>) => void;
-    updateBranch: (id: string, body: Pick<IBranches, 'city' | 'department'>) => void;
+    updateBranch: (id: string, body: Omit<IBranches, 'status' | '_id'>) => void;
     reset: () => void;
 }
 
@@ -28,7 +28,7 @@ export const branchStore = createStore<IBranchStore>((set) => ({
         }
         set({ isLoading: false })
     },
-    updateBranch: async (id: string, body: Pick<IBranches, 'city' | 'department'>) => {
+    updateBranch: async (id: string, body: Omit<IBranches, 'status' | '_id'>) => {
         try {
             set({ isLoading: true });
             const { data } = await API.put<IResponse>(`/branch/${id}`, body);
@@ -38,6 +38,6 @@ export const branchStore = createStore<IBranchStore>((set) => ({
         }
     },
     reset: () => {
-        set({ error: null, createBranchResponse: null , updateBranchResponse: null});
+        set({ error: null, createBranchResponse: null, updateBranchResponse: null });
     }
 }))

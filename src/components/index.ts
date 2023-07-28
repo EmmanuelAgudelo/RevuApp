@@ -50,6 +50,7 @@ export * from "./dashboard/admin/support/SupportAdmin";
 export * from "./dashboard/admin/notifications/NotificationsUser";
 export * from "./dashboard/admin/notifications/NotificationsPartner";
 export * from "./dashboard/admin/notifications/LayoutNotificationsAdmin";
+export * from "./dashboard/admin/shopping/ShoppingAdmin";
 
 
 /* Loading */

@@ -1,19 +1,29 @@
 import { createStore } from 'zustand';
 import { API } from './api';
-import { INotification, IResponse } from '../interfaces';
+import { INotification, INotificationSettings, IResponse } from '../interfaces';
+
+type Role = 'PARTNER' | 'USER';
 
 interface INotificationStore {
-    notificationsPartner: INotification[] | null;
+    notificationsPartner: INotificationSettings[] | null;
     // notificationUser: INotifications[] | null;
     notifications: INotification[] | null;
+    updateStateResponse: IResponse | null;
+    updateNotificationResponse: IResponse | null;
     isLoading: boolean;
     error: string | null;
     getNotifications: () => void;
-    getNotificationsPartner: () => void;
+    getNotificationsPartner: (role: Role) => void;
+    updateNotification: (id: string, body: Pick<INotification, 'message'>) => void;
+    updateState: (id: string) => void;
+    reset: () => void;
 }
+
 export const notificationStore = createStore<INotificationStore>((set) => ({
     notifications: null,
     notificationsPartner: null,
+    updateStateResponse: null,
+    updateNotificationResponse: null,
     isLoading: false,
     error: null,
     getNotifications: async () => {
@@ -26,17 +36,35 @@ export const notificationStore = createStore<INotificationStore>((set) => ({
         }
         set({ isLoading: false })
     },
-    getNotificationsPartner: async () => {
+    getNotificationsPartner: async (role: Role) => {
         try {
             set({ isLoading: true })
-            const { data } = await API.get<IResponse>(`/notification/setting?recipient=PARTNER`);
+            const { data } = await API.get<IResponse>(`/notification/setting?recipient=${role}`);
             set({ notificationsPartner: data.data });
         } catch (e: any) {
             set({ error: e?.response?.data.message });
         }
         set({ isLoading: false })
     },
+    updateNotification: async (id: string, body: Pick<INotification, 'message'>) => {
+        try {
+            set({ isLoading: true });
+            const { data } = await API.put<IResponse>(`/notification/setting/${id}`, body);
+            set({ updateNotificationResponse: data });
+        } catch (e: any) {
+            set({ isLoading: false });
+        }
+    },
+    updateState: async (id: string) => {
+        try {
+            set({ isLoading: true });
+            const { data } = await API.put<IResponse>(`/notification/setting/${id}/changeState`);
+            set({ updateStateResponse: data });
+        } catch (e: any) {
+            set({ isLoading: false });
+        }
+    },
     reset: () => {
-        set({ error: null });
+        set({ error: null , updateStateResponse: null, updateNotificationResponse: null});
     }
 }));

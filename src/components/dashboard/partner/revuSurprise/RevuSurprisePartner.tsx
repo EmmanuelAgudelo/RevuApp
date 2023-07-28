@@ -72,9 +72,9 @@ export const RevuSurprisePartner = () => {
   //  TRAER LO DATOS
 
   useEffect(() => {
-    if (businessesByOwner) {
+    if (businessesByOwner && id) {
       reset();
-      findRevuSurprise(businessesByOwner.id, id ?? '')
+      findRevuSurprise(businessesByOwner.id, id)
     }
   }, [id])
 
@@ -265,6 +265,23 @@ export const RevuSurprisePartner = () => {
       <Modal isOpen={isOpen} onClose={handleCloseModal}>
         <ModalFormRevuSurprise />
       </Modal>
+      <hr style={{marginBottom: '2rem', color: 'gray'}} />
+      <div className='supportsPartner__table'>
+        <table className="documentPartner__table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Mensaje enviado</th>
+              <th>Respuesta</th>
+            </tr>
+          </thead>
+          <tbody>
+           <tr>
+
+           </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
