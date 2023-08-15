@@ -13,10 +13,10 @@ export const ModalDocumentPartner = () => {
                     <table className="documentPartner__table">
                         <thead>
                             <tr>
-                                <th>Documento</th>
-                                <th>Descripción</th>
-                                <th>Formatos permitidos</th>
-                                <th>Acciones</th>
+                                <th>Document</th>
+                                <th>Description</th>
+                                <th>Allowed formats</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,7 +75,7 @@ export const ModalDocumentPartner = () => {
                 </div>
             </div>
             <button className="btn btn--orange">
-                Guardar cambios
+                Save changes
             </button>
         </div>
     )

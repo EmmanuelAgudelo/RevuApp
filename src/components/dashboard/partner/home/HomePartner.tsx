@@ -9,8 +9,8 @@ export const HomePartner = () => {
             <div className="homePartner__sidebar">
                 <div className='homePartner__card'>
                     <img src="/images/logos/logo-white.svg" alt="" />
-                    <p><span>Aliado Revu,</span> completa los datos de tu establecimiento</p>
-                    <button className='btn btn--orange'>Haz click aquí</button>
+                    <p><span>Revu Partner,</span> Complete Your Establishment Details</p>
+                    <button className='btn btn--orange'>Click Here</button>
                 </div>
             </div>
             <div className='homePartner__cards'>
@@ -19,7 +19,7 @@ export const HomePartner = () => {
                         <RiShoppingBagLine size={70} />
                     </div>
                     <div className='homePartner__description homePartner__description--blue'>
-                        <p className="homePartner__text">Cantidad de pedidos</p>
+                        <p className="homePartner__text">Number of Orders</p>
                         <p className="homePartner__number">0</p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ export const HomePartner = () => {
                         <RxMagnifyingGlass size={70} />
                     </div>
                     <div className='homePartner__description homePartner__description--orange'>
-                        <p className="homePartner__text">Busquedas de tu establecimiento</p>
+                        <p className="homePartner__text">Searches for Your Establishment</p>
                         <p className="homePartner__number">0</p>
                     </div>
                 </div>
@@ -39,7 +39,7 @@ export const HomePartner = () => {
                         <TbHandClick size={70} />
                     </div>
                     <div className='homePartner__description homePartner__description--blue'>
-                        <p className="homePartner__text">Clicks en tu establecimiento</p>
+                        <p className="homePartner__text">Clicks on Your Establishment</p>
                         <p className="homePartner__number">0</p>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ export const HomePartner = () => {
                         <AiOutlineHeart size={70} />
                     </div>
                     <div className='homePartner__description homePartner__description--orange'>
-                        <p className="homePartner__text">Guardado como favorito</p>
+                        <p className="homePartner__text">Saved as Favorite</p>
                         <p className="homePartner__number">0</p>
                     </div>
                 </div>

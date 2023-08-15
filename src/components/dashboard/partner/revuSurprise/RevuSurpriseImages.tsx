@@ -37,7 +37,7 @@ export const RevuSurpriseImages = ({ id }: Props) => {
 
     return (
         <div className="revuSuprise__images">
-            <span className="btn btn--gray">Fotografias de producto</span>
+            <span className="btn btn--gray">Product Photos</span>
             <div className="revuSuprise__control-image">
                 {images.map((image, index) => (
                     <div key={index}>
@@ -56,7 +56,7 @@ export const RevuSurpriseImages = ({ id }: Props) => {
                     </div>
                 ))}
             </div>
-            <button className="btn btn--blue">Subir imagenes</button>
+            <button className="btn btn--blue">Upload Images</button>
         </div>
     )
 }

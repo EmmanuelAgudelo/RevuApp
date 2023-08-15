@@ -46,14 +46,14 @@ export const Navbar = () => {
         </div>
         <div className="nav__auth">
           <ul className="nav__items">
-            {authentication === 'verifying' && <p>Cargando...</p>}
+            {authentication === 'verifying' && <p>Loading...</p>}
 
             {authentication === "unauthenticated" && <>
               <li className="nav__item">
-                <Link to="/auth/login" className="nav__link">Ingresa</Link>
+                <Link to="/auth/login" className="nav__link">Log In</Link>
               </li>
               <li className="nav__item">
-                <Link to="/auth/register" className="nav__link nav__link--register">Registra tu establecimiento</Link>
+                <Link to="/auth/register" className="nav__link nav__link--register">Register Your Establishment</Link>
               </li>
             </>
             }
@@ -77,14 +77,14 @@ export const Navbar = () => {
             </li>
           ))}
           <div className="auth--hidden">
-            {authentication === 'verifying' && <p>Cargando...</p>}
+            {authentication === 'verifying' && <p>Loading...</p>}
 
             {authentication === "unauthenticated" && <>
               <li className="nav__item">
-                <Link to="/auth/login" className="nav__link--hidden">Ingresa</Link>
+                <Link to="/auth/login" className="nav__link--hidden">Log in</Link>
               </li>
               <li className="nav__item">
-                <Link to="/auth/register" className="nav__link nav__link--register">Registra tu establecimiento</Link>
+                <Link to="/auth/register" className="nav__link nav__link--register">Register Your Establishment</Link>
               </li>
             </>
             }

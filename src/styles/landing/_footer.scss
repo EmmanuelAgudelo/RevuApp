@@ -1,0 +1,98 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+@keyframes slideInMargin {
+    0% {
+        margin-bottom: 0;
+    }
+
+    100% {
+        margin-bottom: 1px solid v.$orange;
+    }
+}
+
+.footer {
+    min-height: 30rem;
+    background: v.$blue;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    @include m.desktop {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 3rem 10rem;
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 2.5rem;
+
+    }
+
+    &__icon {
+        background: white;
+        border-radius: 50%;
+        color: v.$blue;
+        font-size: 2.3rem;
+        padding: .8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        li {
+            position: relative;
+            margin-bottom: 1rem;
+            color: white;
+            padding-bottom: .5rem;
+            font-size: 1.8rem;
+            text-align: center;
+
+            @include m.desktop {
+                text-align: start;
+
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: v.$orange;
+                transition: width 0.3s ease-in-out;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+
+            a{
+                color: white;
+            }
+        }
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 15rem;
+
+        }
+    }
+}

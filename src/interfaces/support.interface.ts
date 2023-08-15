@@ -20,7 +20,7 @@ export interface ISupport {
     status: boolean,
     created_at: string,
     answer?: string,
-    answer_by?: IAnsweredBy,
+    answered_by?: IAnsweredBy,
 }
 
 

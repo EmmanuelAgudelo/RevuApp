@@ -7,8 +7,8 @@ export const NetworkError = () => {
         </div>
 
         <div className="networkError__description">
-          <p className="networkError__text">¡oh, no! algo esta fallando.</p>
-          <span className="networkError__span">Revisa tu conexion</span>
+          <p className="networkError__text">Oh no! Something is failing</p>
+          <span className="networkError__span">Check your connection</span>
         </div>
       </div>
     </div>

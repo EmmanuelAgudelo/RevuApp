@@ -22,7 +22,7 @@ export const HomeAdmin = () => {
                     <AiOutlineUsergroupAdd size={70} color='#1FBAAC' />
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--blue">
-                    <p className="homeAdmin__text">Aliados inscritos</p>
+                    <p className="homeAdmin__text">Enrolled Partners</p>
                     <p className="homeAdmin__number">{numberOfPartners}</p>
                 </div>
             </div>
@@ -31,7 +31,7 @@ export const HomeAdmin = () => {
                     <FiUsers size={70} color='#1FBAAC' />
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--blue">
-                    <p className="homeAdmin__text">Usuarios inscritos</p>
+                    <p className="homeAdmin__text">Enrolled Users</p>
                     <p className="homeAdmin__number">{numberOfUsers}</p>
                 </div>
             </div>
@@ -40,7 +40,7 @@ export const HomeAdmin = () => {
                     <GoGift size={70} color='#FAA002' />
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--orange">
-                    <p className="homeAdmin__text">Revu sorpresa vendidas</p>
+                    <p className="homeAdmin__text">Revu Surprise Sold</p>
                     <p className="homeAdmin__number">0</p>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export const HomeAdmin = () => {
                     <FiSmartphone size={70} color='#FAA002' />
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--orange">
-                    <p className="homeAdmin__text">Descarga de la app</p>
+                    <p className="homeAdmin__text">App Downloads</p>
                     <p className="homeAdmin__number">0</p>
                 </div>
             </div>
@@ -58,7 +58,7 @@ export const HomeAdmin = () => {
                     <AiOutlineHeart size={70} color='#1FBAAC' />
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--blue">
-                    <p className="homeAdmin__text">Calificación de la app</p>
+                    <p className="homeAdmin__text">App Rating</p>
                     <p className="homeAdmin__number">0</p>
                 </div>
             </div>

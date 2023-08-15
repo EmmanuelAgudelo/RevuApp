@@ -4,12 +4,12 @@ export const ResetPasswordSchema = yup
 .object({
     password: yup
         .string()
-        .required("Este campo es obligatorio")
-        .min(7, ({ min }) => `Mínimo ${min} caracteres`)
-        .max(20, ({ max }) => `Máximo ${max} caracteres`),
+        .required("This field is mandatory")
+        .min(7, ({ min }) => `Minimum ${min} characters`)
+        .max(20, ({ max }) => `Maximum ${max} characters`),
     confirmPassword: yup
         .string()
-        .required("Este campo es obligatorio")
-        .oneOf([yup.ref("password")], "Las contraseñas deben coincidir"),
+        .required("This field is mandatory")
+        .oneOf([yup.ref("password")], "Passwords must match"),
 })
 .required();

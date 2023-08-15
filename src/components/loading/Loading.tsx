@@ -7,7 +7,7 @@ export const Loading = () => {
         <div className="loading__loader"></div>
         <div className="loading__text">
           <p>
-            Estamos <span>preparando</span> todo para ti
+            We're <span>Getting Everything Ready</span> for You
           </p>
         </div>
       </div>

@@ -40,11 +40,11 @@ export const PasswordPartner = () => {
   useEffect(() => {
     if (updatePasswordResponse) {
       if (updatePasswordResponse.message === 'success') {
-        toastSuccess('Contraseña actualizada correctamente');
+        toastSuccess('Password updated successfully.');
         reset();
         formik.setValues({password: '', newPassword: '', confirmPassword: ''})
       } else {
-        toastError('La contraseña antigua es incorrecta');
+        toastError('The old password is incorrect.');
       }
     }
   }, [updatePasswordResponse])
@@ -66,7 +66,7 @@ export const PasswordPartner = () => {
               <BiLockAlt className="form__icons--blue" size={30} style={{ marginRight: '1rem' }} />
               <input
                 type={showPassword.password ? 'text' : 'password'}
-                placeholder="Contraseña"
+                placeholder="Password"
                 id="password"
                 value={password}
                 onChange={formik.handleChange}
@@ -88,7 +88,7 @@ export const PasswordPartner = () => {
             <div className="form__group" style={{ position: 'relative' }}>
               <input style={{ marginLeft: '3.5rem' }}
                 type={showPassword.newPassword ? 'text' : 'password'}
-                placeholder="Nueva contraseña"
+                placeholder="New Password"
                 id='newPassword'
                 value={newPassword}
                 onChange={formik.handleChange}
@@ -109,7 +109,7 @@ export const PasswordPartner = () => {
               <input style={{ marginLeft: '3.5rem' }}
                 type={showPassword.confirmPassword ? 'text' : 'password'}
                 id="confirmPassword"
-                placeholder="Confirma tu contraseña"
+                placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -126,7 +126,7 @@ export const PasswordPartner = () => {
           </div>
         </div>
         <div className='agentForm__btn'>
-          <button className="btn btn--blue" type='submit'>Cambiar contraseña</button>
+          <button className="btn btn--blue" type='submit'>Change password</button>
         </div>
       </form>
     </div>

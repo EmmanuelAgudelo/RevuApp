@@ -2,9 +2,9 @@ export const Team = () => {
   return (
     <div className='team'>
       <div className="team__content">
-        <h3 className="team__title">Somos un grupo de jóvenes innovadores y visionarios<span className="team__title team__title--point">.</span> </h3>
+        <h3 className="team__title">We are a group of young innovators and visionaries<span className="team__title team__title--point">.</span> </h3>
         <div className="p">
-          <p className="team__text">Contamos con un equipo al cual le inspira lograr un cambio hacia la sostenibilidad en Colombia.</p>
+          <p className="team__text">We have a team that is inspired to achieve a change towards sustainability in Colombia.</p>
         </div>
       </div>
       <div className="team__image"></div>

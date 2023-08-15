@@ -22,7 +22,7 @@ export const RecoverPassword = () => {
 
     useEffect(() => {
       if(recoverPassword && recoverPassword.message === "mail_send_success"){
-        toastSuccess('Hemos enviado un mensaje a tu email');
+        toastSuccess('We have sent a message to your email');
         setTimeout(()=>{
             reset();
         },3000);
@@ -31,10 +31,10 @@ export const RecoverPassword = () => {
 
     useEffect(() => {
       if (error === 'user_not_found') {
-        toastError('El email no existe!');
+        toastError("The email doesn't exist!");
       }
       if (error === 'server_error') {
-        toastError('Error en el servidor');
+        toastError('Server error"');
       }
       reset();
     }, [error])
@@ -48,7 +48,7 @@ export const RecoverPassword = () => {
                 </div>
                 <div className="recover__form">
                     <img src={logo} className='recover__logo' alt="logo" />
-                    <h1 className="recover__title">Recupera tu contraseña</h1>
+                    <h1 className="recover__title">Recover your password</h1>
                     <form onSubmit={formik.handleSubmit} className="form">
                         <div className="form__row">
                             <div className="form__col">
@@ -59,7 +59,7 @@ export const RecoverPassword = () => {
                                     <input
                                         type="email"
                                         id="email"
-                                        placeholder="Correo electrónico"
+                                        placeholder="Email address"
                                         value={email}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
@@ -74,13 +74,13 @@ export const RecoverPassword = () => {
                         {isLoading ?
                             <input
                                 type="submit"
-                                value="Cargando ..."
+                                value="Loading ..."
                                 className="recover__btn"
                                 disabled
                             /> :
                             <input
                                 type="submit"
-                                value="Enviar"
+                                value="Send"
                                 className="recover__btn"
                             />}
 

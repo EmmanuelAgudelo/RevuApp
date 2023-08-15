@@ -6,8 +6,8 @@ export const TermsAndConditions = () => {
       <div className="legalTerms__header">
         <img src="/images/logos/logo-yellow.svg" alt="Logo" />
         <div className='legalTerms__title'>
-          <span className="legalTerms__title--title">Términos y condiciones</span>
-          <span className="legalTerms__title--subtitle">Uso de datos personales</span>
+          <span className="legalTerms__title--title">Terms and conditions</span>
+          <span className="legalTerms__title--subtitle">Use of Personal Data</span>
         </div>
       </div>
       <div className="legalTerms__body">

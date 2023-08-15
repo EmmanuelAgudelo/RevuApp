@@ -24,6 +24,10 @@
         width: 100%;
         border-radius: 1.5rem;
         background: #f5f5f5;
+
+        &--orange{
+            background: v.$light-orange;
+        }
     }
 
     &__header {
@@ -71,12 +75,20 @@
         justify-content: center;
         align-items: center;
         gap: 2.5rem;
+
+        &--white {
+            color: #fff;
+        }
     }
 
     &__date {
         font-size: 1.8rem;
         font-weight: 300;
         color: gray;
+
+        &--white {
+            color: #fff;
+        }
     }
 
     &__icons {
@@ -92,5 +104,10 @@
         padding: 2rem 4rem;
         color: gray;
         line-height: 3rem;
+
+        &--white {
+            color: #fff;
+
+        }
     }
 }

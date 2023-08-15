@@ -5,16 +5,34 @@ import Modal from '../../../modal/Modal'
 import { BsBank } from "react-icons/bs";
 import { ModalContentBranch } from '../../../modal/ModalContentBranch'
 import { useStore } from 'zustand'
-import { businesseStore, optionStore } from '../../../../../store'
+import { branchStore, businesseStore, optionStore } from '../../../../../store'
 import { IBranches, IBusinesseUser } from '../../../../../interfaces'
+import { toastSuccess } from '../../../../../helpers';
+import { useParams } from 'react-router-dom';
 
 
 export const DetailsBranch = () => {
 
   // Modal
   const [isOpen, setIsOpen] = useState(false);
-  const { businessesByIdUser } = useStore(businesseStore);
+  const { id } = useParams();
+  const { businessesByIdUser, findBussinessesByIdUser } = useStore(businesseStore);
+  const { updateBranchActive, updateBranchActiveResponse, updateBranchInactiveResponse, updateBranchInactive, reset } = useStore(branchStore);
   const { setOption, option } = useStore(optionStore);
+
+  useEffect(() => {
+    if (updateBranchActiveResponse && updateBranchActiveResponse.message === 'success') {
+      toastSuccess('Branch activated successfully.');
+      reset();
+      findBussinessesByIdUser(id);
+    }
+
+    if (updateBranchInactiveResponse && updateBranchInactiveResponse.message === 'success') {
+      toastSuccess('Branch deactivated successfully.');
+      reset();
+      findBussinessesByIdUser(id);
+    }
+  }, [updateBranchActiveResponse, updateBranchInactiveResponse])
 
 
   // Manejo del modal
@@ -26,6 +44,16 @@ export const DetailsBranch = () => {
     setIsOpen(false);
   };
 
+  const handleActive = (branch: string, business: string) => {
+    const body = { id: business }
+    updateBranchActive(body, branch);
+  }
+
+  const handleInactive = (branch: string, business: string) => {
+    const body = { id: business }
+    updateBranchInactive(body, branch);
+  }
+
   return (
     <div className="headquarters">
       <div className="headquarters__header">
@@ -34,38 +62,52 @@ export const DetailsBranch = () => {
       <div className="headquarters__body">
         <div className="headquarters__active">
           <span className="headquarters__body-title"><strong>{businessesByIdUser?.name}</strong></span>
-          {businessesByIdUser?.branches &&
+          {businessesByIdUser?.branches ?
             <>
               <select name="headquarters" id="headquarters" onChange={({ target }) => setOption(target.value)}>
-                <option value={''}>Sedes</option>
-                {businessesByIdUser.branches.map((branch) => (
-                  <option key={branch._id} value={branch._id}>Sede {branch.number}</option>
+                <option value={''}>Branch</option>
+                {businessesByIdUser.branches.map((branch, index) => (
+                  <option key={index} value={branch._id}>branch {branch.number}</option>
                 ))}
               </select>
             </>
+            :
+            <div className='headquarters__null' >
+              <span style={{ marginBottom: '0' }}>You don't have any assigned branches yet</span>
+            </div>
           }
         </div>
-        <BodyDetails businessesByIdUser={businessesByIdUser} />
+        {businessesByIdUser?.branches &&
+          <BodyDetails businessesByIdUser={businessesByIdUser} />
+        }
       </div>
       {option !== '' &&
         <div className="headquarters__footer">
           <button className='btn btn--blue' onClick={handleOpenModal}>
             <BsBank size={20} className='headquarters__btn--icon' />
-            <span>Documentos legales</span>
+            <span>Legal documents</span>
           </button>
           <div className="headquarters__icons">
             <AiOutlineMail size={25} />
             <BiMobile size={25} />
           </div>
-          <button className="btn btn--orange">
-            Desactivar establecimiento
-          </button>
+          {businessesByIdUser &&
+            businessesByIdUser.branches.find((branch) => branch._id === option)?.status == 'PENDING_APPROVAL' || businessesByIdUser?.branches.find((branch) => branch._id === option)?.status == 'INACTIVE' ?
+            <button className="btn btn--orange" onClick={() => handleActive(option, businessesByIdUser.id ?? '')}>
+              Active
+            </button>
+            :
+            <button className="btn btn--orange" onClick={() => handleInactive(option, businessesByIdUser?.id ?? '')}>
+              Desactive
+            </button>
+          }
+
         </div>
       }
       <Modal isOpen={isOpen} onClose={handleCloseModal}>
         <ModalContentBranch />
       </Modal>
-    </div>
+    </div >
   )
 }
 
@@ -88,11 +130,11 @@ const BodyDetails = ({ businessesByIdUser }: Props) => {
         <>
           <div className='headquarters__active' style={{ marginTop: '0' }}>
             {branch.status === 'PENDING_APPROVAL' ?
-              <span className='status--orange'>Pendiente</span>
+              <span className='status--orange'>Pending</span>
               : branch.status === 'INACTIVE' ?
-                <span className='status--red'>Inactivo</span>
+                <span className='status--red'>Inactive</span>
                 :
-                <span className='status--green'>Activo</span>
+                <span className='status--green'>Active</span>
             }
           </div>
           <div className="headquarters__body-inputs">
@@ -104,7 +146,7 @@ const BodyDetails = ({ businessesByIdUser }: Props) => {
           </div></>
         :
         <div className='headquarters__null'>
-          <span>Selecciona una sede</span>
+          <span>Select a branch</span>
         </div>
       }
     </>

@@ -73,6 +73,6 @@ export const revuSurpriseStore = createStore<IRevuSurpriseStore>((set) => ({
         }
     },
     reset: () => {
-        set({ error: null, createRevuSurpriseResponse: null, updateStateResponse: null, updateRevuSurpriseResponse: null, uploadImageResponse: null});
+        set({ error: null, createRevuSurpriseResponse: null, updateStateResponse: null, updateRevuSurpriseResponse: null, uploadImageResponse: null, revuSurprise: null});
     }
 }));

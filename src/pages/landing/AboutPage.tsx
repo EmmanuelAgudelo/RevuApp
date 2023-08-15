@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { About, Download, Figures, Functionality, Partners, Team, Winners } from "../../components";
+import { About, Download, Figures, Footer, Functionality, Partners, Team, Winners } from "../../components";
 import { setTitle } from "../../helpers";
 
 const AboutPage = () => {
 
   useEffect(() => {
-    setTitle("Revufoods - Conocemos");
+    setTitle("Revufoods - About Us");
   }, [])
   
   return (
@@ -17,6 +17,7 @@ const AboutPage = () => {
       <Functionality/>
       <Partners/>
       <Download/>
+      <Footer/>
     </>
   );
 };

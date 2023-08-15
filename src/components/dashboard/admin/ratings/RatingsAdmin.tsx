@@ -37,13 +37,13 @@ export const RatingsAdmin = () => {
                 <table className="ratingsAdmin__table">
                     <thead>
                         <tr>
-                            <th>Aliado</th>
-                            <th>Sede</th>
-                            <th>Calificación</th>
-                            <th>Usuario</th>
-                            <th>Comentario</th>
-                            <th>Estado</th>
-                            <th>Fecha</th>
+                            <th>Partner</th>
+                            <th>Branch</th>
+                            <th>Rating</th>
+                            <th>User</th>
+                            <th>Comment</th>
+                            <th>Status</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,14 +54,14 @@ export const RatingsAdmin = () => {
                                 <td className='center'><RatingsStar rating={rating.rating} /></td>
                                 <td>{rating.user}</td>
                                 {rating.comment ?
-                                    <td className='center'><span className='ratingsAdmin__comment' onClick={() => handleOpenModal(rating.comment)}>Leer comentario</span></td>
+                                    <td className='center'><span className='ratingsAdmin__comment' onClick={() => handleOpenModal(rating.comment)}>Read comment</span></td>
                                     :
-                                    <td className='center'><span className=''>Sin comentario</span></td>
+                                    <td className='center'><span className=''>No comment</span></td>
                                 }
                                 {rating.status ?
-                                    <td className="center"><span className="status--green">Activo</span></td>
+                                    <td className="center"><span className="status--green">Active</span></td>
                                     :
-                                    <td className="center"><span className="status--red">Inactivo</span></td>
+                                    <td className="center"><span className="status--red">Inactive</span></td>
                                 }
                                 <td>{formatDate(rating.created_at)}</td>
                             </tr>

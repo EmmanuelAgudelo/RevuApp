@@ -1,7 +1,7 @@
 import { createStore } from "zustand";
 
 interface IOption {
-    option: string | '';
+    option: string;
     isLoading: boolean;
     error: string | null;
     setOption: (value: string) => void;

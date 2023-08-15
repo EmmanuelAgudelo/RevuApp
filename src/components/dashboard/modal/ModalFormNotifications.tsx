@@ -44,7 +44,7 @@ export const ModalFormNotifications = ({ notification }: IProps) => {
                         <div className="form__group">
                             <textarea
                                 style={{ marginLeft: '1.5rem' }}
-                                placeholder="Mensaje"
+                                placeholder="Message"
                                 id="message"
                                 value={message}
                                 onChange={formik.handleChange}
@@ -58,7 +58,7 @@ export const ModalFormNotifications = ({ notification }: IProps) => {
                     </div>
                 </div>
                 <div className='agentForm__btn' style={{ marginTop: '3rem' }}>
-                    <button type='submit' className="btn btn--orange">Guardar Mensaje</button>
+                    <button type='submit' className="btn btn--orange">Save Message</button>
                 </div>
             </form>
         </>

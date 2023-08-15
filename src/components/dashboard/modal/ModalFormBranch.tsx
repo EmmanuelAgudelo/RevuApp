@@ -36,7 +36,7 @@ export const ModalFormBranch = () => {
 
     return (
         <>
-            <h1 className='documentPartner__title'><BsBank className='documentPartner__title--icon' />Crear nueva sede</h1>
+            <h1 className='documentPartner__title'><BsBank className='documentPartner__title--icon' />Create new branch</h1>
             <form onSubmit={formik.handleSubmit} className='form'>
                 <div className="form__row">
                     <div className="form__col">
@@ -44,7 +44,7 @@ export const ModalFormBranch = () => {
                             <input
                                 style={{ marginLeft: '3.5rem' }}
                                 type="number"
-                                placeholder="Número de sede"
+                                placeholder="Branch number"
                                 id="number"
                                 value={number}
                                 onChange={formik.handleChange}
@@ -63,7 +63,7 @@ export const ModalFormBranch = () => {
                             <input
                                 style={{ marginLeft: '3.5rem' }}
                                 type="text"
-                                placeholder="Departamento"
+                                placeholder="Department"
                                 id="department"
                                 value={department}
                                 onChange={formik.handleChange}
@@ -79,7 +79,7 @@ export const ModalFormBranch = () => {
                             <input
                                 style={{ marginLeft: '3.5rem' }}
                                 type="text"
-                                placeholder="Ciudad"
+                                placeholder="City"
                                 id="city"
                                 value={city}
                                 onChange={formik.handleChange}
@@ -97,7 +97,7 @@ export const ModalFormBranch = () => {
                             <CiLocationOn className="form__icons--blue" size={30} style={{ marginRight: '1rem' }} />
                             <input
                                 type="text"
-                                placeholder="Dirección"
+                                placeholder="Address"
                                 id="address"
                                 value={address}
                                 onChange={formik.handleChange}
@@ -113,7 +113,7 @@ export const ModalFormBranch = () => {
                             <BsTelephone className="form__icons--blue" size={30} style={{ marginRight: '1rem' }} />
                             <input
                                 type="text"
-                                placeholder="Teléfono"
+                                placeholder="Phone"
                                 id="phone"
                                 value={phone}
                                 onChange={formik.handleChange}
@@ -131,7 +131,7 @@ export const ModalFormBranch = () => {
                             <AiOutlineCreditCard className="form__icons--blue" size={30} style={{ marginRight: '1rem' }} />
                             <input
                                 type="text"
-                                placeholder="Número de la tarjeta"
+                                placeholder="Card number"
                                 id="card_number"
                                 value={card_number}
                                 onChange={formik.handleChange}
@@ -144,7 +144,7 @@ export const ModalFormBranch = () => {
                     </div>
                 </div>
                 <div className='agentForm__btn' style={{ marginTop: '3rem' }}>
-                    <button type='submit' className="btn btn--orange">Guardar establecimiento</button>
+                    <button type='submit' className="btn btn--orange">Save Branch</button>
                 </div>
             </form>
         </>

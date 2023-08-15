@@ -25,14 +25,14 @@ export const ModalFormSupport = () => {
 
     return (
         <div className='supportForm'>
-            <h1 className='documentPartner__title'><HiOutlineMail className='documentPartner__title--icon' size={25} />Nuevo mensaje</h1>
+            <h1 className='documentPartner__title'><HiOutlineMail className='documentPartner__title--icon' size={25} />New message</h1>
             <form onSubmit={formik.handleSubmit} className='form'>
                 <div className="form__row">
                     <div className="form__col">
                         <div className="form__group">
-                            <label htmlFor="question">Mensaje:</label>
+                            <label htmlFor="question">Message:</label>
                             <textarea
-                                placeholder="Digita tu mensaje"
+                                placeholder="Enter your message"
                                 id="question"
                                 value={question}
                                 onChange={formik.handleChange}
@@ -46,7 +46,7 @@ export const ModalFormSupport = () => {
                     </div>
                 </div>
                 <div className='agentForm__btn' style={{ marginTop: '3rem' }}>
-                    <button type='submit' className="btn btn--orange">Enviar mensaje</button>
+                    <button type='submit' className="btn btn--orange">Send Message</button>
                 </div>
             </form>
         </div>

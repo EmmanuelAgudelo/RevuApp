@@ -24,7 +24,7 @@ export const AuthRouter = () => {
   useEffect(() => {
     if (login && login.message === "success") {
       setLocalStorage('token_authorization', login.data.access_token);
-      toastSuccess('Bienvenido');
+      toastSuccess('Welcome!');
       setTimeout(() => {
         window.location.href = login.data.role === 'ADMIN' ? "/dashboard/admin/home" : "/dashboard/partner/home";
       }, 2000);

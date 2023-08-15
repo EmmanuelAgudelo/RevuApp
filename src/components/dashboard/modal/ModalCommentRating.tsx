@@ -11,7 +11,7 @@ export const ModalCommentRating = ({comment}:Props) => {
 
     return (
         <>
-            <h1 className='documentPartner__title'><AiOutlineComment className='documentPartner__title--icon' />Comentario</h1>
+            <h1 className='documentPartner__title'><AiOutlineComment className='documentPartner__title--icon' />Comment</h1>
                 <div className="form__row">
                     <div className="form__col">
                         <div className="form__group">

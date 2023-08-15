@@ -4,9 +4,9 @@ export const RecoverSchema = yup
 .object({
   email: yup
     .string()
-    .required("Este campo es obligatorio")
-    .min(5, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(40, ({ max }) => `Máximo ${max} caracteres`)
-    .email("Ingresa un correo valido"),
+    .required("This field is mandatory")
+    .min(5, ({ min }) => `Minimum ${min} characters`)
+    .max(40, ({ max }) => `Maximum ${max} characters`)
+    .email("Enter a valid email"),
 })
 .required();

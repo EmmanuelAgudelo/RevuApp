@@ -5,11 +5,11 @@ export const NotificationsUser = () => {
         <table className="partnersAdmin__table">
           <thead className="partnersAdmin__table--orange">
             <tr>
-              <th>Tipo</th>
-              <th>Mensaje</th>
-              <th>Descripción</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+              <th>Type</th>
+              <th>Message</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

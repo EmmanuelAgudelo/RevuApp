@@ -3,9 +3,10 @@ import { NotificationsCard } from "./NotificationsCard";
 import { useStore } from "zustand";
 import { notificationStore } from "../../../../store/notificationStore";
 import { authStore } from "../../../../store";
+import { toastSuccess } from "../../../../helpers";
 
 export const Notifications = () => {
-  const { notifications, getNotifications } = useStore(notificationStore);
+  const { notifications, getNotifications, updateReadResponse, reset } = useStore(notificationStore);
   const { authentication } = useStore(authStore);
   const [expanded, setExpanded] = useState(false);
 
@@ -17,9 +18,16 @@ export const Notifications = () => {
     getNotifications();
   }, []);
 
+  useEffect(() => {
+    if (updateReadResponse && updateReadResponse.message === 'success') {
+      reset();
+      getNotifications();
+    }
+  }, [updateReadResponse])
+
   return (
     <div className="notifications">
-      <p className="notifications__title">Notificaciones</p>
+      <p className="notifications__title">Notifications</p>
       <div className="notifications__cards">
         {notifications &&
          authentication !== 'verifying' && authentication !== "unauthenticated" &&

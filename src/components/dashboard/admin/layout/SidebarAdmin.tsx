@@ -25,38 +25,38 @@ export const SidebarAdmin = ({ showMenu, onUpdate }: Props) => {
         <ul className="sidebarAdmin__links">
           <li>
             <Link to='home'>
-              <HiOutlineDesktopComputer className='sidebarAdmin__icon' /> Inicio
+              <HiOutlineDesktopComputer className='sidebarAdmin__icon' /> Home
             </Link>
           </li>
           <li>
             <Link to='partners'>
-              <RiHotelLine className='sidebarAdmin__icon' /> Aliados Revu
+              <RiHotelLine className='sidebarAdmin__icon' /> Revu Partners
             </Link>
           </li>
           <li>
             <Link to='ratings'>
-              <AiOutlineStar className='sidebarAdmin__icon' /> Calificaciones
+              <AiOutlineStar className='sidebarAdmin__icon' /> Ratings
             </Link>
           </li>
           <li>
             <Link to='support'>
-              <RiUserSettingsLine className='sidebarAdmin__icon' /> Soporte
+              <RiUserSettingsLine className='sidebarAdmin__icon' /> Support
             </Link>
           </li>
           <li>
             <Link to='notifications/partner'>
-              <HiOutlineBellAlert className='sidebarAdmin__icon' /> Notificaciones
+              <HiOutlineBellAlert className='sidebarAdmin__icon' /> Notifications
             </Link>
           </li>
           <li>
             <Link to='shopping'>
-              <BiPieChartAlt2 className='sidebarAdmin__icon' /> Compras
+              <BiPieChartAlt2 className='sidebarAdmin__icon' /> Shoppings
             </Link>
           </li>
         </ul>
 
         <div className="sidebarAdmin__btns">
-          <button className='sidebarAdmin__btn sidebarAdmin__btn--logout' onClick={() => validateLogout()}>Cerrar sesion</button>
+          <button className='sidebarAdmin__btn sidebarAdmin__btn--logout' onClick={() => validateLogout()}>Log out</button>
         </div>
       </div>
     </div>

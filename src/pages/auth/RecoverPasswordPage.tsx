@@ -5,7 +5,7 @@ import { setTitle } from "../../helpers";
 
 const RecoverPasswordPage = () => {
   useEffect(() => {
-    setTitle("Revufoods - Recuperar contraseña");
+    setTitle("Revufoods - Recover Password");
   }, [])
   
   return (

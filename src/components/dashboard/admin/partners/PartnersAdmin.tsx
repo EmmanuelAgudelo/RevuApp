@@ -24,7 +24,7 @@ export const PartnersAdmin = () => {
 
   useEffect(() => {
     if (updateUserStateResponse && updateUserStateResponse.message == 'success') {
-      toastSuccess('Estado cambiado correctamente');
+      toastSuccess('Status changed successfully.');
       findPartners();
       reset();
     }
@@ -36,12 +36,12 @@ export const PartnersAdmin = () => {
         <table className="partnersAdmin__table">
           <thead>
             <tr>
-              <th>Aliado</th>
-              <th>email</th>
-              <th>Teléfono</th>
-              <th>Documento</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+              <th>Partner</th>
+              <th>Email</th>
+              <th>Cellphone</th>
+              <th>Document</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -50,11 +50,11 @@ export const PartnersAdmin = () => {
                 <td><span><Link to={`/dashboard/admin/partner/${partner.id}`}><AiOutlineEye className="partnersAdmin__icon" title="Detalle" /></Link><p>{partner.names} {partner.last_names}</p></span></td>
                 <td>{partner.email}</td>
                 <td>{partner.cellphone}</td>
-                <td>{partner.document}</td>
+                <td>{partner.document_type}.  {partner.document}</td>
                 {partner.status ?
-                  <td className="center"><span className="status--green">Activo</span></td>
+                  <td className="center"><span className="status--green">Active</span></td>
                   :
-                  <td className="center"><span className="status--red">Inactivo</span></td>
+                  <td className="center"><span className="status--red">Inactive</span></td>
                 }
                 <td className="center">
                   <label className="partnersAdmin__switch">

@@ -10,11 +10,11 @@ export const ModalContentBranch = () => {
                     <table className="branch-modal__table">
                         <thead>
                             <tr>
-                                <th>Documento</th>
-                                <th>Fecha de subida</th>
-                                <th>Ver</th>
-                                <th>acciones</th>
-                                <th>Mensaje</th>
+                                <th>Document</th>
+                                <th>Upload Date</th>
+                                <th>View</th>
+                                <th>Actions</th>
+                                <th>Message</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,7 +34,7 @@ export const ModalContentBranch = () => {
                 </div>
             </div>
             <button className="btn btn--orange">
-                Guardar cambios
+                Save changes
             </button>
         </div>
     )

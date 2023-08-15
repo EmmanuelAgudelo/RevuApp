@@ -21,7 +21,7 @@ export const ModalFormEstablishment = () => {
     const { name, category } = formik.values;
     return (
         <>
-            <h1 className='documentPartner__title'><BsBank className='documentPartner__title--icon' />Crear nuevo establecimiento</h1>
+            <h1 className='documentPartner__title'><BsBank className='documentPartner__title--icon' />Create new Business</h1>
             <form onSubmit={formik.handleSubmit} className='form'>
                 <div className="form__row">
                     <div className="form__col">
@@ -29,7 +29,7 @@ export const ModalFormEstablishment = () => {
                             <RiHotelLine className="form__icons--blue" size={30} style={{ marginRight: '1rem' }} />
                             <input
                                 type="text"
-                                placeholder="Nombre"
+                                placeholder="Name"
                                 id="name"
                                 value={name}
                                 onChange={formik.handleChange}
@@ -46,16 +46,16 @@ export const ModalFormEstablishment = () => {
                         <div className="form__group">
                             <RiRestaurantLine className="form__icons--blue" size={30} style={{ marginRight: '1rem' }} />
                             <select
-                                id="category"
+                                id="Category"
                                 value={category}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                             >
-                                <option value="">Categoría del establecimiento</option>
+                                <option value="">Business category</option>
 
-                                <option value="BAKERY">Panadería</option>
-                                <option value="RESTAURANT">Restaurante</option>
-                                <option value="SUPERMARKET">Supermecado</option>
+                                <option value="BAKERY">Bakery</option>
+                                <option value="RESTAURANT">Restaurant</option>
+                                <option value="SUPERMARKET">Supermarket</option>
                             </select>
                         </div>
                         {formik.touched.category && formik.errors.category && (
@@ -64,7 +64,7 @@ export const ModalFormEstablishment = () => {
                     </div>
                 </div>
                 <div className='agentForm__btn' style={{marginTop: '3rem'}}>
-                    <button type='submit' className="btn btn--orange">Guardar establecimiento</button>
+                    <button type='submit' className="btn btn--orange">Save Business</button>
                 </div>
             </form>
         </>

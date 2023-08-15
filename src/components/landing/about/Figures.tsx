@@ -4,15 +4,15 @@ export const Figures = () => {
         <div className="figures__container">
             <div className="figures__info">
                 <img src="/images/icono_CO2.svg" alt="co2" className="figures__icon" />
-                <p className="figures__text">Según la ONU, entre el <span className="figures__span figures__span--orange">8% y 10% </span>de las emisiones de gases de efecto invernadero se deben al desperdicio de alimentos</p>
+                <p className="figures__text">According to the ONU, between <span className="figures__span figures__span--orange">8% and 10% </span>of greenhouse gas emissions are attributed to food waste</p>
             </div>
             <div className="figures__info figures__info--border">
                 <img src="/images/icono_desperdicios-01.svg" alt="co2" className="figures__icon" />
-                <p className="figures__text">Actualmente en nuestro país <span className="figures__span figures__span--blue">9.6 millones</span> de toneladas de comida son desperdiciadas</p>
+                <p className="figures__text">Currently, in our country <span className="figures__span figures__span--blue">9.6 million</span> tons of food are wasted</p>
             </div>
             <div className="figures__info">
                 <img src="/images/icono_basura-01.svg" alt="co2" className="figures__icon" />
-                <p className="figures__text">América latina y el Caribe son responsables del <span className="figures__span figures__span--orange">20% de los alimentos </span>que se desperdician en el mundo</p>
+                <p className="figures__text">Latin America and the Caribbean are responsible for <span className="figures__span figures__span--orange">20% </span>of the world's wasted food</p>
             </div>
         </div>
     </div>

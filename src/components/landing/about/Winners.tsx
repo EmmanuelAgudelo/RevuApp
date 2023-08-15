@@ -7,26 +7,24 @@ export const Winners = () => {
     <div className="winners">
       <div className="winners__texts">
         <h3 className="winners__title">
-          Aquí <span className="winners__title--azul">todos</span> ganan
+          Here <span className="winners__title--azul">everyone</span> wins
         </h3>
         <p className="winners__paragraph">
           <span className="winners__paragraph--bold">
-            En Revu el más beneficiado es definitivamente el medio ambiente,{" "}
+            At Revu, the biggest beneficiary is undoubtedly the environment,{" "}
           </span>
-          ya que al reducir la comida desperdiciada se da un paso más hacia la
-          economía circular del país, pero también ganan:{" "}
+          as reducing wasted food takes us another step closer to the circular economy of the country. But there are also winners:{" "}
         </p>
       </div>
       <article className="card">
         <div className="card__inner">
           <div className="card__front card__front--glasses">
             <RiStore3Line className="card__icon" size="65" />
-            <h3 className="card__title">Nuestros aliados</h3>
+            <h3 className="card__title">Our partners</h3>
           </div>
           <div className="card__back">
             <p className="card__back__paragraph">
-              Quienes pueden recuperar hasta el 50% de las ganancias de la
-              comida que se hubieradesperdiciado.
+              Who can recover up to 50% of the profits from the food that would have been wasted.
             </p>
           </div>
         </div>
@@ -35,12 +33,11 @@ export const Winners = () => {
         <div className="card__inner">
           <div className="card__front  card__front--eating">
             <FiUser className="card__icon" size="65" />
-            <h3 className="card__title">Nuestros usuarios</h3>
+            <h3 className="card__title">Our users</h3>
           </div>
           <div className="card__back">
             <p className="card__back__paragraph">
-              Que pueden comprar en sus lugares favoritos a un 50% de descuento
-              o más.
+              Who can purchase at their favorite places with a 50% discount or more.
             </p>
           </div>
         </div>
@@ -49,13 +46,12 @@ export const Winners = () => {
         <div className="card__inner">
           <div className="card__front  card__front--food">
             <FiUsers className="card__icon" size="65" />
-            <h3 className="card__title">Todas las personas</h3>
+            <h3 className="card__title">Everyone</h3>
           </div>
           <div className="card__back">
             <p className="card__back__paragraph">
               {" "}
-              Quienes tendran la oportunidad de disfrutar de diferentes
-              restaurantes.
+              Who will have the opportunity to enjoy various restaurants.
             </p>
           </div>
         </div>

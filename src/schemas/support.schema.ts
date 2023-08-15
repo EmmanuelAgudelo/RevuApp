@@ -4,8 +4,8 @@ export const SupportSchema = yup
     .object({
         question: yup
             .string()
-            .required("Este campo es obligatorio")
+            .required("This field is mandatory")
             .min(10, ({ min }) => `Mínimo ${min} caracteres`)
-            .max(200, ({ max }) => `Máximo ${max} caracteres`),
+            .max(200, ({ max }) => `Maximum ${max} characters`),
     })
     .required();

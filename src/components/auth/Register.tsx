@@ -13,7 +13,7 @@ export const Register = () => {
 
   useEffect(() => {
     if(registerResponse && registerResponse.message === "success"){
-      toastSuccess('Registro exitoso');
+      toastSuccess('Registration successful');
       reset();
       setTimeout(()=>{
         navigate('/auth/login');
@@ -23,13 +23,13 @@ export const Register = () => {
 
   useEffect(() => {
     if (error == "email_already_exists") {
-      toastError('El correo ya esta registrado'); 
+      toastError('The email is already registered'); 
     }
     if (error == "document_already_exists") {
-      toastError('El documento ya esta registrado'); 
+      toastError('The ID is already registered'); 
     }
     if (error == "server_error") {
-      toastError('El error en el servidor'); 
+      toastError('ServerError'); 
     }
     reset();
   }, [error])
@@ -39,13 +39,13 @@ export const Register = () => {
     <div className="container--auth">
       <div className="register register--container">
         <div className="register__head">
-          <h1 className="register__title">Bienvenido al registro Revu.</h1>
+          <h1 className="register__title">Welcome to Revu registration.</h1>
           <img src={logo} alt="" className="register__logo" />
         </div>
         <div className="register__body">
           <h2 className="register__body__title register__body__title--orange">
-            Primer paso:{" "}
-            <span className="register__body__title ">Regístrate como aliado</span>
+            First step:{" "}
+            <span className="register__body__title ">"Sign up as an partner</span>
           </h2>
           <FormRegister/>
         </div>

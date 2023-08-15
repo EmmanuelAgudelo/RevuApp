@@ -29,10 +29,10 @@ export const Login = () => {
   
   useEffect(() => {
    if(error === "user_not_found"){
-      toastError('Correo o contraseña incorrecta');
+      toastError('Incorrect email or password');
    }
    if(error === "user_unauthorized"){
-      toastError('El usuario fue deshabilitado');
+      toastError('The user has been disabled');
    }
    reset();
   }, [error])
@@ -42,7 +42,7 @@ export const Login = () => {
     <div className="container--auth">
       <div className="login login--container">
         <div className="login__form">
-          <h1 className="login__title">¡Hola de nuevo! <span className="login__span">Aliado revu.</span></h1>
+          <h1 className="login__title">Hello again! <span className="login__span">Revu partner.</span></h1>
           <form onSubmit={formik.handleSubmit} className="form">
             <div className="form__row">
               <div className="form__col">
@@ -53,7 +53,7 @@ export const Login = () => {
                   <input
                     type="email"
                     id="email"
-                    placeholder="Correo electrónico"
+                    placeholder="Email address"
                     value={email}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -74,7 +74,7 @@ export const Login = () => {
                   <input
                     type="password"
                     id="password"
-                    placeholder="Contraseña"
+                    placeholder="Password"
                     value={password}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -87,17 +87,17 @@ export const Login = () => {
               </div>
             </div>
             <div className="login__container__btn">
-              <Link className="login__link" to={"/auth/recoverPassword"}>Olvidé mi contraseña</Link>
+              <Link className="login__link" to={"/auth/recoverPassword"}>I forgot my password</Link>
               {isLoading?
                 <input
                 type="submit"
-                value="Cargando ..."
+                value="Loading ..."
                 className="login__btn"
                 disabled
               />:
               <input
                 type="submit"
-                value="¡Comencemos!"
+                value="Let's get started!"
                 className="login__btn"
               />}
             </div>

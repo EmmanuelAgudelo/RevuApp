@@ -34,7 +34,7 @@ export const ModalFormRevuSurprise = () => {
 
     return (
         <>
-            <h1 className='documentPartner__title'><BsBank className='documentPartner__title--icon' />Crear Revu sorpresa</h1>
+            <h1 className='documentPartner__title'><BsBank className='documentPartner__title--icon' />Create Revu surprise</h1>
             <form onSubmit={formik.handleSubmit} className='form'>
 
                 <div className="form__row">
@@ -44,7 +44,7 @@ export const ModalFormRevuSurprise = () => {
                             <input
                                 style={{ marginLeft: '1.5rem' }}
                                 type="number"
-                                placeholder="Precio"
+                                placeholder="Price"
                                 id="price"
                                 value={price}
                                 onChange={formik.handleChange}
@@ -61,7 +61,7 @@ export const ModalFormRevuSurprise = () => {
                             <input
                                 style={{ marginLeft: '1.5rem' }}
                                 type="number"
-                                placeholder="Cantidad"
+                                placeholder="Amount"
                                 id="amount"
                                 value={amount}
                                 onChange={formik.handleChange}
@@ -76,10 +76,10 @@ export const ModalFormRevuSurprise = () => {
                 <div className="form__row">
                     <div className="form__col">
                         <div className="form__group">
-                            <label htmlFor="price">Descripción:</label>
+                            <label htmlFor="price">Description:</label>
                             <textarea
                                 style={{ marginLeft: '1.5rem' }}
-                                placeholder="Descripción"
+                                placeholder="Description"
                                 id="description"
                                 value={description}
                                 onChange={formik.handleChange}
@@ -94,7 +94,7 @@ export const ModalFormRevuSurprise = () => {
                 <div className="form__row">
                     <div className="form__col">
                         <div className="form__group">
-                            <label htmlFor="">Fecha de recogida</label>
+                            <label htmlFor="">Start pickup time</label>
                             <input
                                 type="time"
                                 placeholder=""
@@ -110,7 +110,7 @@ export const ModalFormRevuSurprise = () => {
                     </div>
                     <div className="form__col">
                         <div className="form__group">
-                            <label htmlFor="">Fecha de recogida</label>
+                            <label htmlFor="">End pickup time</label>
                             <input
                                 type="time"
                                 placeholder=""
@@ -126,7 +126,7 @@ export const ModalFormRevuSurprise = () => {
                     </div>
                 </div>
                 <div className='agentForm__btn' style={{ marginTop: '3rem' }}>
-                    <button type='submit' className="btn btn--orange">Guardar establecimiento</button>
+                    <button type='submit' className="btn btn--orange">Save Revu surprise</button>
                 </div>
             </form>
         </>

@@ -31,9 +31,10 @@ type RevuBusiness = {
 
 type RevuSurprise = {
     id: string,
-    businesse: RevuBusiness[],
+    businesse?: RevuBusiness,
     branch: string,
     description: string,
+    rev_price?: number,
 }
 
 interface IDetails {
@@ -50,9 +51,14 @@ interface IDistribution {
     payment_gateway: Percentage,
 }
 
+interface IDistributionByRevuSurprise {
+    businesse: Business,
+}
+
+
 interface IProduct {
     id: string,
-    revu_suprise: RevuSurprise,
+    revu_surprise: RevuSurprise,
     price: number,
     amount: number,
     total: number,
@@ -65,7 +71,14 @@ export interface IShopping {
     detail: IDetails,
     distribution: IDistribution,
     user: User,
-    
+}
+
+export interface IShoppingByRevuSurprise {
+    id: string,
+    created_at: string,
+    products: IProduct[],
+    distribution: IDistributionByRevuSurprise,
+    user: User,
 }
 
 export interface IShoppingDetails {

@@ -86,6 +86,6 @@ export const businesseStore = createStore<IbusinesseStore>((set) => ({
         }
     },
     resetBusiness: () => {
-        set({ updateBusinessResponse: null,  uploadCoverPhotoResponse: null, uploadLogoResponse:null });
+        set({ updateBusinessResponse: null,  uploadCoverPhotoResponse: null, uploadLogoResponse:null, businessesByIdUser: null });
     }
 }));

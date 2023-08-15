@@ -4,7 +4,7 @@ import Modal from "../../modal/Modal";
 import { ModalFormNotifications } from "../../modal/ModalFormNotifications";
 import { useStore } from "zustand";
 import { notificationStore } from "../../../../store/notificationStore";
-import { getType, toastSuccess } from "../../../../helpers";
+import { getTypeNotification, toastSuccess } from "../../../../helpers";
 import { INotificationSettings } from "../../../../interfaces";
 
 export const NotificationsPartner = () => {
@@ -19,7 +19,7 @@ export const NotificationsPartner = () => {
 
   useEffect(() => {
     if (updateStateResponse && updateStateResponse.message === 'success') {
-      toastSuccess('Se actualizó el estado correctamente');
+      toastSuccess('Status updated successfully.');
       getNotificationsPartner('PARTNER');
       reset();
     }
@@ -28,7 +28,7 @@ export const NotificationsPartner = () => {
 
   useEffect(() => {
     if (updateNotificationResponse && updateNotificationResponse.message === 'success') {
-      toastSuccess('Se actualizó el mensaje correctamente');
+      toastSuccess('Message updated successfully.');
       handleCloseModal();
       getNotificationsPartner('PARTNER');
       reset();
@@ -51,29 +51,33 @@ export const NotificationsPartner = () => {
     updateState(id)
   }
 
+  function getTypeNotificion(notification_type: string): import("react").ReactNode {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div className="notifications">
       <div className="partnersAdmin__conatinerTable">
         <table className="partnersAdmin__table">
           <thead>
             <tr>
-              <th>Tipo</th>
-              <th>Mensaje</th>
-              <th>Descripción</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+              <th>Type</th>
+              <th>Message</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {notificationsPartner?.map((notification, index) => (
               <tr key={index}>
-                <td>{getType(notification.notification_type)}</td>
+                <td>{getTypeNotification(notification.notification_type)}</td>
                 <td>{notification.message}</td>
                 <td>{notification.description}</td>
                 {notification.status ?
-                  <td className="center"><span className="status--green">Activo</span></td>
+                  <td className="center"><span className="status--green">Active</span></td>
                   :
-                  <td className="center"><span className="status--red">Incativo</span></td>
+                  <td className="center"><span className="status--red">Inactive</span></td>
                 }
                 <td className="center">
                   <div className="icons">

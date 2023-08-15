@@ -4,14 +4,14 @@ export const LoginSchema = yup
 .object({
   email: yup
     .string()
-    .required("Este campo es obligatorio")
-    .min(5, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(40, ({ max }) => `Máximo ${max} caracteres`)
-    .email("Ingresa un correo valido"),
+    .required("This field is mandatory")
+    .min(5, ({ min }) => `Minimum ${min} characters`)
+    .max(40, ({ max }) => `Maximum ${max} characters`)
+    .email("Enter a valid email"),
   password: yup
     .string()
-    .required("Este campo es obligatorio")
-    .min(7, ({ min }) => `Mínimo ${min} caracteres`)
-    .max(20, ({ max }) => `Máximo ${max} caracteres`)
+    .required("This field is mandatory")
+    .min(7, ({ min }) => `Minimum ${min} characters`)
+    .max(20, ({ max }) => `Maximum ${max} characters`)
 })
 .required();

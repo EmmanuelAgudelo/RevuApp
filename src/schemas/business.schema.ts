@@ -4,11 +4,11 @@ export const BusinessSchema = yup
     .object({
         name: yup
             .string()
-            .required("Este campo es obligatorio")
-            .min(5, ({ min }) => `Mínimo ${min} caracteres`)
-            .max(20, ({ max }) => `Máximo ${max} caracteres`),
+            .required("This field is mandatory")
+            .min(5, ({ min }) => `Minimum ${min} characters`)
+            .max(20, ({ max }) => `Maximum ${max} characters`),
         category: yup
             .string()
-            .required("Este campo es obligatorio"),
+            .required("This field is mandatory"),
     })
     .required();

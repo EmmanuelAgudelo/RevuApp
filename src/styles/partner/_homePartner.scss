@@ -67,16 +67,17 @@
             @include m.desktop {
                 width: 100%;
                 margin-bottom: 5rem;
-
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
             }
 
             span {
                 font-weight: 400;
                 display: block;
 
-                @include m.desktop {
-                    display: flex;
-                }
+
             }
         }
 

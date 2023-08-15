@@ -5,15 +5,15 @@ import { FaRegAddressCard } from "react-icons/fa";
 import { RiRestaurantLine } from "react-icons/ri";
 import { BsBank } from "react-icons/bs";
 import { BiUserCircle, BiLockAlt } from "react-icons/bi";
-import { HiOutlineMail,HiOutlineDocumentText } from "react-icons/hi";
+import { HiOutlineMail, HiOutlineDocumentText } from "react-icons/hi";
 import { MdSettingsCell } from "react-icons/md";
 import { IRegister } from "../../interfaces";
 import { RegisterSchema } from "../../schemas";
 import { registerStore } from "../../store";
 
 export const FormRegister = () => {
-    const {register,isLoading} = useStore(registerStore);
-  
+    const { register, isLoading } = useStore(registerStore);
+
     const formik = useFormik<IRegister>({
         initialValues: {
             names: '',
@@ -29,7 +29,7 @@ export const FormRegister = () => {
         },
         validationSchema: RegisterSchema,
         onSubmit: (data) => {
-            const {tyc,...data2} = data;
+            const { tyc, ...data2 } = data;
             register(data2);
         },
     })
@@ -44,11 +44,11 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BiUserCircle className="form__icons--orange" size={30} style={{marginRight:5}} />
+                        <BiUserCircle className="form__icons--orange" size={30} style={{ marginRight: 5 }} />
                         <input
                             type="text"
                             id="names"
-                            placeholder="Nombre completo"
+                            placeholder="Full name"
                             value={names}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -63,10 +63,10 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BiUserCircle className="form__icons--orange" size={30} style={{marginRight:5}} />
+                        <BiUserCircle className="form__icons--orange" size={30} style={{ marginRight: 5 }} />
                         <input
                             type="text"
-                            placeholder="Apellidos"
+                            placeholder="Last names"
                             id="last_names"
                             value={last_names}
                             onChange={formik.handleChange}
@@ -82,11 +82,11 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <HiOutlineMail className="form__icons--orange" size={30} style={{marginRight:5}} />
+                        <HiOutlineMail className="form__icons--orange" size={30} style={{ marginRight: 5 }} />
                         <input
                             type="email"
                             id="email"
-                            placeholder="Correo electrónico"
+                            placeholder="Email address"
                             value={email}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -98,11 +98,11 @@ export const FormRegister = () => {
                 </div>
                 <div className="form__col">
                     <div className="form__group">
-                        <MdSettingsCell className="form__icons--orange" size={30} style={{marginRight:5}} />
+                        <MdSettingsCell className="form__icons--orange" size={30} style={{ marginRight: 5 }} />
                         <input
                             type="text"
                             id="cellphone"
-                            placeholder="Celular de contacto"
+                            placeholder="Contact cell phone"
                             value={cellphone}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -117,14 +117,14 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <FaRegAddressCard className="form__icons--orange" size={25} style={{marginRight:5}} />
+                        <FaRegAddressCard className="form__icons--orange" size={25} style={{ marginRight: 5 }} />
                         <select
                             id="document_type"
                             value={document_type}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                         >
-                            <option value="">Tipo de documento</option>
+                            <option value="">Document type</option>
                             <option value="C.C">Cedula de ciudadania</option>
                             <option value="T.I">Tarjeta de identidad</option>
                             <option value="C.E">Cedula de extranjeria</option>
@@ -136,11 +136,11 @@ export const FormRegister = () => {
                 </div>
                 <div className="form__col">
                     <div className="form__group">
-                        <HiOutlineDocumentText className="form__icons--orange" size={30} style={{marginRight:5}} />
+                        <HiOutlineDocumentText className="form__icons--orange" size={30} style={{ marginRight: 5 }} />
                         <input
                             type="text"
                             id="document"
-                            placeholder="Número de documento"
+                            placeholder="ID number"
                             value={document}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -155,11 +155,11 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BiLockAlt className="form__icons--orange" size={30} style={{marginRight:5}} />
+                        <BiLockAlt className="form__icons--orange" size={30} style={{ marginRight: 5 }} />
                         <input
                             type="password"
                             id="password"
-                            placeholder="Contraseña"
+                            placeholder="Password"
                             value={password}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -172,20 +172,20 @@ export const FormRegister = () => {
             </div>
 
             <h4 className="register__body__title register__body__title--blue">
-                Segundo paso:{" "}
+                Second step:{" "}
                 <span className="register__body__title">
-                    Ingresa los datos de tu establecimiento
+                    Enter your establishment's information
                 </span>{" "}
             </h4>
 
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <BsBank className="form__icons--blue" size={25} style={{marginRight:5}} />
+                        <BsBank className="form__icons--blue" size={25} style={{ marginRight: 5 }} />
                         <input
                             type="text"
                             id="name"
-                            placeholder=" Razón social"
+                            placeholder=" Business name"
                             value={name}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -200,18 +200,18 @@ export const FormRegister = () => {
             <div className="form__row">
                 <div className="form__col">
                     <div className="form__group">
-                        <RiRestaurantLine className="form__icons--blue" size={30} style={{marginRight:5}} />
+                        <RiRestaurantLine className="form__icons--blue" size={30} style={{ marginRight: 5 }} />
                         <select
                             id="category"
                             value={category}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                         >
-                            <option value="">Categoría del establecimiento</option>
+                            <option value="">Establishment category</option>
 
-                            <option value="BAKERY">Panadería</option>
-                            <option value="RESTAURANT">Restaurante</option>
-                            <option value="SUPERMARKET">Supermecado</option>
+                            <option value="BAKERY">Bakery</option>
+                            <option value="RESTAURANT">Restaurant</option>
+                            <option value="SUPERMARKET">Supermarket</option>
                         </select>
                     </div>
                     {formik.touched.category && formik.errors.category && (
@@ -222,14 +222,14 @@ export const FormRegister = () => {
 
             <div className="form__row">
                 <div className="form__col">
-                    <div className="form__group" style={{marginTop:10}}>
+                    <div className="form__group" style={{ marginTop: 10 }}>
                         <input
                             type="checkbox"
                             id="tyc"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                         />
-                        <label className="tyc" >Aceptar <Link to="/tyc">Términos y condiciones</Link> </label>
+                        <label className="tyc" >Accept <Link to="/tyc">Terms and Conditions</Link> </label>
                     </div>
                     {formik.touched.tyc && formik.errors.tyc && (
                         <small className="form__error">{formik.errors.tyc}</small>
@@ -237,18 +237,18 @@ export const FormRegister = () => {
                 </div>
             </div>
 
-            {isLoading?
+            {isLoading ?
                 <input
-                type="submit"
-                value="Cargando ..."
-                className="register__btn"
-                disabled
-              />:
-              <input
-                type="submit"
-                value="Registrar"
-                className="register__btn"
-              />}
+                    type="submit"
+                    value="Loading ..."
+                    className="register__btn"
+                    disabled
+                /> :
+                <input
+                    type="submit"
+                    value="Sign Up"
+                    className="register__btn"
+                />}
         </form>
     )
 }

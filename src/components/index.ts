@@ -17,6 +17,7 @@ export * from './landing/about/Team';
 export * from './landing/about/Figures';
 export * from "./landing/about/Download";
 export * from "./landing/about/Partners";
+export * from "./landing/about/Footer";
 
 
 /* error */

@@ -1,5 +1,4 @@
-import { AiOutlinePlusCircle } from "react-icons/ai"
-import { FaPlusCircle } from "react-icons/fa"
+import { AiOutlineInfoCircle, AiOutlinePlusCircle } from "react-icons/ai"
 import { businesseStore } from "../../../../store";
 import { useStore } from "zustand";
 import { useParams } from "react-router-dom";
@@ -7,12 +6,12 @@ import { useEffect, useState } from "react";
 import { ModalFormRevuSurprise } from "../../modal/ModalFormRevuSurprise";
 import Modal from "../../modal/Modal";
 import { revuSurpriseStore } from "../../../../store/revuSurpriseStore";
-import { toastSuccess } from "../../../../helpers";
+import { calculateRevuPrice, formatMoney, toastSuccess } from "../../../../helpers";
 import { useFormik } from "formik";
 import { IRevuSurprise } from "../../../../interfaces";
 import { RevuSurprise } from "../../../../schemas";
-import { number } from "yup";
 import { RevuSurpriseImages } from "./RevuSurpriseImages";
+import { TableRevuSurprise } from "./TableRevuSurprise";
 
 export const RevuSurprisePartner = () => {
 
@@ -20,6 +19,7 @@ export const RevuSurprisePartner = () => {
   const { findRevuSurprise, revuSurprise, createRevuSurpriseResponse, updateState, updateStateResponse, updateRevuSurprise, updateRevuSurpriseResponse, reset } = useStore(revuSurpriseStore)
   const { id } = useParams();
   const [isOpen, setIsOpen] = useState(false);
+
 
   const formik = useFormik<Omit<IRevuSurprise, 'id'>>({
     initialValues: {
@@ -82,7 +82,7 @@ export const RevuSurprisePartner = () => {
 
   useEffect(() => {
     if (createRevuSurpriseResponse && createRevuSurpriseResponse.message === 'success') {
-      toastSuccess('Se creó correctamente.')
+      toastSuccess('Created successfully.')
       if (businessesByOwner) {
         findRevuSurprise(businessesByOwner.id, id ?? '')
       }
@@ -95,7 +95,7 @@ export const RevuSurprisePartner = () => {
 
   useEffect(() => {
     if (updateStateResponse && updateStateResponse.message === 'success') {
-      toastSuccess('Se cambió el estado correctamente.')
+      toastSuccess('State changed successfully.')
       if (businessesByOwner) {
         findRevuSurprise(businessesByOwner.id, id ?? '')
       }
@@ -107,13 +107,19 @@ export const RevuSurprisePartner = () => {
 
   useEffect(() => {
     if (updateRevuSurpriseResponse && updateRevuSurpriseResponse.message === 'success') {
-      toastSuccess('Se actualizó la revu-sorpresa correctamente.')
+      toastSuccess('Revu Surprise updated successfully.')
       if (businessesByOwner) {
         findRevuSurprise(businessesByOwner.id, id ?? '')
       }
       reset();
     }
   }, [updateRevuSurpriseResponse])
+
+  useEffect(() => {
+    if (price) {
+      formik.setFieldValue('revu_price', calculateRevuPrice(price))
+    }
+  }, [price])
 
   // Manejo del modal
 
@@ -130,13 +136,13 @@ export const RevuSurprisePartner = () => {
       <div className="revuSuprise__header">
         <img src="https://pbs.twimg.com/profile_images/1380267041790300166/uXdEuQ_D_400x400.png" alt="" />
         <div className="revuSuprise__title">
-          <span>Tu Revu Sorpresas</span>
+          <span>Your Revu Surprise</span>
           {businessesByOwner &&
-            <p>{businessesByOwner.name}  - Sede {businessesByOwner.branches.find((branch) => branch._id === id)?.number}</p>
+            <p>{businessesByOwner.name}  - Branch {businessesByOwner.branches.find((branch) => branch._id === id)?.number}</p>
           }
         </div>
         {!revuSurprise &&
-          <button className="btn btn--orange btn--icon" onClick={handleOpenModal}><AiOutlinePlusCircle size={20} style={{ marginRight: '1rem' }} />Crear una nueva Caja</button>
+          <button className="btn btn--orange btn--icon" onClick={handleOpenModal}><AiOutlinePlusCircle size={20} style={{ marginRight: '1rem' }} />Create a New Box</button>
         }
       </div>
       {revuSurprise &&
@@ -147,14 +153,14 @@ export const RevuSurprisePartner = () => {
                 <div className="revuSuprise__form">
                   <div className="revuSuprise__box--cash">
                     <div className={`revuSuprise__box--title ${status ? 'revuSuprise__box--active' : 'revuSuprise__box--inactive'}`}>
-                      <span>Caja #01</span>
+                      <span> Box #01</span>
                       <label className="partnersAdmin__switch">
                         <input type="checkbox" id='status' checked={status} onChange={() => updateState(revuSurprise.id)} />
-                        <label htmlFor='status' title="Cambiar estado"></label>
+                        <label htmlFor='status' title="Change status"></label>
                       </label>
                     </div>
                     <div className="revuSuprise__box--cash--description">
-                      <label htmlFor="">Descripción:</label>
+                      <label htmlFor="">Description:</label>
                       <textarea
                         name="description"
                         id="description"
@@ -169,11 +175,11 @@ export const RevuSurprisePartner = () => {
                   </div>
                   <div className="revuSuprise__box">
                     <div className="revuSuprise__form-control">
-                      <label htmlFor="price">Valor original:</label>
+                      <label htmlFor="price">Original Value:</label>
                       <input
                         style={{ marginLeft: '1.5rem' }}
                         type="number"
-                        placeholder="Valor original"
+                        placeholder="Original Value"
                         id="price"
                         value={price}
                         onChange={formik.handleChange}
@@ -184,27 +190,26 @@ export const RevuSurprisePartner = () => {
                       <small className="form__error">{formik.errors.price}</small>
                     )}
                     <div className="revuSuprise__form-control">
-                      <label htmlFor="revu-value">Valor revu:</label>
+                      <label htmlFor="revu-value">Revu Value:</label>
                       <input
                         style={{ marginLeft: '1.5rem' }}
-                        type="number"
-                        placeholder="Valor Revu"
+                        type="text"
+                        placeholder="Revu Value"
                         id="revu_price"
-                        disabled
-                        value={revu_price}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
+                        readOnly
+                        value={formatMoney(revu_price ?? 0)}
                       />
+                      <a className="revuSuprise__tooltip">
+                        <AiOutlineInfoCircle className="icon" />
+                        <span className="revuSuprise__tooltip-box">This will be the selling price of the revu surprise. </span>
+                      </a>
                     </div>
-                    {formik.touched.revu_price && formik.errors.revu_price && (
-                      <small className="form__error">{formik.errors.revu_price}</small>
-                    )}
                     <div className="revuSuprise__form-control">
-                      <label htmlFor="amount">Cantidad:</label>
+                      <label htmlFor="amount">Amount:</label>
                       <input
                         style={{ marginLeft: '1.5rem' }}
                         type="number"
-                        placeholder="Cantidad"
+                        placeholder="Amount"
                         id="amount"
                         value={amount}
                         onChange={formik.handleChange}
@@ -215,7 +220,7 @@ export const RevuSurprisePartner = () => {
                       <small className="form__error">{formik.errors.amount}</small>
                     )}
                     <div className="revuSuprise__form-control">
-                      <label htmlFor="start_pickup_time">Horario de recogida:</label>
+                      <label htmlFor="start_pickup_time">Start pickup time:</label>
                       <input
                         style={{ marginLeft: '1.5rem' }}
                         type="time"
@@ -230,7 +235,7 @@ export const RevuSurprisePartner = () => {
                       <small className="form__error">{formik.errors.start_pickup_time}</small>
                     )}
                     <div className="revuSuprise__form-control">
-                      <label htmlFor="end_pickup_time">Horario de entrega:</label>
+                      <label htmlFor="end_pickup_time">End pickup time:</label>
                       <input
                         style={{ marginLeft: '1.5rem' }}
                         type="time"
@@ -247,7 +252,7 @@ export const RevuSurprisePartner = () => {
                   </div>
                 </div>
                 <div className="revuSuprise__btn">
-                  <button type="submit" className="btn btn--blue">Guardar cambios</button>
+                  <button type="submit" className="btn btn--blue">Save changes</button>
                 </div>
               </form>
             </div>
@@ -255,9 +260,9 @@ export const RevuSurprisePartner = () => {
           </div>
           <div className="revuSuprise__buttons">
             {status ?
-              <button className="btn btn--outline" onClick={() => updateState(revuSurprise.id)}>Desactivar Caja</button>
+              <button className="btn btn--outline" onClick={() => updateState(revuSurprise.id)}>Desactivate Caja</button>
               :
-              <button className="btn btn--outline" onClick={() => updateState(revuSurprise.id)}>Activar Caja</button>
+              <button className="btn btn--outline" onClick={() => updateState(revuSurprise.id)}>Activate Caja</button>
             }
           </div>
         </>
@@ -265,23 +270,10 @@ export const RevuSurprisePartner = () => {
       <Modal isOpen={isOpen} onClose={handleCloseModal}>
         <ModalFormRevuSurprise />
       </Modal>
-      <hr style={{marginBottom: '2rem', color: 'gray'}} />
-      <div className='supportsPartner__table'>
-        <table className="documentPartner__table">
-          <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Mensaje enviado</th>
-              <th>Respuesta</th>
-            </tr>
-          </thead>
-          <tbody>
-           <tr>
-
-           </tr>
-          </tbody>
-        </table>
-      </div>
+      <hr style={{ marginBottom: '2rem', color: 'gray' }} />
+      {revuSurprise &&
+        <TableRevuSurprise revuId={revuSurprise?.id} />
+      }
     </div>
   )
 }

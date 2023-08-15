@@ -31,32 +31,32 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
         <p className="sidebarAdmin__hamburguer"><HiMenu size={30} style={{ marginRight: 10, color: '#FFF' }} onClick={onUpdate} /></p>
         <div className="sidebarPartner__logo">
           <img src="/images/icono_koala.png" alt="Logo" />
-          <p className='sidebarPartner__greeting'>Hola, <span className='sidebarPartner__greeting--span'>Jairo</span></p>
+          <p className='sidebarPartner__greeting'>Hello <span className='sidebarPartner__greeting--span'></span></p>
         </div>
         <ul className="sidebarPartner__links">
           <li>
             <Link to='home'>
-              <HiOutlineDesktopComputer className='sidebarAdmin__icon' /> Inicio
+              <HiOutlineDesktopComputer className='sidebarAdmin__icon' /> Home
             </Link>
           </li>
           <li>
             <Link to='profile/agent'>
-              <RiHotelLine className='sidebarPartner__icon' /> Mis datos
+              <RiHotelLine className='sidebarPartner__icon' /> My Data
             </Link>
           </li>
           <li>
             <Link to={ businessesByOwner?.branches.length !== 0  ? `revu-surprise/revu/${businessesByOwner?.branches[0]._id}` : 'revu-surprise/revu' }>
-              <GoGift className='sidebarPartner__icon' /> Revu sorpresa
+              <GoGift className='sidebarPartner__icon' /> Revu surprise
             </Link>
           </li>
           <li>
             <Link to="notifications">
-              <HiOutlineBellAlert className='sidebarPartner__icon' /> Notificaciones
+              <HiOutlineBellAlert className='sidebarPartner__icon' /> Notifications
             </Link>
           </li>
           <li>
             <a onClick={handleSubMenuClick} style={{ cursor: 'pointer' }}>
-              <HiOutlineDocumentText className='sidebarPartner__icon' /> Términos legales
+              <HiOutlineDocumentText className='sidebarPartner__icon' /> Legal terms
               {showSubMenu ?
                 <MdArrowDropUp style={{ marginLeft: '2rem' }} />
                 :
@@ -66,13 +66,13 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
             {showSubMenu && (
               <ul className="sidebarPartner__submenu">
                 <li>
-                  <a href="#">Superintendencia</a>
+                  <a href="#">Superintendence</a>
                 </li>
                 <li>
-                  <a href="/dashboard/partner/terms-and-conditions">Terminos y condciones</a>
+                  <a href="/dashboard/partner/terms-and-conditions">Terms and conditions</a>
                 </li>
                 <li>
-                  <a href="#">Politicas y tratamiento de datos</a>
+                  <a href="#">Policies and Data Handling</a>
                 </li>
               </ul>
             )}
@@ -81,9 +81,9 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
 
         <div className="sidebarPartner__btns">
           <Link to="supports" style={{ display: 'flex' }}>
-            <button className='sidebarPartner__btn sidebarPartner__btn--support'>Contacto soporte</button>
+            <button className='sidebarPartner__btn sidebarPartner__btn--support'>Support contact</button>
           </Link>
-          <button className='sidebarPartner__btn sidebarPartner__btn--logout' onClick={() => validateLogout()}>Cerrar sesion</button>
+          <button className='sidebarPartner__btn sidebarPartner__btn--logout' onClick={() => validateLogout()}>Log out</button>
         </div>
       </div>
     </div>

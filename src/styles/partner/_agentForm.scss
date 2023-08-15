@@ -18,6 +18,58 @@
         border-radius: 2rem;
     }
 
+    &__tooltip {
+        position: relative;
+        color: gray;
+        font-size: 2rem;
+
+        .icon {
+            position: absolute;
+            top: -1rem;
+            left: -4rem;
+
+            @include m.desktop {
+                top: -1rem;
+                left: -4rem;
+            }
+        }
+    }
+
+    &__tooltip:hover &__tooltip-box {
+        display: inline-block;
+    }
+
+    &__tooltip-box {
+        position: absolute;
+        z-index: 5000;
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+        border-radius: 1.5rem;
+        padding: .5rem 1rem;
+        background: gray;
+        width: 12rem;
+        left: -5.4rem;
+        top: -10rem;
+        display: none;
+        overflow-wrap: break-word;
+
+        @include m.desktop {
+            left: -5.4rem;
+            top: -10rem;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            border-top: 15px solid gray;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            position: absolute;
+            bottom: -7px;
+        }
+    }
+
     &__btn {
         display: flex;
         flex-direction: column;
@@ -44,7 +96,7 @@
         grid-template-columns: repeat(1, 1fr);
         gap: 2rem;
         row-gap: 3rem;
-        margin: 3rem 0  ;
+        margin: 3rem 0;
 
         @include m.desktop {
             grid-template-columns: repeat(2, 1fr);

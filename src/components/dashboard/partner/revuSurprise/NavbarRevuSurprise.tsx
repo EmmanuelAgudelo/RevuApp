@@ -9,7 +9,7 @@ export const NavbarRevuSurprise = () => {
     return (
         <ul className='navbarProfile'>
             {businessesByOwner?.branches.map((branch) => (
-                <li key={branch._id}><Link to={`revu/${branch._id}`} className={`${location.pathname === `/dashboard/partner/revu-surprise/revu/${branch._id}` ? 'active' : ''}`}>{businessesByOwner.name} - Sede {branch.number}</Link></li>
+                <li key={branch._id}><Link to={`revu/${branch._id}`} className={`${location.pathname === `/dashboard/partner/revu-surprise/revu/${branch._id}` ? 'active' : ''}`}>{businessesByOwner.name} - Branch {branch.number}</Link></li>
             ))
             }
         </ul>

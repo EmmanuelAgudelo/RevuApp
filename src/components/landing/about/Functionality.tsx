@@ -3,7 +3,7 @@ export const Functionality = () => {
   return (
     <div className="container__functionality" id="funcionality">
       <section className="section">
-        <h3 className="section__title">Así funciona nuestra revolución:</h3>
+        <h3 className="section__title">This is how our revolution works:</h3>
         <div className="article">
           <article className="card">
             <img src="/images/paso_01.png" alt="paso 1" className="card__image" />

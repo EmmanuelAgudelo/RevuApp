@@ -246,11 +246,11 @@
         }
     }
 
-    &__image{
+    &__image {
         width: 100%;
         position: relative;
 
-        &--icon{
+        &--icon {
             position: absolute;
             top: .2rem;
             right: .2rem;
@@ -258,7 +258,7 @@
             cursor: pointer;
         }
 
-        img{
+        img {
             border-radius: 1rem;
             width: 8rem;
             height: 8rem;
@@ -290,6 +290,58 @@
                 color: #c4c4c4;
                 font-size: 2rem;
             }
+        }
+    }
+
+    &__tooltip {
+        position: relative;
+        color: gray;
+        font-size: 2rem;
+
+        .icon {
+            position: absolute;
+            top: -1rem;
+            left: -2.5rem;
+
+            @include m.desktop {
+                top: -1rem;
+                left: .2rem;
+            }
+        }
+    }
+
+    &__tooltip:hover &__tooltip-box {
+        display: inline-block;
+    }
+
+    &__tooltip-box {
+        position: absolute;
+        z-index: 5000;
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+        border-radius: 1.5rem;
+        padding: .5rem 1rem;
+        background: gray;
+        width: 10rem;
+        left: -4rem;
+        top: -9rem;
+        display: none;
+        overflow-wrap: break-word;
+
+        @include m.desktop {
+            left: -1.2rem;
+            top: -8.5rem;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            border-top: 15px solid gray;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            position: absolute;
+            bottom: -7px;
         }
     }
 

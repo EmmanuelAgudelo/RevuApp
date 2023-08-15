@@ -16,29 +16,35 @@ export const PartnersAdminDetails = () => {
 
   // Buscar usuario que viene con esa url
 
-  const { findBussinessesByIdUser } = useStore(businesseStore);
-  const { setOption } = useStore(optionStore);
+  const { findBussinessesByIdUser, resetBusiness } = useStore(businesseStore);
+  const { setOption, option } = useStore(optionStore);
 
   useEffect(() => {
     if (id) {
       findBussinessesByIdUser(id);
     }
 
-    return() =>{
-      setOption('')
+    return () => {
+      setOption('');
+      resetBusiness();
     }
   }, []);
 
   return (
     <div className="partnersDetails">
       <section className="partnersDetails__headquarters">
-        <DetailsBranch/>
+        <DetailsBranch />
       </section>
       <section className='partnersDetails__cards'>
         <PartnerInfo />
-        <PartnerSalesProm />
-        <PartnerSales />
-        <PartnerRatings/>
+        {option !== '' &&
+          <>
+            <PartnerSalesProm />
+            <PartnerSales />
+            <PartnerRatings />
+          </>
+        }
+
       </section>
     </div>
   )

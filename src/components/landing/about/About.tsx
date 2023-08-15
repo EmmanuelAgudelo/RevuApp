@@ -5,21 +5,19 @@ export const About = () => {
     <section className="about" id="aboutMe">
       <div className="about__content about__content--container">
         <h1 className="about__title">
-          Llegamos para hacer las cosas diferente<span className="section__title section__title--orange">.</span>
+          We arrived to do things differently<span className="section__title section__title--orange">.</span>
         </h1>
         <p className="about__paragraph">
-          En Revu, nuestro objetivo principal es reducir el desperdicio de
-          comida en Colombia. Somos una plataforma que conecta
-          establecimientos con sobreproducción de comida con usuarios que la
-          compran a un menor precio. Queremos revolucionar la industria
-          gastronómica, <span className="about__paragraph--bold">¿podemos contar contigo?</span>
+          Revu, our main goal is to reduce food waste in Colombia. We are a platform that connects establishments
+          with food overproduction to users who buy it at a lower price. We aim to revolutionize the culinary industry.
+          <span className="about__paragraph--bold"> Can we count on you?</span>
         </p>
         <div className="about__btn">
           <Link to="" className="about__btn__btn">
-            Quiero comprar en Revu
+            I want to make a purchase on Revu
           </Link>
           <Link to="/auth/register" className="about__btn__btn about__btn__btn--blue">
-            Quiero vender en Revu
+            I want to sell on Revu
           </Link>
         </div>
       </div>

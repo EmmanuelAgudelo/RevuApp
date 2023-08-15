@@ -1,20 +1,26 @@
 import {createStore} from 'zustand';
 import { API } from './api';
-import { IShopping, IResponse, IShoppingDetails } from '../interfaces';
+import { IShopping, IResponse, IShoppingDetails, IShoppingByRevuSurprise } from '../interfaces';
 
 interface IShoppingStore {
     shoppings: IShopping[] | null;
     shoppingsDetails: IShoppingDetails | null;
+    shoppingsByRevuSurprise: IShoppingByRevuSurprise[] | null,
+    shoppingsBranches: IShopping[] | null,
     isLoading: boolean;
     error: string | null;
     getShoppings: () => void;
     getShoppingsDetails: () => void;
+    getShoppingsBranches: (business: string, branch: string) => void;
+    getShoppingsByRevuSurprise: (id: string) => void;
     reset: () => void
 
 }
 export const shoppingStore = createStore<IShoppingStore>((set) => ({
     shoppings: null,
     shoppingsDetails: null,
+    shoppingsBranches: null,
+    shoppingsByRevuSurprise: null,
     isLoading: false,
     error: null,
     getShoppings: async () => {
@@ -37,7 +43,26 @@ export const shoppingStore = createStore<IShoppingStore>((set) => ({
         }
         set({ isLoading: false })
     },
-   
+    getShoppingsBranches: async (business: string, branch: string) => {
+        try {
+            set({ isLoading: true })
+            const { data } = await API.get<IResponse>(`/shopping?businesse=${business}&branch=${branch}`, );
+            set({ shoppingsBranches: data.data });
+        } catch (e: any) {
+            set({ error: e?.response?.data.message });
+        }
+        set({ isLoading: false })
+    },
+    getShoppingsByRevuSurprise: async (id: string) => {
+        try {
+            set({ isLoading: true })
+            const { data } = await API.get<IResponse>(`/shopping/${id}`);
+            set({ shoppingsByRevuSurprise: data.data });
+        } catch (e: any) {
+            set({ error: e?.response?.data.message });
+        }
+        set({ isLoading: false })
+    },
     reset: () => {
         set({error:null});
     }

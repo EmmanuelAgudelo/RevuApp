@@ -9,10 +9,10 @@ export const NavbarProfilePartner = () => {
 
     return (
         <ul className='navbarProfile'>
-            <li><Link to='agent' className={`${location.pathname === '/dashboard/partner/profile/agent' ? 'active' : ''}`}>Mis datos <span>Representante</span></Link></li>
-            <li><Link to='password' className={`${location.pathname === '/dashboard/partner/profile/password' ? 'active' : ''}`}>Contraseña</Link></li>
+            <li><Link to='agent' className={`${location.pathname === '/dashboard/partner/profile/agent' ? 'active' : ''}`}>My data <span>User</span></Link></li>
+            <li><Link to='password' className={`${location.pathname === '/dashboard/partner/profile/password' ? 'active' : ''}`}>Password</Link></li>
             {businessesByOwner &&
-                    <li key={businessesByOwner.id}><Link to={'establishment'} className={`${location.pathname === `/dashboard/partner/establishment` ? 'active' : ''}`}>Mis datos <span>{businessesByOwner.name}</span></Link></li>
+                    <li key={businessesByOwner.id}><Link to={'establishment'} className={`${location.pathname === `/dashboard/partner/establishment` ? 'active' : ''}`}>My data <span>{businessesByOwner.name}</span></Link></li>
             }
         </ul>
     )

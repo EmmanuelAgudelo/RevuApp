@@ -9,6 +9,7 @@ interface INotificationStore {
     // notificationUser: INotifications[] | null;
     notifications: INotification[] | null;
     updateStateResponse: IResponse | null;
+    updateReadResponse: IResponse | null;
     updateNotificationResponse: IResponse | null;
     isLoading: boolean;
     error: string | null;
@@ -16,6 +17,7 @@ interface INotificationStore {
     getNotificationsPartner: (role: Role) => void;
     updateNotification: (id: string, body: Pick<INotification, 'message'>) => void;
     updateState: (id: string) => void;
+    updateRead: (id: string) => void;
     reset: () => void;
 }
 
@@ -24,6 +26,7 @@ export const notificationStore = createStore<INotificationStore>((set) => ({
     notificationsPartner: null,
     updateStateResponse: null,
     updateNotificationResponse: null,
+    updateReadResponse: null,
     isLoading: false,
     error: null,
     getNotifications: async () => {
@@ -64,7 +67,16 @@ export const notificationStore = createStore<INotificationStore>((set) => ({
             set({ isLoading: false });
         }
     },
+    updateRead: async (id: string) => {
+        try {
+            set({ isLoading: true });
+            const { data } = await API.put<IResponse>(`/notification/${id}/read`);
+            set({ updateReadResponse: data });
+        } catch (e: any) {
+            set({ isLoading: false });
+        }
+    },
     reset: () => {
-        set({ error: null , updateStateResponse: null, updateNotificationResponse: null});
+        set({ error: null , updateStateResponse: null, updateNotificationResponse: null, updateReadResponse: null});
     }
 }));

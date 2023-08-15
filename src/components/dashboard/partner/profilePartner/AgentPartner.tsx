@@ -57,7 +57,7 @@ export const AgentPartner = () => {
 
   useEffect(() => {
     if (updateUserResponse && updateUserResponse.message === 'success') {
-      toastSuccess('Datos actualizados correctamente.');
+      toastSuccess('Data updated successfully.');
       findBusinessesByOwner()
       reset();
     }
@@ -81,7 +81,7 @@ export const AgentPartner = () => {
               <BiUserCircle className="form__icons--blue" size={30} style={{ marginRight: '1rem' }} />
               <input
                 type="text"
-                placeholder="Nombre"
+                placeholder="Name"
                 id="names"
                 value={names}
                 onChange={formik.handleChange}
@@ -98,7 +98,7 @@ export const AgentPartner = () => {
             <div className="form__group">
               <input style={{ marginLeft: '3.5rem' }}
                 type="text"
-                placeholder="Apellidos"
+                placeholder="Last names"
                 id="last_names"
                 value={last_names}
                 onChange={formik.handleChange}
@@ -117,7 +117,7 @@ export const AgentPartner = () => {
               <input
                 type="email"
                 id="email"
-                placeholder="Correo electrónico"
+                placeholder="Email"
                 value={email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -133,7 +133,7 @@ export const AgentPartner = () => {
               <input
                 type="text"
                 id="cellphone"
-                placeholder="Celular de contacto"
+                placeholder="Cellphone"
                 value={cellphone}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -156,10 +156,10 @@ export const AgentPartner = () => {
                 onBlur={formik.handleBlur}
                 disabled
               >
-                <option value="">Tipo de documento</option>
-                <option value="C.C">Cedula de ciudadania</option>
-                <option value="T.I">Tarjeta de identidad</option>
-                <option value="C.E">Cedula de extranjeria</option>
+                <option value="">Document type</option>
+                <option value="C.C">National ID</option>
+                <option value="T.I">Identity Card</option>
+                <option value="C.E">Foreigner ID</option>
               </select>
             </div>
             {formik.touched.document_type && formik.errors.document_type && (
@@ -171,7 +171,7 @@ export const AgentPartner = () => {
               <input style={{ marginLeft: '3.5rem' }}
                 type="text"
                 id="document"
-                placeholder="Número de documento"
+                placeholder="Document Number"
                 value={document}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -184,7 +184,7 @@ export const AgentPartner = () => {
           </div>
         </div>
         <div className='agentForm__btn'>
-          <button type='submit' className="btn btn--orange">Guardar cambios</button>
+          <button type='submit' className="btn btn--orange">Save Changes</button>
           {/* <button type='button' className="btn btn--orange btn--icon" onClick={handleOpenModal}><AiOutlinePlusCircle size={20} /> Agregar un nuevo establecimiento</button> */}
         </div>
       </form>

@@ -4,8 +4,8 @@ export const NotificationSchema = yup
     .object({
         message: yup
             .string()
-            .required("Este campo es obligatorio")
-            .min(10, ({ min }) => `Mínimo ${min} caracteres`)
-            .max(300, ({ max }) => `Máximo ${max} caracteres`),
+            .required("This field is mandatory")
+            .min(10, ({ min }) => `Minimum ${min} characters`)
+            .max(300, ({ max }) => `Maximum ${max} characters`),
     })
     .required();

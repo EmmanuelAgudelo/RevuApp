@@ -25,7 +25,7 @@ export const PartnerRatings = () => {
             <AiOutlineStar size={70} />
           </div>
           <div className='ratings__description ratings__description--blue'>
-            <p className="ratings__text">Calificaciones</p>
+            <p className="ratings__text">Ratings</p>
           </div>
         </div>
         <div className="ratings__body">

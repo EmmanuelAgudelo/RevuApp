@@ -5,16 +5,16 @@ export const Partners = () => {
         <section className="partners" id="partners">
             <div className="partners__container">
                 <div className="partners__content">
-                    <h3 className="partners__title">Nuestros <span className="partners__title--span">aliados</span> Revu</h3>
-                    <p className="partners__description">Nos vinculamos a la Asociación Colombiana de la Industria Gastronómica. Adicionalmente nos encontramos en diálogo con Hotel de la Ópera, Dunkin' Doughnuts, Grupo Éxito, Mr. Lee, Mr. Ribs, Cotelco, entre otros.</p>
+                    <h3 className="partners__title">Our  <span className="partners__title--span">Revu </span> partners</h3>
+                    <p className="partners__description">We have partnered with the Colombian Association of the Culinary Industry. Additionally, we are in dialogue with Hotel de la Ópera, Dunkin' Donuts, Grupo Éxito, Mr. Lee, Mr. Ribs, Cotelco, among others.</p>
                 </div>
                 <div className="partners__companies">
                     <div className="partners__image">
-                        <img className="partners__logo" src="/images/acodres.png" alt="logo acodres" />
+                        <img className="partners__logo" src="/images/icono_koala.png" alt="logo acodres" />
                     </div>
                     <div className="partners__link">
-                        <Link to={'/auth/register'} className="partners__button partners__button--orange">Únete como establecimiento</Link>
-                        <Link to={'/questions'} className="partners__button partners__button--white">Conoce cómo funciona</Link>
+                        <Link to={'/auth/register'} className="partners__button partners__button--orange">Join us as an establishmen</Link>
+                        <Link to={'/questions'} className="partners__button partners__button--white">Learn how it works</Link>
                     </div>
                 </div>
             </div>

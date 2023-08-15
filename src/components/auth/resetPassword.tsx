@@ -31,7 +31,7 @@ export const ResetPassword = () => {
 
     useEffect(() => {
         if (resetPassword && resetPassword.message === "success") {
-            toastSuccess('Contraseña actulizada');
+            toastSuccess('Password updated');
             setTimeout(() => {
                 window.location.href = "/auth/login";
             }, 3000);
@@ -40,7 +40,7 @@ export const ResetPassword = () => {
 
     useEffect(() => {
         if (error && error === "code_not_found_or_expired") {
-            toastError('ya el codigo expiró');
+            toastError('The code has expired');
         }
         reset();
     }, [error])
@@ -55,7 +55,7 @@ export const ResetPassword = () => {
                 </div>
                 <div className="reset__form">
                     <img src={logo} className='reset__logo' alt="logo" />
-                    <h1 className="reset__title">Crea tu nueva contraseña</h1>
+                    <h1 className="reset__title">Create your new password</h1>
                     {(code && code.data) ?
                     <form onSubmit={formik.handleSubmit} className="form">
                         <div className="form__row">
@@ -67,7 +67,7 @@ export const ResetPassword = () => {
                                     <input
                                         type="password"
                                         id="password"
-                                        placeholder="Contraseña"
+                                        placeholder="Password"
                                         value={password}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
@@ -88,7 +88,7 @@ export const ResetPassword = () => {
                                     <input
                                         type="password"
                                         id="confirmPassword"
-                                        placeholder="Confirmar Contraseña"
+                                        placeholder="Confirm Password"
                                         value={confirmPassword}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
@@ -103,13 +103,13 @@ export const ResetPassword = () => {
                         {isLoading ?
                             <input
                                 type="submit"
-                                value="Cargando ..."
+                                value="Loading ..."
                                 className="reset__btn"
                                 disabled
                             /> :
                             <input
                                 type="submit"
-                                value="Recuperar contraseña"
+                                value="Recover password"
                                 className="reset__btn"
                             />}
 
@@ -124,7 +124,7 @@ export const ResetPassword = () => {
                                     <input
                                         type="password"
                                         id="password"
-                                        placeholder="Contraseña"
+                                        placeholder="Password"
                                         disabled
                                         className='radius'
                                     />
@@ -140,7 +140,7 @@ export const ResetPassword = () => {
                                     <input
                                         type="password"
                                         id="confirmPassword"
-                                        placeholder="Confirmar Contraseña"
+                                        placeholder="Confirm password"
                                         disabled
                                         className='radius'
                                     />
@@ -149,7 +149,7 @@ export const ResetPassword = () => {
                         </div>
                         <input
                             type="button"
-                            value="Recuperar contraseña"
+                            value="Recover password"
                             className="reset__btn"
                             disabled
                             />

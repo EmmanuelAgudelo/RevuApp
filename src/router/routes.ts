@@ -10,19 +10,19 @@ interface IRoutes {
 export const routes: IRoutes = {
     landing:[
         {
-            title:'Conócenos',
+            title:'About Us',
             path: "/#aboutMe"
         },
         {
-            title:'¿Cómo funciona?',
+            title:'How It Works?',
             path: "/#funcionality"
         },
         {
-            title:'Aliados',
+            title:'Partners',
             path: "/#partners"
         },
         {
-            title:'Descarga',
+            title:'Download',
             path: "/#download"
         },
     ]
