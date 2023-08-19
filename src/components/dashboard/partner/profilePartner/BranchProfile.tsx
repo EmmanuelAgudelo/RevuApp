@@ -20,7 +20,7 @@ export const BranchProfile = ({ branch, business }: Props) => {
     const { updateBranch } = useStore(branchStore);
     const [isOpen, setIsOpen] = useState(false);
 
-    const formik = useFormik<Omit<IBranches, 'status' | '_id'>>({
+    const formik = useFormik<Omit<IBranches, 'status' | '_id' | 'legal_documents'>>({
         initialValues: {
             id: '',
             number: 0,
@@ -169,7 +169,7 @@ export const BranchProfile = ({ branch, business }: Props) => {
                 </form>
             </div >
             <Modal isOpen={isOpen} onClose={handleCloseModal}>
-                <ModalDocumentPartner />
+                <ModalDocumentPartner branch={branch} business={business} />
             </Modal>
         </div >
     )

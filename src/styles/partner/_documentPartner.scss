@@ -28,6 +28,20 @@
         }
     }
 
+    &__info{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: gray;
+        font-size: 1.2rem;
+        margin-top: 2rem;
+
+        .icon{
+            font-size: 2rem;
+            margin-right: 2rem;
+        }
+    }
+
     &__icon {
         color: #C2C2C2;
         font-size: 2.5rem;

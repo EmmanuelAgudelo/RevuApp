@@ -88,3 +88,8 @@ export interface IShoppingDetails {
     tax: number,
     payment_gateway: number,
 }
+
+export interface IPromShopping{
+    amount: number,
+    month: string
+}

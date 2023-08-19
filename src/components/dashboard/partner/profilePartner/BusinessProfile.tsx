@@ -4,7 +4,7 @@ import { TbCameraPlus } from 'react-icons/tb'
 import { ChangeEvent, useEffect, useState } from 'react';
 import Modal from '../../modal/Modal';
 import { useStore } from 'zustand';
-import { branchStore, businesseStore } from '../../../../store';
+import { branchStore, businesseStore, uploadFileStore } from '../../../../store';
 import { useFormik } from 'formik';
 import { IBusinesseUser } from '../../../../interfaces';
 import { BusinessSchema } from '../../../../schemas/business.schema';
@@ -16,8 +16,9 @@ import { ModalImageBusiness } from '../../modal/ModalImageBusiness';
 
 export const BusinessProfile = () => {
 
-  const { businessesByOwner, updateBusiness, updateBusinessResponse, findBusinessesByOwner, resetBusiness, uploadLogo, uploadCoverPhoto, uploadCoverPhotoResponse, uploadLogoResponse } = useStore(businesseStore);
+  const { businessesByOwner, updateBusiness, updateBusinessResponse, findBusinessesByOwner, resetBusiness, uploadCoverPhotoResponse, uploadLogoResponse } = useStore(businesseStore);
   const { updateBranchResponse, createBranchResponse, error, reset } = useStore(branchStore);
+  const { uploadFilesResponse, reset:resetFile } = useStore(uploadFileStore)
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [image, setImage] = useState<string>();
@@ -84,9 +85,19 @@ export const BusinessProfile = () => {
     }
     if (error && error === 'address_already_exists') {
       toastError('The branch already exists.');
-      reset();
+      resetFile();
     }
   }, [createBranchResponse, error])
+
+  // UPLOAD LEGAL DOCUMENTS
+
+  useEffect(() => {
+    if (uploadFilesResponse && uploadFilesResponse.message == 'success') {
+      toastSuccess('Se subieron los archivos correctamente');
+      reset();
+      findBusinessesByOwner()
+    }
+  }, [uploadFilesResponse])
 
 
   // Manejo del modal

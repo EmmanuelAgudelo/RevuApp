@@ -11,8 +11,8 @@ interface IBranchStore {
     updateBranchInactiveResponse: IResponse | null;
     isLoading: boolean;
     error: string | null;
-    createBranch: (body: Omit<IBranches, 'status' | '_id'>) => void;
-    updateBranch: (id: string, body: Omit<IBranches, 'status' | '_id'>) => void;
+    createBranch: (body: Omit<IBranches, 'status' | '_id' | 'legal_documents'>) => void;
+    updateBranch: (id: string, body: Omit<IBranches, 'status' | '_id' | 'legal_documents'>) => void;
     updateBranchActive: (body: Pick<IBranches, 'id'>, id: string) => void;
     updateBranchInactive: (body: Pick<IBranches, 'id'>, id: string) => void;
     reset: () => void;
@@ -25,7 +25,7 @@ export const branchStore = createStore<IBranchStore>((set) => ({
     updateBranchInactiveResponse: null,
     isLoading: false,
     error: null,
-    createBranch: async (body: Omit<IBranches, 'status' | '_id'>) => {
+    createBranch: async (body: Omit<IBranches, 'status' | '_id' | 'legal_documents'>) => {
         try {
             set({ isLoading: true })
             const { data } = await API.post<IResponse>('/branch/create', body);
@@ -35,7 +35,7 @@ export const branchStore = createStore<IBranchStore>((set) => ({
         }
         set({ isLoading: false })
     },
-    updateBranch: async (id: string, body: Omit<IBranches, 'status' | '_id'>) => {
+    updateBranch: async (id: string, body: Omit<IBranches, 'status' | '_id' | 'legal_documents'>) => {
         try {
             set({ isLoading: true });
             const { data } = await API.put<IResponse>(`/branch/${id}`, body);

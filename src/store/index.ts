@@ -6,3 +6,4 @@ export * from "./supportStore";
 export * from "./branchStore";
 export * from "./optionStore";
 export * from "./shoppingStore";
+export * from "./uploadFileStore";

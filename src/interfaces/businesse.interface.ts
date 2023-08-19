@@ -23,6 +23,21 @@ export interface IOwner {
     cellphone: string
 }
 
+type Files = {
+    id: string
+    document_type: string;
+    error_message?: string;
+    key: string;
+    status: string;
+    url: string;
+}
+
+interface ILegalDocuments {
+    id: string;
+    created_at: string;
+    files: Files[] | []
+}
+
 export interface IBranches {
     id: string;
     _id: string;
@@ -33,6 +48,7 @@ export interface IBranches {
     phone: string;
     card_number: string;
     status: string;
+    legal_documents: ILegalDocuments;
 }
 
 export interface IBusinesseUser {

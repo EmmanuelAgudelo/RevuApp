@@ -8,7 +8,7 @@ import { businesseStore, optionStore, ratingStore } from '../../../../../store';
 export const PartnerRatings = () => {
 
   const { businessesByIdUser } = useStore(businesseStore);
-  const { getPromRating, reset} = useStore(ratingStore);
+  const { getPromRating} = useStore(ratingStore);
   const { option } = useStore(optionStore);
 
   useEffect(() => {
