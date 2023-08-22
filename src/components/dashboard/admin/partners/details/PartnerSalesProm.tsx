@@ -24,7 +24,7 @@ export const PartnerSalesProm = () => {
             <AiOutlineUsergroupAdd size={70} />
           </div>
           <div className='ratings__description ratings__description--blue'>
-            <p className="ratings__text">Revu Surprise Sold: <span>0</span></p>
+            <p className="ratings__text">Revu Surprise Sold</p>
           </div>
         </div>
         <div className="ratings__body">

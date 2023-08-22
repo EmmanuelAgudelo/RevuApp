@@ -8,7 +8,7 @@ export const ShoppingsChart = () => {
     const sortedData = [...promShopping].sort((a, b) => {
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return months.indexOf(a.month) - months.indexOf(b.month);
-      });
+      }); 
 
     return (
         <ResponsiveContainer width='100%' height="100%">
