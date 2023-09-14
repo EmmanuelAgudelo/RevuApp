@@ -55,6 +55,10 @@
             background: #8181812c;
             color: #000;
             margin: 1.5rem 0;
+
+            @include m.desktop {
+                width: 40%;
+            }
         }
 
         span {
@@ -98,15 +102,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: 3rem;
-    }
-
-    &__icons {
-        padding: 25px;
-        font-size: 20px;
-        display: flex;
-        justify-content: center;
         gap: 2rem;
-        color: #afafaf;
+        margin-bottom: 3rem;
     }
 }

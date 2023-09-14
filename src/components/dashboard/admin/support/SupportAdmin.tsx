@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { supportStore } from '../../../../store/supportStore';
 import { useStore } from 'zustand';
 import { ISupport } from '../../../../interfaces/support.interface';
-import { formatDate, getRole, toastSuccess } from '../../../../helpers';
+import { formatDate, getRole, toastError, toastSuccess } from '../../../../helpers';
 
 export const SupportAdmin = () => {
 
@@ -80,7 +80,12 @@ const TextArea = ({ support }: Props) => {
     const { updateAnswer } = useStore(supportStore);
 
     const handleAnswer = () => {
-        updateAnswer(support.id, { answer: text })
+        if (text === '') {
+            toastError('You must post an answer')
+        } else {
+            updateAnswer(support.id, { answer: text })
+
+        }
     }
 
     return (

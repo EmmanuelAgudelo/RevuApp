@@ -12,18 +12,19 @@ import { BiPlusCircle } from 'react-icons/bi';
 import { ModalFormBranch } from '../../modal/ModalFormBranch';
 import { BranchProfile } from './BranchProfile';
 import { toastError, toastSuccess } from '../../../../helpers';
-import { ModalImageBusiness } from '../../modal/ModalImageBusiness';
+import ModalImageBusiness from '../../modal/ModalImageBusiness';
 
 export const BusinessProfile = () => {
 
   const { businessesByOwner, updateBusiness, updateBusinessResponse, findBusinessesByOwner, resetBusiness, uploadCoverPhotoResponse, uploadLogoResponse } = useStore(businesseStore);
   const { updateBranchResponse, createBranchResponse, error, reset } = useStore(branchStore);
-  const { uploadFilesResponse, reset:resetFile } = useStore(uploadFileStore)
+  const { uploadFilesResponse, reset: resetFile, updateFileResponse } = useStore(uploadFileStore);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
-  const [image, setImage] = useState<string>();
-  const [nameImage, setnameImage] = useState<string>();
+  const [changeName, setChangeName] = useState('');
 
+
+  // FORMIK
   const formik = useFormik<Pick<IBusinesseUser, "name" | "category">>({
     initialValues: {
       name: '',
@@ -59,8 +60,6 @@ export const BusinessProfile = () => {
   useEffect(() => {
     if (uploadCoverPhotoResponse && uploadCoverPhotoResponse.message === 'success' || uploadLogoResponse && uploadLogoResponse.message === 'success') {
       handleCloseModal2();
-      setImage('')
-      setnameImage('')
       toastSuccess('Image updated successfully.');
       resetBusiness();
     }
@@ -75,6 +74,8 @@ export const BusinessProfile = () => {
       reset();
     }
   }, [updateBranchResponse]);
+
+  // CREATE BRANCH
 
   useEffect(() => {
     if (createBranchResponse && createBranchResponse.message === 'success') {
@@ -93,14 +94,22 @@ export const BusinessProfile = () => {
 
   useEffect(() => {
     if (uploadFilesResponse && uploadFilesResponse.message == 'success') {
-      toastSuccess('Se subieron los archivos correctamente');
+      toastSuccess('"Files were uploaded successfully.');
       reset();
       findBusinessesByOwner()
     }
-  }, [uploadFilesResponse])
+  }, [uploadFilesResponse]);
+
+  useEffect(() => {
+    if (updateFileResponse && updateFileResponse.message == 'success') {
+      toastSuccess('File uploaded successfully.');
+      reset();
+      findBusinessesByOwner()
+    }
+  }, [updateFileResponse])
 
 
-  // Manejo del modal
+  // MODALS
   const handleOpenModal = () => {
     setIsOpen(true);
   };
@@ -109,42 +118,21 @@ export const BusinessProfile = () => {
     setIsOpen(false);
   };
 
-  const handleOpenModal2 = () => {
+  const handleOpenModal2 = (type: string) => {
     setIsOpen2(true);
+    setChangeName(type)
   };
 
   const handleCloseModal2 = () => {
     setIsOpen2(false);
-    setImage('')
-    setnameImage('')
+    setChangeName('')
   };
-
-  //imagenes
-
-  const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
-    setnameImage(e.target.name);
-    const file = e.target.files && e.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        let newImage = image;
-        newImage = reader.result as string;
-        setImage(newImage);
-      };
-      reader.readAsDataURL(file);
-      handleOpenModal2();
-    }
-  }
 
   return (
     <div className='agentForm'>
       <div className='agentForm__btn'>
-        <input type="file" name="logo" id="logo" style={{ display: 'none' }} onChange={(e) => handleImage(e)} accept="image/*" />
-        <label htmlFor="logo" className='btn btn--icon btn--blue'><TbCameraPlus size={20} /> Upload Logo</label>
-
-        <input type="file" name="coverPhoto" id="coverPhoto" style={{ display: 'none' }} onChange={(e) => handleImage(e)} accept="image/*" />
-        <label htmlFor="coverPhoto" className='btn btn--icon btn--blue'><IoImageOutline size={20} /> Upload Cover Photo</label>
+        <button className='btn btn--icon btn--blue' onClick={() => handleOpenModal2('LOGO')}><TbCameraPlus size={20} />Change Logo</button>
+        <button className='btn btn--icon btn--blue' onClick={() => handleOpenModal2('COVER_PHOTO')}><TbCameraPlus size={20} />Change cover photo</button>
       </div>
       {businessesByOwner &&
         <form className='form' onSubmit={formik.handleSubmit}>
@@ -195,10 +183,11 @@ export const BusinessProfile = () => {
       }
       <div className='agentForm__branches'>
         {businessesByOwner?.branches?.map((branch) => (
+          branch.status === 'ACTIVE' && 
           <BranchProfile key={branch._id} branch={branch} business={businessesByOwner.id} />
         ))}
         <div className='agentForm__cards agentForm__cards-add'>
-          <div className='agentForm__branches--card agentForm__branches--card-add'>
+          <div className='agentForm__branches--card-add'>
             <div className="agentForm__branches--form-group agentForm__branches--form-group-add">
               <button type='button' onClick={handleOpenModal} className='btn btn--icon btn--gray'>
                 <BiPlusCircle size={20} />
@@ -213,7 +202,7 @@ export const BusinessProfile = () => {
       </Modal>
 
       <Modal isOpen={isOpen2} onClose={handleCloseModal2}>
-        <ModalImageBusiness image={image} name={nameImage} />
+        <ModalImageBusiness type={changeName} />
       </Modal>
     </div>
 

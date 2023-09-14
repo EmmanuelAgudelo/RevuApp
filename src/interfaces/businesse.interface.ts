@@ -3,8 +3,6 @@ export interface IBusinesse {
     owner: string;
     name: string;
     category: string;
-    department: string;
-    city: string;
     address: string;
     phone: string;
     banking_information: string;
@@ -24,17 +22,18 @@ export interface IOwner {
 }
 
 type Files = {
-    id: string
+    _id: string
     document_type: string;
     error_message?: string;
     key: string;
     status: string;
     url: string;
+    created_at: string;
+    updated_at: string;
 }
 
 interface ILegalDocuments {
     id: string;
-    created_at: string;
     files: Files[] | []
 }
 
@@ -42,13 +41,11 @@ export interface IBranches {
     id: string;
     _id: string;
     number: number;
-    department: string;
-    city: string;
     address: string;
     phone: string;
-    card_number: string;
     status: string;
     legal_documents: ILegalDocuments;
+    coordinates: [number, number];
 }
 
 export interface IBusinesseUser {
@@ -58,6 +55,8 @@ export interface IBusinesseUser {
     category: string;
     status: boolean;
     branches: IBranches[] | [];
+    logo: {url:string}
+    cover_photo: {url:string}
 }
 
 export interface IBusinesseForm {

@@ -47,8 +47,8 @@ export const RatingsAdmin = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {ratings?.map((rating: IRating) => (
-                            <tr key={rating.id}>
+                        {ratings?.map((rating: IRating, index) => (
+                            <tr key={index}>
                                 <td>{rating.businesse}</td>
                                 <td>{rating.branch}</td>
                                 <td className='center'><RatingsStar rating={rating.rating} /></td>

@@ -2,10 +2,10 @@ import * as yup from "yup";
 
 export const SupportSchema = yup
     .object({
-        question: yup
+        message: yup
             .string()
             .required("This field is mandatory")
-            .min(10, ({ min }) => `Mínimo ${min} caracteres`)
+            .min(5, ({ min }) => `Minimum ${min} characters`)
             .max(200, ({ max }) => `Maximum ${max} characters`),
     })
     .required();

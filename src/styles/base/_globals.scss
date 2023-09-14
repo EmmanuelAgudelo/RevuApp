@@ -187,9 +187,64 @@ select.radius {
   right: 2rem;
 }
 
-.icons{
+.icons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+
+.modal-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+
+  &__icon {
+    &--check {
+      color: #008817;
+    }
+
+    &--uncheck {
+      color: #e70000;
+    }
+
+    &--pending {
+      color: v.$orange;
+    }
+
+    &--gray {
+      color: gray;
+    }
+  }
+}
+
+.description-cell {
+  position: relative;
+}
+
+.short-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tooltip-trigger {
+  cursor: pointer;
+  color: gray;
+}
+
+.full-description {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border-radius: 2rem;
+  padding: 5px;
+  z-index: 1;
+  display: none;
+}
+
+.description-cell:hover .full-description {
+  display: block;
 }

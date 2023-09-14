@@ -41,8 +41,8 @@ export const PartnerSales = () => {
                                             <td>
                                                 <div className='shopping__control'>
                                                     {shoping.products.map((product, index) => (
-                                                        <>
-                                                            <ul key={index}>
+                                                        <div key={index}>
+                                                            <ul>
                                                                 <li className="shopping__row">
                                                                     <span className='shopping__text-title'>Product:</span>
                                                                     <p className='shopping__text-normal'>Revu surprise (x{product.amount})</p>
@@ -61,7 +61,7 @@ export const PartnerSales = () => {
                                                                 :
                                                                 <hr style={{ border: '1px dashed gray' }} />
                                                             }
-                                                        </>
+                                                        </div>
                                                     ))
                                                     }
 

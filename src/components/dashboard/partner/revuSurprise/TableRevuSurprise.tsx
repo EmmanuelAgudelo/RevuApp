@@ -42,7 +42,6 @@ export const TableRevuSurprise = ({ revuId }: Props) => {
                                     <td>
                                         <div className='shopping__control'>
                                             {shoping.products.map((product, index) => (
-                                                <>
                                                     <ul key={index}>
                                                         {product.revu_surprise.id === revuId &&
                                                             <>
@@ -61,7 +60,6 @@ export const TableRevuSurprise = ({ revuId }: Props) => {
                                                             </>
                                                         }
                                                     </ul>
-                                                </>
                                             ))
                                             }
                                         </div>

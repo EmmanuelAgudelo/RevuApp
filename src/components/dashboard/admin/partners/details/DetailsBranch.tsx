@@ -1,39 +1,20 @@
-import { useEffect, useState } from 'react'
-import { AiOutlineMail } from 'react-icons/ai'
-import { BiMobile } from 'react-icons/bi'
+import { useState } from 'react'
 import Modal from '../../../modal/Modal'
 import { BsBank } from "react-icons/bs";
-import { ModalContentBranch } from '../../../modal/ModalContentBranch'
+import { ModalContentBranch } from '../../../modal/ModalDocumentBranch'
 import { useStore } from 'zustand'
 import { branchStore, businesseStore, optionStore } from '../../../../../store'
-import { IBranches, IBusinesseUser } from '../../../../../interfaces'
-import { toastSuccess } from '../../../../../helpers';
-import { useParams } from 'react-router-dom';
+import { BodyDetails } from './BodyDetails';
 
 
 export const DetailsBranch = () => {
 
   // Modal
   const [isOpen, setIsOpen] = useState(false);
-  const { id } = useParams();
-  const { businessesByIdUser, findBussinessesByIdUser } = useStore(businesseStore);
-  const { updateBranchActive, updateBranchActiveResponse, updateBranchInactiveResponse, updateBranchInactive, reset } = useStore(branchStore);
+  const { businessesByIdUser } = useStore(businesseStore);
+  const { updateBranchActive, updateBranchInactive } = useStore(branchStore);
   const { setOption, option } = useStore(optionStore);
-
-  useEffect(() => {
-    if (updateBranchActiveResponse && updateBranchActiveResponse.message === 'success') {
-      toastSuccess('Branch activated successfully.');
-      reset();
-      findBussinessesByIdUser(id);
-    }
-
-    if (updateBranchInactiveResponse && updateBranchInactiveResponse.message === 'success') {
-      toastSuccess('Branch deactivated successfully.');
-      reset();
-      findBussinessesByIdUser(id);
-    }
-  }, [updateBranchActiveResponse, updateBranchInactiveResponse])
-
+  
 
   // Manejo del modal
   const handleOpenModal = () => {
@@ -84,13 +65,9 @@ export const DetailsBranch = () => {
       {option !== '' &&
         <div className="headquarters__footer">
           <button className='btn btn--blue' onClick={handleOpenModal}>
-            <BsBank size={20} className='headquarters__btn--icon' />
+            <BsBank size={20} className='headquarters__btn--icon'  />
             <span>Legal documents</span>
           </button>
-          <div className="headquarters__icons">
-            <AiOutlineMail size={25} />
-            <BiMobile size={25} />
-          </div>
           {businessesByIdUser &&
             businessesByIdUser.branches.find((branch) => branch._id === option)?.status == 'PENDING_APPROVAL' || businessesByIdUser?.branches.find((branch) => branch._id === option)?.status == 'INACTIVE' ?
             <button className="btn btn--orange" onClick={() => handleActive(option, businessesByIdUser.id ?? '')}>
@@ -111,44 +88,3 @@ export const DetailsBranch = () => {
   )
 }
 
-interface Props {
-  businessesByIdUser: IBusinesseUser | null,
-}
-
-const BodyDetails = ({ businessesByIdUser }: Props) => {
-
-  const { option } = useStore(optionStore);
-  const [branch, setBranch] = useState<IBranches | null>()
-
-  useEffect(() => {
-    setBranch(businessesByIdUser?.branches.find((branch) => branch._id === option) ?? null)
-  }, [option])
-
-  return (
-    <>
-      {branch ?
-        <>
-          <div className='headquarters__active' style={{ marginTop: '0' }}>
-            {branch.status === 'PENDING_APPROVAL' ?
-              <span className='status--orange'>Pending</span>
-              : branch.status === 'INACTIVE' ?
-                <span className='status--red'>Inactive</span>
-                :
-                <span className='status--green'>Active</span>
-            }
-          </div>
-          <div className="headquarters__body-inputs">
-            <input type="text" disabled value={branch.city} />
-            <input type="text" disabled value={branch.department} />
-            <input type="text" disabled value={branch.address} />
-            <input type="text" disabled value={branch.phone} />
-            <input type="text" disabled value={branch.card_number} />
-          </div></>
-        :
-        <div className='headquarters__null'>
-          <span>Select a branch</span>
-        </div>
-      }
-    </>
-  )
-}

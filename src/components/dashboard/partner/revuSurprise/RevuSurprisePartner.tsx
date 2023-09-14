@@ -134,9 +134,9 @@ export const RevuSurprisePartner = () => {
   return (
     <div className="revuSuprise">
       <div className="revuSuprise__header">
-        <img src="https://pbs.twimg.com/profile_images/1380267041790300166/uXdEuQ_D_400x400.png" alt="" />
+        <img src={businessesByOwner?.logo.url?? '/images/no_image.jpg'} alt="" />
         <div className="revuSuprise__title">
-          <span>Your Revu Surprise</span>
+           <span>Your Revu Surprise</span>
           {businessesByOwner &&
             <p>{businessesByOwner.name}  - Branch {businessesByOwner.branches.find((branch) => branch._id === id)?.number}</p>
           }

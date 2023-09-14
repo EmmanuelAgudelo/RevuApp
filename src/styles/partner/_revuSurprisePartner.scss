@@ -43,7 +43,8 @@
             width: 6rem;
             height: 6rem;
             border-radius: 5rem;
-
+            object-fit: cover;
+            object-position: center;
             @include m.desktop {
                 width: 4rem;
                 height: 4rem;

@@ -4,7 +4,7 @@ import { useStore } from 'zustand';
 
 export const RatingChart = () => {
     const { promRatings } = useStore(ratingStore);
-
+    
     return (
         <ResponsiveContainer width='100%' height="100%">
             <LineChart data={promRatings}>

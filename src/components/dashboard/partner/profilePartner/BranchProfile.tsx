@@ -1,7 +1,7 @@
 import { useStore } from "zustand";
 import { IBranches } from "../../../../interfaces";
 import { branchStore } from "../../../../store";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFormik } from "formik";
 import { BranchSchema } from "../../../../schemas";
 import Modal from "../../modal/Modal";
@@ -9,6 +9,8 @@ import { ModalDocumentPartner } from "../../modal/ModalDocumentPartner";
 import { BsTelephone } from "react-icons/bs";
 import { AiOutlineCreditCard, AiOutlineInfoCircle } from "react-icons/ai";
 import { IoLocationOutline } from "react-icons/io5";
+import { useJsApiLoader, Autocomplete } from "@react-google-maps/api";
+
 
 interface Props {
     branch: IBranches;
@@ -20,36 +22,82 @@ export const BranchProfile = ({ branch, business }: Props) => {
     const { updateBranch } = useStore(branchStore);
     const [isOpen, setIsOpen] = useState(false);
 
+    // GOOGLE MAPS
+
+    const [addressLocation, setAddressLocation] = useState('')
+    const [location, setLocation] = useState({
+        lat: 0,
+        lng: 0,
+    })
+
+    const addressRef = useRef<HTMLInputElement>(null);
+
+    let autocomplete: google.maps.places.Autocomplete | null = null;
+    
     const formik = useFormik<Omit<IBranches, 'status' | '_id' | 'legal_documents'>>({
         initialValues: {
             id: '',
             number: 0,
-            city: '',
-            department: '',
             address: '',
-            card_number: '',
             phone: '',
+            coordinates: [0, 0]
         },
         validationSchema: BranchSchema,
         onSubmit: (data) => {
-            updateBranch(branch._id, data);
+            updateBranch(branch._id, { ...data, coordinates: [location.lat, location.lng], address: addressLocation });
         },
     });
 
-    const { city, department, number, address, card_number, phone } = formik.values;
+    const { number, phone, address } = formik.values;
 
     useEffect(() => {
         formik.setValues({
             id: business,
             number: branch.number,
-            department: branch.department,
-            city: branch.city,
             address: branch.address,
             phone: branch.phone,
-            card_number: branch.card_number,
+            coordinates: branch.coordinates
         })
+        setAddressLocation(branch.address)
     }, [])
 
+
+    useEffect(() => {
+        const addresField = addressRef.current;
+
+        if (addresField) {
+            autocomplete = new window.google.maps.places.Autocomplete(addresField, {
+                fields: ["formatted_address", "geometry"],
+            });
+
+            addresField.focus();
+
+            autocomplete.addListener("place_changed", fillInAddress);
+
+            return () => {
+                if (autocomplete) {
+                    google.maps.event.clearInstanceListeners(autocomplete);
+                }
+            };
+        }
+    }, []);
+
+    const { } = useJsApiLoader(
+        {
+            googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+            libraries: ['places'],
+        }
+    )
+
+    function fillInAddress() {
+
+        if (!autocomplete) return;
+
+        const place = autocomplete.getPlace();
+
+        setAddressLocation(place.formatted_address ?? '');
+        setLocation({ ...location, lat: place.geometry?.location?.lat() ?? 0, lng: place.geometry?.location?.lng() ?? 0 })
+    }
 
     // Manejo del modal
     const handleOpenModal = () => {
@@ -68,59 +116,21 @@ export const BranchProfile = ({ branch, business }: Props) => {
                     <div className="form__row">
                         <div className="form__col">
                             <div className="agentForm__branches--form-group">
-                                <input style={{ marginLeft: '2.5rem' }}
-                                    placeholder="City"
-                                    type="text"
-                                    id="city"
-                                    value={city}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                />
-
-                            </div>
-                            {formik.touched.city && formik.errors.city && (
-                                <small className="form__error">{formik.errors.city}</small>
-                            )}
-                        </div>
-                        <div className="form__col">
-                            <div className="agentForm__branches--form-group">
-                                <input
-                                    style={{ marginLeft: '2.5rem' }}
-                                    placeholder="Department"
-                                    type="text"
-                                    id="department"
-                                    value={department}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                />
-
-                            </div>
-                            {formik.touched.department && formik.errors.department && (
-                                <small className="form__error">{formik.errors.department}</small>
-                            )}
-                        </div>
-                    </div>
-
-                    <div className="form__row">
-                        <div className="form__col">
-                            <div className="agentForm__branches--form-group">
                                 <IoLocationOutline className="form__icons--blue" size={20} />
                                 <input
-                                    placeholder="Address"
+                                    ref={addressRef}
                                     type="text"
-                                    id="address"
-                                    value={address}
-                                    onChange={formik.handleChange}
+                                    id="ship-address"
+                                    value={addressLocation}
+                                    onChange={({ target }) => { setAddressLocation(target.value) }}
                                     onBlur={formik.handleBlur}
                                 />
-
                             </div>
                             {formik.touched.address && formik.errors.address && (
                                 <small className="form__error">{formik.errors.address}</small>
                             )}
                         </div>
                     </div>
-
                     <div className="form__row">
                         <div className="form__col">
                             <div className="agentForm__branches--form-group">
@@ -133,31 +143,9 @@ export const BranchProfile = ({ branch, business }: Props) => {
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                 />
-
                             </div>
                             {formik.touched.phone && formik.errors.phone && (
                                 <small className="form__error">{formik.errors.phone}</small>
-                            )}
-                        </div>
-
-                        <div className="form__col">
-                            <div className="agentForm__branches--form-group">
-                                <AiOutlineCreditCard className="form__icons--blue" size={20} />
-                                <input
-                                    placeholder="Card number"
-                                    type="text"
-                                    id="card_number"
-                                    value={card_number}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                />
-                                <a className="agentForm__tooltip">
-                                    <AiOutlineInfoCircle className="icon" />
-                                    <span className="agentForm__tooltip-box">This will be the bank account where the money will be sent. </span>
-                                </a>
-                            </div>
-                            {formik.touched.card_number && formik.errors.card_number && (
-                                <small className="form__error">{formik.errors.card_number}</small>
                             )}
                         </div>
                     </div>

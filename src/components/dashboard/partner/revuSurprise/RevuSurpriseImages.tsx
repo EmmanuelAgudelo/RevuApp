@@ -44,7 +44,7 @@ export const RevuSurpriseImages = ({ id }: Props) => {
                         {image ?
                             <div className='revuSuprise__image'>
                                 <img src={image} alt={`Imagen ${index + 1}`} style={{ maxWidth: "200px", maxHeight: "200px" }} />
-                                <AiOutlineClose className='revuSuprise__image--icon' onClick={() => handleImageRemove(index)} />
+                                <AiOutlineClose className='revuSuprise__image--icon btn--blue' style={{borderRadius: '2rem'}} onClick={() => handleImageRemove(index)} />
                             </div>
                             :
                             <>

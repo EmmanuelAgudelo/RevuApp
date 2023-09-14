@@ -32,6 +32,7 @@ export const SupportsPartner = () => {
     setIsOpen(false);
   };
 
+
   if (!isLoading) {
     return (
       <div className='supportsPartner'>
@@ -86,7 +87,7 @@ export const SupportsPartner = () => {
               </div>
               <div className='supportsPartner__body'>
                 <span>Analyze your audience well</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi illo, similique voluptas iusto culpa eum quasi beatae earum accusantium esse nemo sunt, vel rerum amet sed sit fugiat dolor incidunt!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi illo, similique voluptas iusto culpa eum quasi beatae earum accusantium esse nemo sunt</p>
               </div>
             </div>
             <div className="supportsPartner__card">
@@ -95,7 +96,7 @@ export const SupportsPartner = () => {
               </div>
               <div className='supportsPartner__body'>
                 <span>Analyze your audience well</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi illo, similique voluptas iusto culpa eum quasi beatae earum accusantium esse nemo sunt, vel rerum amet sed sit fugiat dolor incidunt!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi illo, similique voluptas iusto culpa eum quasi beatae earum accusantium esse nemo sunt</p>
               </div>
             </div>
             <div className="supportsPartner__card">
@@ -104,7 +105,7 @@ export const SupportsPartner = () => {
               </div>
               <div className='supportsPartner__body'>
                 <span>Analyze your audience well</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi illo, similique voluptas iusto culpa eum quasi beatae earum accusantium esse nemo sunt, vel rerum amet sed sit fugiat dolor incidunt!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi illo, similique voluptas iusto culpa eum quasi beatae earum accusantium esse nemo sunt</p>
               </div>
             </div>
           </div>

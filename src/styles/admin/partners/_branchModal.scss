@@ -12,10 +12,31 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
+
+    .modal-content::-webkit-scrollbar {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .modal-content::-webkit-scrollbar-track {
+        background: #FFF;
+        border-radius: 2rem;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+        background-color: v.$blue;
+        border-radius: 1rem;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb:hover {
+        background-color: v.$scroll;
+    }
 }
 
 .modal-image {
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
     padding: 2rem;
@@ -40,7 +61,7 @@
     position: relative;
 
     @include m.desktop {
-        max-width: 76rem;
+        max-width: 90rem;
         max-height: 70rem;
     }
 
