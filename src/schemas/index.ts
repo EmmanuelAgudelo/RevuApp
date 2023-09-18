@@ -8,3 +8,4 @@ export * from "./branch.schema";
 export * from "./revuSurprise.schema";
 export * from "./changePassword.schema";
 export * from "./notifications.schema";
+export * from "./rejectFile.schema";

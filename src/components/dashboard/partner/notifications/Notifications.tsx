@@ -29,11 +29,15 @@ export const Notifications = () => {
     <div className="notifications">
       <p className="notifications__title">Notifications</p>
       <div className="notifications__cards">
-        {notifications &&
+        {notifications && notifications.length ?
          authentication !== 'verifying' && authentication !== "unauthenticated" &&
           notifications.map((notification, index) => (
             <NotificationsCard key={index} notification={notification} userId={authentication.id} />
-          ))}
+          ))
+        :
+        <>
+        </>
+        }
       </div>
     </div>
   );

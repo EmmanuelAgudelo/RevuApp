@@ -2,19 +2,27 @@ import { createStore } from 'zustand';
 import { API } from './api';
 import { IFormImage, IResponse, IRevuSurprise } from '../interfaces';
 
+type RemoveBody = {
+    data: {
+        id: string;
+    }
+}
+
 interface IRevuSurpriseStore {
     createRevuSurpriseResponse: IResponse | null;
     revuSurprise: IRevuSurprise | null;
     updateStateResponse: IResponse | null;
     updateRevuSurpriseResponse: IResponse | null;
     uploadImageResponse: IResponse | null;
+    removeImageResponse: IResponse | null;
     isLoading: boolean;
     error: string | null;
     createRevuSurprise: (body: Omit<IRevuSurprise, 'id' | 'status' | 'revu_price'>) => void;
     findRevuSurprise: (business: string, branch: string) => void;
-    updateRevuSurprise: (id: string, body: Omit<IRevuSurprise, 'status' | 'id'>) => void;
+    updateRevuSurprise: (id: string, body: Omit<IRevuSurprise, 'status' | 'id' | 'images'>) => void;
     updateState: (id: string) => void;
     uploadImage: (id: string, body: IFormImage) => void;
+    removeImage: (id: string, body: RemoveBody) => void;
     reset: () => void
 }
 
@@ -24,6 +32,7 @@ export const revuSurpriseStore = createStore<IRevuSurpriseStore>((set) => ({
     updateStateResponse: null,
     updateRevuSurpriseResponse: null,
     uploadImageResponse: null,
+    removeImageResponse: null,
     isLoading: false,
     error: null,
     createRevuSurprise: async (body: Omit<IRevuSurprise, 'id' | 'status' | 'revu_price'>) => {
@@ -45,7 +54,7 @@ export const revuSurpriseStore = createStore<IRevuSurpriseStore>((set) => ({
             set({ isLoading: false });
         }
     },
-    updateRevuSurprise: async (id: string, body: Omit<IRevuSurprise, 'status' | 'id'>) => {
+    updateRevuSurprise: async (id: string, body: Omit<IRevuSurprise, 'status' | 'id' | 'images'>) => {
         try {
             set({ isLoading: true });
             const { data } = await API.put<IResponse>(`/revuSurprise/${id}`, body);
@@ -72,7 +81,16 @@ export const revuSurpriseStore = createStore<IRevuSurpriseStore>((set) => ({
             set({ isLoading: false });
         }
     },
+    removeImage: async (id: string, body: RemoveBody) => {
+        try {
+            set({ isLoading: true });
+            const { data } = await API.delete(`/revuSurprise/${id}/removeImage`, body);
+            set({ removeImageResponse: data });
+        } catch (e: any) {
+            set({ isLoading: false });
+        }
+    },
     reset: () => {
-        set({ error: null, createRevuSurpriseResponse: null, updateStateResponse: null, updateRevuSurpriseResponse: null, uploadImageResponse: null, revuSurprise: null});
+        set({ error: null, createRevuSurpriseResponse: null, updateStateResponse: null, updateRevuSurpriseResponse: null, uploadImageResponse: null, revuSurprise: null, removeImageResponse: null });
     }
 }));

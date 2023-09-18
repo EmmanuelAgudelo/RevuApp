@@ -5,14 +5,17 @@ import { FiSmartphone } from 'react-icons/fi';
 import { useStore } from 'zustand';
 import { userStore } from '../../../../store/userStore';
 import { useEffect, useState } from 'react';
+import { shoppingStore } from '../../../../store';
 
 export const HomeAdmin = () => {
 
-    const { numberOfUsers, numberOfPartners, getnumberOfUsers, getnumberOfPartners} = useStore(userStore)
+    const { numberOfUsers, numberOfPartners, getnumberOfUsers, getnumberOfPartners } = useStore(userStore)
+    const { getShoppings, shoppings } = useStore(shoppingStore)
 
     useEffect(() => {
         getnumberOfPartners()
         getnumberOfUsers()
+        getShoppings()
     }, [])
 
     return (
@@ -41,10 +44,10 @@ export const HomeAdmin = () => {
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--orange">
                     <p className="homeAdmin__text">Revu Surprise Sold</p>
-                    <p className="homeAdmin__number">0</p>
+                    <p className="homeAdmin__number">{shoppings?.length}</p>
                 </div>
             </div>
-            <div className="homeAdmin__card">
+            {/* <div className="homeAdmin__card">
                 <div className="homeAdmin__icon homeAdmin__icon--orange">
                     <FiSmartphone size={70} color='#FAA002' />
                 </div>
@@ -52,8 +55,8 @@ export const HomeAdmin = () => {
                     <p className="homeAdmin__text">App Downloads</p>
                     <p className="homeAdmin__number">0</p>
                 </div>
-            </div>
-            <div className="homeAdmin__card">
+            </div> */}
+            {/* <div className="homeAdmin__card">
                 <div className="homeAdmin__icon homeAdmin__icon--blue">
                     <AiOutlineHeart size={70} color='#1FBAAC' />
                 </div>
@@ -61,7 +64,7 @@ export const HomeAdmin = () => {
                     <p className="homeAdmin__text">App Rating</p>
                     <p className="homeAdmin__number">0</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

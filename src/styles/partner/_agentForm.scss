@@ -8,7 +8,8 @@
         margin: 2rem 0;
     }
 
-    input, .input {
+    input,
+    .input {
         padding: 1.5rem 2rem;
         border-radius: 2rem;
     }
@@ -88,6 +89,28 @@
             &--icon {
                 gap: 1rem;
             }
+        }
+    }
+
+    &__images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    &__image {
+        text-align: center;
+        img{
+            width: 20rem;
+            height: 20rem;
+            object-fit: cover;
+            border-radius: 2.5rem;
+        }
+
+        span {
+            color: gray;
+            font-size: 1.2rem;
         }
     }
 

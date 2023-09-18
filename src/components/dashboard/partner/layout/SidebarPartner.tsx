@@ -45,9 +45,12 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
             </Link>
           </li>
           <li>
-            <Link to={ businessesByOwner?.branches.length !== 0  ? `revu-surprise/revu/${businessesByOwner?.branches[0]._id}` : 'revu-surprise/revu' }>
-              <GoGift className='sidebarPartner__icon' /> Revu surprise
-            </Link>
+            {businessesByOwner && businessesByOwner.branches.length > 0 &&
+              <Link to={businessesByOwner?.branches.length !== 0 ? `revu-surprise/revu/${businessesByOwner?.branches[0]._id}` : 'revu-surprise/revu'}>
+                <GoGift className='sidebarPartner__icon' /> Revu surprise
+              </Link>
+            }
+
           </li>
           <li>
             <Link to="notifications">
@@ -66,13 +69,7 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
             {showSubMenu && (
               <ul className="sidebarPartner__submenu">
                 <li>
-                  <a href="#">Superintendence</a>
-                </li>
-                <li>
                   <a href="/dashboard/partner/terms-and-conditions">Terms and conditions</a>
-                </li>
-                <li>
-                  <a href="#">Policies and Data Handling</a>
                 </li>
               </ul>
             )}

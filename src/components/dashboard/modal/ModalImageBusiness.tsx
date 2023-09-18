@@ -15,10 +15,11 @@ const ModalImageBusiness = ({ type }: Props) => {
     const { uploadLogo, uploadCoverPhoto, businessesByOwner } = useStore(businesseStore);
 
     const [src, setSrc] = useState<string | null>(null);
+    const [format, setFormat] = useState<string | null>(null);
     const [crop, setCrop] = useState<Crop>({
         unit: 'px',
-        width: 500,
-        height: type === 'LOGO' ? 400 : 750,
+        width: type == 'LOGO' ? 400 : 600,
+        height: 400,
         x: 0,
         y: 0
     });
@@ -32,6 +33,7 @@ const ModalImageBusiness = ({ type }: Props) => {
             const reader = new FileReader();
             reader.onload = (event) => {
                 setSrc(event.target?.result as string);
+                setFormat(file.type.split('/')[1])
             };
             reader.readAsDataURL(file);
         }
@@ -72,15 +74,15 @@ const ModalImageBusiness = ({ type }: Props) => {
     const handleSave = () => {
         const data: IFormImage = {
             base64: croppedImage?.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, '') ?? '',
-            format: 'jpg'
+            format: format ?? ''
         }
+
         if (businessesByOwner) {
             if (type === 'LOGO') {
                 uploadLogo(businessesByOwner.id, data)
             }
             else {
                 uploadCoverPhoto(businessesByOwner.id, data)
-
             }
         }
     }
@@ -97,13 +99,13 @@ const ModalImageBusiness = ({ type }: Props) => {
                                     crop={crop}
                                     onChange={(newCrop) => setCrop(newCrop)}
                                     onComplete={handleCropComplete}
-                                    maxWidth={500}
+                                    maxWidth={400}
                                     maxHeight={400}
-                                    minWidth={500}
+                                    minWidth={400}
                                     minHeight={400}
                                     keepSelection
                                 >
-                                    <img src={src} alt="" ref={imageRef} style={{ width: "500px" }} />
+                                    <img src={src} alt="" ref={imageRef} style={{ width: "500px", height: '500px', objectFit: 'cover', objectPosition: 'center' }} />
                                 </ReactCrop>
                             )}
                         </div>
@@ -118,13 +120,13 @@ const ModalImageBusiness = ({ type }: Props) => {
                                     crop={crop}
                                     onChange={(newCrop) => setCrop(newCrop)}
                                     onComplete={handleCropComplete}
-                                    maxWidth={500}
-                                    maxHeight={750}
-                                    minWidth={500}
-                                    minHeight={750}
+                                    maxWidth={600}
+                                    maxHeight={400}
+                                    minWidth={600}
+                                    minHeight={400}
                                     keepSelection
                                 >
-                                    <img src={src} alt="" ref={imageRef} style={{ width: "500px", height: '750px', objectFit: 'cover', objectPosition: 'center' }} />
+                                    <img src={src} alt="" ref={imageRef} style={{ width: "600px", height: '400px', objectFit: 'cover', objectPosition: 'center' }} />
                                 </ReactCrop>
                             )}
                         </div>

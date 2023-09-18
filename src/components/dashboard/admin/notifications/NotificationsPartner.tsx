@@ -69,27 +69,36 @@ export const NotificationsPartner = () => {
             </tr>
           </thead>
           <tbody>
-            {notificationsPartner?.map((notification, index) => (
-              <tr key={index}>
-                <td>{getTypeNotification(notification.notification_type)}</td>
-                <td>{notification.message}</td>
-                <td>{notification.description}</td>
-                {notification.status ?
-                  <td className="center"><span className="status--green">Active</span></td>
-                  :
-                  <td className="center"><span className="status--red">Inactive</span></td>
-                }
-                <td className="center">
-                  <div className="icons">
-                    <label className="partnersAdmin__switch">
-                      <input type="checkbox" id={`switch__btn ${notification.id}`} onChange={() => handleChange(notification.id)} checked={notification.status} />
-                      <label htmlFor={`switch__btn ${notification.id}`} title="Cambiar estado"></label>
-                    </label>
-                    <FaRegEdit className="partnersAdmin__icon" style={{ cursor: 'pointer' }} onClick={() => handleOpenModal(notification)} />
-                  </div>
-                </td>
-              </tr>
-            ))
+            {notificationsPartner && notificationsPartner.length > 0 ?
+              notificationsPartner?.map((notification, index) => (
+                <tr key={index}>
+                  <td>{getTypeNotification(notification.notification_type)}</td>
+                  <td>{notification.message}</td>
+                  <td>{notification.description}</td>
+                  {notification.status ?
+                    <td className="center"><span className="status--green">Active</span></td>
+                    :
+                    <td className="center"><span className="status--red">Inactive</span></td>
+                  }
+                  <td className="center">
+                    <div className="icons">
+                      <label className="partnersAdmin__switch">
+                        <input type="checkbox" id={`switch__btn ${notification.id}`} onChange={() => handleChange(notification.id)} checked={notification.status} />
+                        <label htmlFor={`switch__btn ${notification.id}`} title="Cambiar estado"></label>
+                      </label>
+                      <FaRegEdit className="partnersAdmin__icon" style={{ cursor: 'pointer' }} onClick={() => handleOpenModal(notification)} />
+                    </div>
+                  </td>
+                </tr>
+              ))
+              :
+              <>
+                <tr>
+                  <td className="center" colSpan={5} style={{ display: 'table-cell', borderRadius: '0 0 2rem 2rem' }}>
+                    There is no information.
+                  </td>
+                </tr>
+              </>
             }
           </tbody>
         </table>

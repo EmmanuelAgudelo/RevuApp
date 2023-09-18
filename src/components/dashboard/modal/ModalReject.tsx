@@ -3,6 +3,7 @@ import React from 'react'
 import { HiOutlineMail } from 'react-icons/hi'
 import { StateReject } from '../../../interfaces';
 import { SupportSchema } from '../../../schemas/support.schema';
+import { RejectFileSchema } from '../../../schemas';
 
 interface Props {
     uploadReject: (message: string) => void;
@@ -14,7 +15,7 @@ export const ModalReject = ({uploadReject}: Props) => {
         initialValues: {
             message: '',
         },
-        validationSchema: SupportSchema,
+        validationSchema: RejectFileSchema,
         onSubmit: (data) => {
             uploadReject(data.message);
         },

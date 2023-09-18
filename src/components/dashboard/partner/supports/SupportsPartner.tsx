@@ -52,7 +52,7 @@ export const SupportsPartner = () => {
                 </tr>
               </thead>
               <tbody>
-                {supportsByCreator &&
+                {supportsByCreator && supportsByCreator.length > 0 ?
                   supportsByCreator.map((support) => (
                     <tr>
                       <td>{support.question}</td>
@@ -71,6 +71,14 @@ export const SupportsPartner = () => {
                       <td>{formatDate(support.created_at)}</td>
                     </tr>
                   ))
+                  :
+                  <>
+                    <tr>
+                      <td colSpan={4} style={{ display: 'table-cell', borderRadius: '0 0 2rem 2rem' }}>
+                        There is no information.
+                      </td>
+                    </tr>
+                  </>
                 }
               </tbody>
             </table>
@@ -78,7 +86,7 @@ export const SupportsPartner = () => {
         </div>
         <div className="supportsPartner__sidebar">
           <div className="supportsPartner__title--sidebar">
-          Revu Tips
+            Revu Tips
           </div>
           <div className="supportsPartner__cards">
             <div className="supportsPartner__card">
@@ -116,9 +124,5 @@ export const SupportsPartner = () => {
       </div>
     )
   }
-
-  return (
-    <>Loading...</>
-  )
 
 }

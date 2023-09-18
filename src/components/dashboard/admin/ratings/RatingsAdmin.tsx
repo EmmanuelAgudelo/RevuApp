@@ -19,7 +19,7 @@ export const RatingsAdmin = () => {
 
     // Manejo del modal
 
-    const handleOpenModal = (comment:string|undefined) => {
+    const handleOpenModal = (comment: string | undefined) => {
         setIsOpen(true);
         setComment(comment);
     };
@@ -47,25 +47,34 @@ export const RatingsAdmin = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {ratings?.map((rating: IRating, index) => (
-                            <tr key={index}>
-                                <td>{rating.businesse}</td>
-                                <td>{rating.branch}</td>
-                                <td className='center'><RatingsStar rating={rating.rating} /></td>
-                                <td>{rating.user}</td>
-                                {rating.comment ?
-                                    <td className='center'><span className='ratingsAdmin__comment' onClick={() => handleOpenModal(rating.comment)}>Read comment</span></td>
-                                    :
-                                    <td className='center'><span className=''>No comment</span></td>
-                                }
-                                {rating.status ?
-                                    <td className="center"><span className="status--green">Active</span></td>
-                                    :
-                                    <td className="center"><span className="status--red">Inactive</span></td>
-                                }
-                                <td>{formatDate(rating.created_at)}</td>
-                            </tr>
-                        ))}
+                        {ratings && ratings.length > 0 ?
+                            ratings?.map((rating: IRating, index) => (
+                                <tr key={index}>
+                                    <td>{rating.businesse}</td>
+                                    <td>{rating.branch}</td>
+                                    <td className='center'><RatingsStar rating={rating.rating} /></td>
+                                    <td>{rating.user}</td>
+                                    {rating.comment ?
+                                        <td className='center'><span className='ratingsAdmin__comment' onClick={() => handleOpenModal(rating.comment)}>Read comment</span></td>
+                                        :
+                                        <td className='center'><span className=''>No comment</span></td>
+                                    }
+                                    {rating.status ?
+                                        <td className="center"><span className="status--green">Active</span></td>
+                                        :
+                                        <td className="center"><span className="status--red">Inactive</span></td>
+                                    }
+                                    <td>{formatDate(rating.created_at)}</td>
+                                </tr>
+                            )) :
+                            <>
+                                <tr>
+                                    <td className="center" colSpan={7} style={{ display: 'table-cell', borderRadius: '0 0 2rem 2rem' }}>
+                                        There is no information.
+                                    </td>
+                                </tr>
+                            </>
+                        }
                     </tbody>
                 </table>
             </div>

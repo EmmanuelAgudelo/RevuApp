@@ -45,24 +45,34 @@ export const PartnersAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            {partners?.map(partner => (
-              <tr key={partner?.id}>
-                <td><span><Link to={`/dashboard/admin/partner/${partner.id}`}><AiOutlineEye className="partnersAdmin__icon" title="Detalle" /></Link><p>{partner.names} {partner.last_names}</p></span></td>
-                <td>{partner.email}</td>
-                <td>{partner.cellphone}</td>
-                <td>{partner.document_type}.  {partner.document}</td>
-                {partner.status ?
-                  <td className="center"><span className="status--green">Active</span></td>
-                  :
-                  <td className="center"><span className="status--red">Inactive</span></td>
-                }
-                <td className="center">
-                  <label className="partnersAdmin__switch">
-                    <input type="checkbox" id={`switch__btn ${partner.id}`} onChange={() => handleChange(partner.id)} checked={partner.status} />
-                    <label htmlFor={`switch__btn ${partner.id}`} title="Cambiar estado"></label>
-                  </label></td>
-              </tr>
-            ))}
+            {partners && partners.length > 0 ?
+              partners?.map(partner => (
+                <tr key={partner?.id}>
+                  <td><span><Link to={`/dashboard/admin/partner/${partner.id}`}><AiOutlineEye className="partnersAdmin__icon" title="Detalle" /></Link><p>{partner.names} {partner.last_names}</p></span></td>
+                  <td>{partner.email}</td>
+                  <td>{partner.cellphone}</td>
+                  <td>{partner.document_type}.  {partner.document}</td>
+                  {partner.status ?
+                    <td className="center"><span className="status--green">Active</span></td>
+                    :
+                    <td className="center"><span className="status--red">Inactive</span></td>
+                  }
+                  <td className="center">
+                    <label className="partnersAdmin__switch">
+                      <input type="checkbox" id={`switch__btn ${partner.id}`} onChange={() => handleChange(partner.id)} checked={partner.status} />
+                      <label htmlFor={`switch__btn ${partner.id}`} title="Cambiar estado"></label>
+                    </label></td>
+                </tr>
+              ))
+              :
+              <>
+                <tr>
+                  <td className="center" colSpan={6} style={{ display: 'table-cell', borderRadius: '0 0 2rem 2rem' }}>
+                    There is no information.
+                  </td>
+                </tr>
+              </>
+            }
           </tbody>
         </table>
       </div>

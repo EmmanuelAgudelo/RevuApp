@@ -17,9 +17,7 @@ export const ModalFormSupport = () => {
         },
         validationSchema: SupportSchema,
         onSubmit: (data) => {
-            // createSupport(data)
-            console.log(data);
-            
+            createSupport(data)
         },
     });
 

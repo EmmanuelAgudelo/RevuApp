@@ -62,6 +62,7 @@ export const BusinessProfile = () => {
       handleCloseModal2();
       toastSuccess('Image updated successfully.');
       resetBusiness();
+      findBusinessesByOwner()
     }
 
   }, [uploadCoverPhotoResponse, uploadLogoResponse])
@@ -94,7 +95,7 @@ export const BusinessProfile = () => {
 
   useEffect(() => {
     if (uploadFilesResponse && uploadFilesResponse.message == 'success') {
-      toastSuccess('"Files were uploaded successfully.');
+      toastSuccess('Files were uploaded successfully.');
       reset();
       findBusinessesByOwner()
     }
@@ -134,6 +135,19 @@ export const BusinessProfile = () => {
         <button className='btn btn--icon btn--blue' onClick={() => handleOpenModal2('LOGO')}><TbCameraPlus size={20} />Change Logo</button>
         <button className='btn btn--icon btn--blue' onClick={() => handleOpenModal2('COVER_PHOTO')}><TbCameraPlus size={20} />Change cover photo</button>
       </div>
+      {businessesByOwner &&
+        <div className='agentForm__images'>
+          <div className='agentForm__image'>
+            <img src={businessesByOwner.logo ? businessesByOwner.logo.url : '/images/no_image.jpg'} alt="" />
+            <span>Logo</span>
+          </div>
+          <div className='agentForm__image'>
+            <img src={businessesByOwner.cover_photo ? businessesByOwner.cover_photo.url : '/images/no_image.jpg'} alt="" />
+            <span>Cover Photo</span>
+          </div>
+        </div>
+      }
+
       {businessesByOwner &&
         <form className='form' onSubmit={formik.handleSubmit}>
           <div className="form__row">
@@ -183,7 +197,7 @@ export const BusinessProfile = () => {
       }
       <div className='agentForm__branches'>
         {businessesByOwner?.branches?.map((branch) => (
-          branch.status === 'ACTIVE' && 
+          branch.status === 'ACTIVE' &&
           <BranchProfile key={branch._id} branch={branch} business={businessesByOwner.id} />
         ))}
         <div className='agentForm__cards agentForm__cards-add'>

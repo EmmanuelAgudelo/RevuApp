@@ -30,7 +30,7 @@ export const TableRevuSurprise = ({ revuId }: Props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {shoppingsByRevuSurprise &&
+                        {shoppingsByRevuSurprise && shoppingsByRevuSurprise.length > 0 ?
                             shoppingsByRevuSurprise.map((shoping, index) => (
                                 <tr key={index}>
                                     <td>
@@ -42,24 +42,24 @@ export const TableRevuSurprise = ({ revuId }: Props) => {
                                     <td>
                                         <div className='shopping__control'>
                                             {shoping.products.map((product, index) => (
-                                                    <ul key={index}>
-                                                        {product.revu_surprise.id === revuId &&
-                                                            <>
-                                                                <li className="shopping__row">
-                                                                    <span className='shopping__text-title'>Product:</span>
-                                                                    <p className='shopping__text-normal'>Revu Sorpresa (x{product.amount})</p>
-                                                                </li>
-                                                                <li className="shopping__row">
-                                                                    <span className='shopping__text-title'>Unit value:</span>
-                                                                    <p className='shopping__text-normal'>{formatMoney(product.price)}</p>
-                                                                </li>
-                                                                <li className="shopping__row">
-                                                                    <span className='shopping__text-title'>Total Paid:</span>
-                                                                    <p className='shopping__text-normal' style={{ fontWeight: 'bold' }}>{formatMoney(product.total)}</p>
-                                                                </li>
-                                                            </>
-                                                        }
-                                                    </ul>
+                                                <ul key={index}>
+                                                    {product.revu_surprise.id === revuId &&
+                                                        <>
+                                                            <li className="shopping__row">
+                                                                <span className='shopping__text-title'>Product:</span>
+                                                                <p className='shopping__text-normal'>Revu Sorpresa (x{product.amount})</p>
+                                                            </li>
+                                                            <li className="shopping__row">
+                                                                <span className='shopping__text-title'>Unit value:</span>
+                                                                <p className='shopping__text-normal'>{formatMoney(product.price)}</p>
+                                                            </li>
+                                                            <li className="shopping__row">
+                                                                <span className='shopping__text-title'>Total Paid:</span>
+                                                                <p className='shopping__text-normal' style={{ fontWeight: 'bold' }}>{formatMoney(product.total)}</p>
+                                                            </li>
+                                                        </>
+                                                    }
+                                                </ul>
                                             ))
                                             }
                                         </div>
@@ -74,6 +74,14 @@ export const TableRevuSurprise = ({ revuId }: Props) => {
                                     </td>
                                 </tr>
                             ))
+                            :
+                            <>
+                                <tr>
+                                    <td className="center" colSpan={3} style={{ display: 'table-cell', borderRadius: '0 0 2rem 2rem' }}>
+                                        there aren't shopings
+                                    </td>
+                                </tr>
+                            </>
                         }
                     </tbody>
                 </table>

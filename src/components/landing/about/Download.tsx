@@ -12,21 +12,21 @@ export const Download = () => {
           <h2 className="download__subtitle">the Revu experience?</h2>
         </div>
         <div className="download__buttons">
-          <Link to="#" className="download__button">
+          <Link to={import.meta.env.VITE_GOOGLE_PLAY} className="download__button">
             <img
               src="/images/buttons/google.png"
               alt="gooogle play"
               className="download__network"
             />
           </Link>
-          <Link to="#" className="download__button">
+          <Link to={import.meta.env.VITE_APP_STORE} className="download__button">
             <img
               src="/images/buttons/apple.png"
               alt="apple store"
               className="download__network"
             />
           </Link>
-          <Link to="#" className="download__button">
+          <Link to={import.meta.env.VITE_APP_GALERY} className="download__button">
             <img
               src="/images/buttons/huawei.png"
               alt="App galery"

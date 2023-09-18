@@ -48,9 +48,26 @@
         font-weight: 300;
         line-height: 3rem;
 
+        p{
+            margin-bottom: 2rem;
+        }
+
+        span {
+            font-weight: 500;
+            margin-left: 2.5rem;
+        }
+
+        &--underline {
+            text-decoration: underline;
+        }
+
+        li {
+            list-style: auto;
+            margin-bottom: 2rem;
+        }
+
         @include m.desktop {
             padding: 0 12rem;
-
         }
     }
 }
