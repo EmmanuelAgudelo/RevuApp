@@ -10,9 +10,7 @@ export const BranchSchema = yup
             .max(2, ({ max }) => `Maximum ${max} characters`), 
         address: yup
             .string()
-            .required("This field is mandatory")
-            .min(5, ({ min }) => `Minimum ${min} characters`)
-            .max(200, ({ max }) => `Maximum ${max} characters`),
+            .required("This field is mandatory"),
         phone: yup
             .string()
             .required("This field is mandatory")

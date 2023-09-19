@@ -17,9 +17,26 @@ export const ModalFormBranch = () => {
     const { businessesByOwner } = useStore(businesseStore);
     const { createBranch } = useStore(branchStore);
 
-    // GOOGLE MAPS
+    const formik = useFormik<Omit<IBranches, '_id' | 'legal_documents'>>({
+        initialValues: {
+            id: businessesByOwner ? businessesByOwner.id : '',
+            number: 0,
+            address: '',
+            phone: '',
+            status: '',
+            coordinates: [0, 0],
+        },
+        validationSchema: BranchSchema,
+        onSubmit: (data) => {
+            const { status, ...data2 } = data;
+            createBranch({ ...data2, coordinates: [location.lat, location.lng] });
+        },
+    });
+    const { number, phone, address } = formik.values;
 
-    const [addressLocation, setAddressLocation] = useState('')
+
+    // ***************** GOOGLE MAPS ********************
+    
     const [location, setLocation] = useState({
         lat: 0,
         lng: 0
@@ -37,8 +54,6 @@ export const ModalFormBranch = () => {
                 fields: ["formatted_address", "geometry"],
             });
 
-            addresField.focus();
-
             autocomplete.addListener("place_changed", fillInAddress);
 
             return () => {
@@ -49,7 +64,8 @@ export const ModalFormBranch = () => {
         }
     }, []);
 
-    const {  } = useJsApiLoader(
+
+    const { } = useJsApiLoader(
         {
             googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
             libraries: ['places'],
@@ -62,26 +78,9 @@ export const ModalFormBranch = () => {
 
         const place = autocomplete.getPlace();
 
-        setAddressLocation(place.formatted_address ?? '');
+        formik.setFieldValue('address', place.formatted_address ?? '');
         setLocation({ ...location, lat: place.geometry?.location?.lat() ?? 0, lng: place.geometry?.location?.lng() ?? 0 })
     }
-
-    const formik = useFormik<Omit<IBranches, '_id' | 'legal_documents'>>({
-        initialValues: {
-            id: businessesByOwner ? businessesByOwner.id : '',
-            number: 0,
-            address: '',
-            phone: '',
-            status: '',
-            coordinates: [0, 0],
-        },
-        validationSchema: BranchSchema,
-        onSubmit: (data) => {
-            const { status, ...data2 } = data;
-            createBranch({ ...data2, coordinates: [location.lat, location.lng], address: addressLocation });
-        },
-    });
-    const { number, phone } = formik.values;
 
     return (
         <>
@@ -113,8 +112,10 @@ export const ModalFormBranch = () => {
                                 ref={addressRef}
                                 type="text"
                                 id="ship-address"
-                                value={addressLocation}
-                                onChange={({ target }) => { setAddressLocation(target.value) }}
+                                name="address"
+                                value={address}
+                                onChange={({ target }) => { formik.setFieldValue('address', target.value) }}
+                                onBlur={formik.handleBlur}
                             />
                         </div>
                         {formik.touched.address && formik.errors.address && (

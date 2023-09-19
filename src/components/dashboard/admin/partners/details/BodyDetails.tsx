@@ -22,7 +22,7 @@ export const BodyDetails = ({ businessesByIdUser }: Props) => {
                 <>
                     <div className='headquarters__active' style={{ marginTop: '0' }}>
                         {branch.status === 'PENDING_APPROVAL' ?
-                            <span className='status--orange'>Pending</span>
+                            <span className='status--orange'>Pending Approval</span>
                             : branch.status === 'INACTIVE' ?
                                 <span className='status--red'>Inactive</span>
                                 :

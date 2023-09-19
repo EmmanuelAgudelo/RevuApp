@@ -197,7 +197,6 @@ export const BusinessProfile = () => {
       }
       <div className='agentForm__branches'>
         {businessesByOwner?.branches?.map((branch) => (
-          branch.status === 'ACTIVE' &&
           <BranchProfile key={branch._id} branch={branch} business={businessesByOwner.id} />
         ))}
         <div className='agentForm__cards agentForm__cards-add'>
