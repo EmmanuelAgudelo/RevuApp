@@ -38,7 +38,7 @@ export const DetailsBranch = () => {
   return (
     <div className="headquarters">
       <div className="headquarters__header">
-        <img src="https://pbs.twimg.com/profile_images/1380267041790300166/uXdEuQ_D_400x400.png" alt="" />
+        <img src={businessesByIdUser?.logo.url ?? '/images/no_image.jpg'} alt="" />
       </div>
       <div className="headquarters__body">
         <div className="headquarters__active">

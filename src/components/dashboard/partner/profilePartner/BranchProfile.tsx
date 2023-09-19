@@ -23,18 +23,7 @@ export const BranchProfile = ({ branch, business }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     // GOOGLE MAPS
-
-    const [addressLocation, setAddressLocation] = useState('')
-    const [location, setLocation] = useState({
-        lat: 0,
-        lng: 0,
-    })
-
-    const addressRef = useRef<HTMLInputElement>(null);
-
-    let autocomplete: google.maps.places.Autocomplete | null = null;
-    
-    const formik = useFormik<Omit<IBranches, 'status' | '_id' | 'legal_documents'>>({
+const formik = useFormik<Omit<IBranches, 'status' | '_id' | 'legal_documents'>>({
         initialValues: {
             id: '',
             number: 0,
@@ -44,11 +33,22 @@ export const BranchProfile = ({ branch, business }: Props) => {
         },
         validationSchema: BranchSchema,
         onSubmit: (data) => {
-            updateBranch(branch._id, { ...data, coordinates: [location.lat, location.lng], address: addressLocation });
+            updateBranch(branch._id, { ...data, coordinates: [location.lat, location.lng]});
         },
     });
 
     const { number, phone, address } = formik.values;
+
+    const [location, setLocation] = useState({
+        lat: 0,
+        lng: 0,
+    })
+
+    const addressRef = useRef<HTMLInputElement>(null);
+
+    let autocomplete: google.maps.places.Autocomplete | null = null;
+    
+    
 
     useEffect(() => {
         formik.setValues({
@@ -58,7 +58,7 @@ export const BranchProfile = ({ branch, business }: Props) => {
             phone: branch.phone,
             coordinates: branch.coordinates
         })
-        setAddressLocation(branch.address)
+        // setAddressLocation(branch.address)
     }, [])
 
 
@@ -87,7 +87,7 @@ export const BranchProfile = ({ branch, business }: Props) => {
             googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
             libraries: ['places'],
         }
-    )
+    )   
 
     function fillInAddress() {
 
@@ -95,7 +95,7 @@ export const BranchProfile = ({ branch, business }: Props) => {
 
         const place = autocomplete.getPlace();
 
-        setAddressLocation(place.formatted_address ?? '');
+        formik.setFieldValue(address, place.formatted_address ?? '');
         setLocation({ ...location, lat: place.geometry?.location?.lat() ?? 0, lng: place.geometry?.location?.lng() ?? 0 })
     }
 
@@ -121,8 +121,8 @@ export const BranchProfile = ({ branch, business }: Props) => {
                                     ref={addressRef}
                                     type="text"
                                     id="ship-address"
-                                    value={addressLocation}
-                                    onChange={({ target }) => { setAddressLocation(target.value) }}
+                                    value={address}
+                                    onChange={({ target }) => { formik.setFieldValue(address, target.value) }}
                                     onBlur={formik.handleBlur}
                                 />
                             </div>
