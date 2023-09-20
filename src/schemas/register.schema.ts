@@ -28,7 +28,7 @@ export const RegisterSchema = yup
   document_type: yup
     .string()
     .required("This field is mandatory")
-    .oneOf(['C.C', 'C.E', 'T.I'], 'Invalid document type'),
+    .oneOf(['ID'], 'Invalid document type'),
   document: yup
     .string()
     .required("This field is mandatory")
