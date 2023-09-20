@@ -157,9 +157,7 @@ export const AgentPartner = () => {
                 disabled
               >
                 <option value="">Document type</option>
-                <option value="C.C">National ID</option>
-                <option value="T.I">Identity Card</option>
-                <option value="C.E">Foreigner ID</option>
+                <option value="ID">ID</option>
               </select>
             </div>
             {formik.touched.document_type && formik.errors.document_type && (

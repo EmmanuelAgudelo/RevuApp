@@ -125,9 +125,7 @@ export const FormRegister = () => {
                             onBlur={formik.handleBlur}
                         >
                             <option value="">Document type</option>
-                            <option value="C.C">Cedula de ciudadania</option>
-                            <option value="T.I">Tarjeta de identidad</option>
-                            <option value="C.E">Cedula de extranjeria</option>
+                            <option value="ID">ID</option>
                         </select>
                     </div>
                     {formik.touched.document_type && formik.errors.document_type && (
