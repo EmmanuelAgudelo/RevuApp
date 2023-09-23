@@ -10,7 +10,6 @@ export const HomePartner = () => {
                 <div className='homePartner__card'>
                     <img src="/images/logos/logo-white.svg" alt="" />
                     <p><span>Revu Partner,</span> Complete Your Establishment Details</p>
-                    <button className='btn btn--orange'>Click Here</button>
                 </div>
             </div>
             <div className='homePartner__cards'>

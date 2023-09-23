@@ -88,6 +88,7 @@ export const ModalFormBranch = () => {
             <form onSubmit={formik.handleSubmit} className='form'>
                 <div className="form__row">
                     <div className="form__col">
+                        <label style={{fontSize: '1.2rem', fontWeight: '300'}} htmlFor="question">Branch number:</label>
                         <div className="form__group">
                             <input
                                 style={{ marginLeft: '3.5rem' }}
@@ -112,6 +113,7 @@ export const ModalFormBranch = () => {
                                 ref={addressRef}
                                 type="text"
                                 id="ship-address"
+                                placeholder='Address'
                                 name="address"
                                 value={address}
                                 onChange={({ target }) => { formik.setFieldValue('address', target.value) }}

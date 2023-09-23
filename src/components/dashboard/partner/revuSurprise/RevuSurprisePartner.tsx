@@ -18,6 +18,7 @@ export const RevuSurprisePartner = () => {
   const { businessesByOwner } = useStore(businesseStore);
   const { findRevuSurprise, revuSurprise, createRevuSurpriseResponse, updateState, updateStateResponse, updateRevuSurprise, updateRevuSurpriseResponse, uploadImageResponse, removeImageResponse, reset } = useStore(revuSurpriseStore)
   const { id } = useParams();
+  
   const [isOpen, setIsOpen] = useState(false);
 
 
@@ -157,7 +158,7 @@ export const RevuSurprisePartner = () => {
   return (
     <div className="revuSuprise">
       <div className="revuSuprise__header">
-        <img src={businessesByOwner?.logo.url ?? '/images/no_image.jpg'} alt="" />
+        <img src={businessesByOwner && businessesByOwner?.logo ? businessesByOwner?.logo.url : '/images/no_image.jpg'} alt="" />
         <div className="revuSuprise__title">
           <span>Your Revu Surprise</span>
           {businessesByOwner &&

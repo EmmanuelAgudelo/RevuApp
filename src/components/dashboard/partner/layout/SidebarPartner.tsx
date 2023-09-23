@@ -46,7 +46,7 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
           </li>
           <li>
             {businessesByOwner && businessesByOwner.branches.length > 0 &&
-              <Link to={businessesByOwner?.branches.length !== 0 ? `revu-surprise/revu/${businessesByOwner?.branches[0]._id}` : 'revu-surprise/revu'}>
+              <Link to={businessesByOwner?.branches.length !== 0 && `revu-surprise/revu/${businessesByOwner?.branches[0]._id}`}> 
                 <GoGift className='sidebarPartner__icon' /> Revu surprise
               </Link>
             }

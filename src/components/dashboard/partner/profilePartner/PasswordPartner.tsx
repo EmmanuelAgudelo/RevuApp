@@ -29,9 +29,10 @@ export const PasswordPartner = () => {
       confirmPassword: ''
     },
     validationSchema: ChangePassword,
-    onSubmit: (data) => {
+    onSubmit: (data, {resetForm}) => {
       const { confirmPassword, ...data2 } = data;
       updatePassword(data2);
+      resetForm()
     },
   });
   const { password, newPassword, confirmPassword } = formik.values;
@@ -42,7 +43,6 @@ export const PasswordPartner = () => {
       if (updatePasswordResponse.message === 'success') {
         toastSuccess('Password updated successfully.');
         reset();
-        formik.setValues({password: '', newPassword: '', confirmPassword: ''})
       } else {
         toastError('The old password is incorrect.');
       }
