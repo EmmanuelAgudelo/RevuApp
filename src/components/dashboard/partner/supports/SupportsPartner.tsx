@@ -20,6 +20,8 @@ export const SupportsPartner = () => {
       toastSuccess('Sent successfully.');
       handleCloseModal();
       reset();
+      findSupportsByCreator();
+
     }
   }, [createSupportResponse])
 
@@ -53,8 +55,8 @@ export const SupportsPartner = () => {
               </thead>
               <tbody>
                 {supportsByCreator && supportsByCreator.length > 0 ?
-                  supportsByCreator.map((support) => (
-                    <tr>
+                  supportsByCreator.map((support, index) => (
+                    <tr key={index}>
                       <td>{support.question}</td>
                       {support.is_answered ?
                         <td> {support.answer} </td>
