@@ -8,6 +8,8 @@ interface IShoppingStore {
     shoppingsByRevuSurprise: IShoppingByRevuSurprise[] | null,
     shoppingsBranches: IShopping[] | null,
     promShopping: IPromShopping[],
+    amountRevuSurprise: number;
+    amountRevuSurpriseByOwner: number;
     isLoading: boolean;
     error: string | null;
     getShoppings: () => void;
@@ -15,6 +17,8 @@ interface IShoppingStore {
     getShoppingsBranches: (business: string, branch: string) => void;
     getShoppingsByRevuSurprise: (id: string) => void;
     getPromShopping: (businesse:string, branch:string) => void;
+    getAmountRevuSurprise: () => void;
+    getAmountRevuSurpriseByOwner: () => void;
     reset: () => void
 
 }
@@ -24,6 +28,8 @@ export const shoppingStore = createStore<IShoppingStore>((set) => ({
     shoppingsBranches: null,
     shoppingsByRevuSurprise: null,
     promShopping: [],
+    amountRevuSurprise: 0,
+    amountRevuSurpriseByOwner: 0,
     isLoading: false,
     error: null,
     getShoppings: async () => {
@@ -75,6 +81,26 @@ export const shoppingStore = createStore<IShoppingStore>((set) => ({
             set({ error: e?.response?.data.message });
         }
         set({ isLoading: false })
+    },
+    getAmountRevuSurprise: async () => {
+        try {
+            set({ isLoading: true })
+            const { data } = await API.get<IResponse>('/shopping/amountRevusurprise');
+            set({ amountRevuSurprise: data.data });
+        } catch (e: any) {
+            set({ error: e?.response?.data.message });
+        }
+        set({ isLoading: false });
+    },
+    getAmountRevuSurpriseByOwner: async () => {
+        try {
+            set({ isLoading: true })
+            const { data } = await API.get<IResponse>('/shopping/amountRevuSurpriseByOwner');
+            set({ amountRevuSurpriseByOwner: data.data });
+        } catch (e: any) {
+            set({ error: e?.response?.data.message });
+        }
+        set({ isLoading: false });
     },
     reset: () => {
         set({error:null});

@@ -2,8 +2,20 @@ import { RiShoppingBagLine } from 'react-icons/ri';
 import { RxMagnifyingGlass } from 'react-icons/rx';
 import { TbHandClick } from 'react-icons/tb';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { useStore } from 'zustand';
+import { FavoriteStore, shoppingStore } from '../../../../store';
+import { useEffect } from 'react';
 
 export const HomePartner = () => {
+
+    const { getAmountRevuSurpriseByOwner, amountRevuSurpriseByOwner } = useStore(shoppingStore);
+    const { getAmountFavorite, amountFavorite } = useStore(FavoriteStore);
+
+    useEffect(() => {
+        getAmountRevuSurpriseByOwner();
+        getAmountFavorite();
+    }, [])
+
     return (
         <div className="homePartner">
             <div className="homePartner__sidebar">
@@ -19,11 +31,11 @@ export const HomePartner = () => {
                     </div>
                     <div className='homePartner__description homePartner__description--blue'>
                         <p className="homePartner__text">Number of Orders</p>
-                        <p className="homePartner__number">0</p>
+                        <p className="homePartner__number">{amountRevuSurpriseByOwner}</p>
                     </div>
                 </div>
 
-                <div className="homePartner__header">
+                {/* <div className="homePartner__header">
                     <div className='homePartner__icon homePartner__icon--orange'>
                         <RxMagnifyingGlass size={70} />
                     </div>
@@ -41,7 +53,7 @@ export const HomePartner = () => {
                         <p className="homePartner__text">Clicks on Your Establishment</p>
                         <p className="homePartner__number">0</p>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="homePartner__header">
                     <div className='homePartner__icon homePartner__icon--orange'>
@@ -49,7 +61,7 @@ export const HomePartner = () => {
                     </div>
                     <div className='homePartner__description homePartner__description--orange'>
                         <p className="homePartner__text">Saved as Favorite</p>
-                        <p className="homePartner__number">0</p>
+                        <p className="homePartner__number">{amountFavorite}</p>
                     </div>
                 </div>
             </div>

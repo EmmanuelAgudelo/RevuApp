@@ -10,12 +10,12 @@ import { shoppingStore } from '../../../../store';
 export const HomeAdmin = () => {
 
     const { numberOfUsers, numberOfPartners, getnumberOfUsers, getnumberOfPartners } = useStore(userStore)
-    const { getShoppings, shoppings } = useStore(shoppingStore)
+    const { getAmountRevuSurprise, amountRevuSurprise } = useStore(shoppingStore)
 
     useEffect(() => {
         getnumberOfPartners()
         getnumberOfUsers()
-        getShoppings()
+        getAmountRevuSurprise()
     }, [])
 
     return (
@@ -44,7 +44,7 @@ export const HomeAdmin = () => {
                 </div>
                 <div className="homeAdmin__description homeAdmin__description--orange">
                     <p className="homeAdmin__text">Revu Surprise Sold</p>
-                    <p className="homeAdmin__number">{shoppings?.length}</p>
+                    <p className="homeAdmin__number">{amountRevuSurprise}</p>
                 </div>
             </div>
             {/* <div className="homeAdmin__card">
