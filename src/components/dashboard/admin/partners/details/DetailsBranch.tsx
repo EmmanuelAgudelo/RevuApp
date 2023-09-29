@@ -38,7 +38,7 @@ export const DetailsBranch = () => {
   return (
     <div className="headquarters">
       <div className="headquarters__header">
-        <img src={businessesByIdUser?.logo.url ?? '/images/no_image.jpg'} alt="" />
+        <img src={businessesByIdUser && businessesByIdUser.logo ? businessesByIdUser.logo.url : '/images/no_image.jpg'} alt="" />
       </div>
       <div className="headquarters__body">
         <div className="headquarters__active">
