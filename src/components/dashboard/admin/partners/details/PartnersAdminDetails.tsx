@@ -38,13 +38,13 @@ export const PartnersAdminDetails = () => {
     if (updateBranchActiveResponse && updateBranchActiveResponse.message === 'success') {
       toastSuccess('Branch activated successfully.');
       reset();
-      findBussinessesByIdUser(id);
+      findBussinessesByIdUser(id ?? '');
     }
 
     if (updateBranchInactiveResponse && updateBranchInactiveResponse.message === 'success') {
       toastSuccess('Branch desactivated successfully.');
       reset();
-      findBussinessesByIdUser(id);
+      findBussinessesByIdUser(id ?? '');
     }
   }, [updateBranchActiveResponse, updateBranchInactiveResponse])
 
@@ -52,7 +52,7 @@ export const PartnersAdminDetails = () => {
     if (uploadFileAcceptResponse && uploadFileAcceptResponse.message == 'success') {
       toastSuccess('Legal document accepted successfully.');
       resetFile();
-      findBussinessesByIdUser(id);
+      findBussinessesByIdUser(id ?? '');
     }
   }, [uploadFileAcceptResponse])
 

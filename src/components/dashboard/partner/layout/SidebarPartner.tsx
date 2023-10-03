@@ -17,12 +17,12 @@ interface Props {
 export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
 
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const { validateLogout, authentication } = useStore(authStore);
+  const { validateLogout } = useStore(authStore);
   const { businessesByOwner } = useStore(businesseStore);
 
 
   const handleSubMenuClick = () => {
-    setShowSubMenu(!showSubMenu);
+    setShowSubMenu(showSubMenu ? !showMenu : false);
   };
 
   return (
@@ -46,7 +46,7 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
           </li>
           <li>
             {businessesByOwner && businessesByOwner.branches.length > 0 &&
-              <Link to={businessesByOwner?.branches.length !== 0 && `revu-surprise/revu/${businessesByOwner?.branches[0]._id}`}> 
+              <Link to={`revu-surprise/revu/${businessesByOwner?.branches[0]._id}`}> 
                 <GoGift className='sidebarPartner__icon' /> Revu surprise
               </Link>
             }
