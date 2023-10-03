@@ -125,6 +125,10 @@ export const SupportsPartner = () => {
         </Modal>
       </div>
     )
+  } else {
+    return (<>
+    </>);
   }
+
 
 }

@@ -50,7 +50,7 @@ export interface IBranches {
 
 export interface IBusinesseUser {
     id: string;
-    owner: IOwner | string;
+    owner: IOwner;
     name: string;
     category: string;
     status: boolean;
