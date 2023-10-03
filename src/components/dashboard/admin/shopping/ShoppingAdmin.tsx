@@ -82,8 +82,8 @@ export const ShoppingAdmin = () => {
                     <td>
                       <div className='shopping__control'>
                         {shoping.products.map((product, index) => (
-                          <>
-                            <ul key={index}>
+                          <div key={index}>
+                            <ul >
                               <li className="shopping__row">
                                 <span className='shopping__text-title'>Product:</span>
                                 <p className='shopping__text-normal'>Revu Surprise (x{product.amount})</p>
@@ -110,7 +110,7 @@ export const ShoppingAdmin = () => {
                               :
                               <hr style={{ border: '1px dashed gray' }} />
                             }
-                          </>
+                          </div>
                         ))
                         }
 

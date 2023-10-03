@@ -109,9 +109,6 @@ export const BranchProfile = ({ branch, business }: Props) => {
         setIsOpen(false);
     };
 
-    console.log(disableSave);
-
-
     return (
         <div className='agentForm__cards'>
             <span className='agentForm__branches--title'>branch {number}</span>
