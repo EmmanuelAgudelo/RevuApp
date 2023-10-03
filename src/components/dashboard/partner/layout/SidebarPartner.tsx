@@ -17,12 +17,12 @@ interface Props {
 export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
 
   const [showSubMenu, setShowSubMenu] = useState(false);
-  const { validateLogout, authentication } = useStore(authStore);
+  const { validateLogout } = useStore(authStore);
   const { businessesByOwner } = useStore(businesseStore);
 
 
   const handleSubMenuClick = () => {
-    setShowSubMenu(!showSubMenu);
+    setShowSubMenu(showSubMenu ? !showMenu : false);
   };
 
   return (
