@@ -13,6 +13,9 @@ export const About = () => {
           <span className="about__paragraph--bold"> Can we count on you?</span>
         </p>
         <div className="about__btn">
+          <a href="/#download" className="about__btn__btn">
+            I want to make a purchase on Revu
+          </a>
           <Link to="/auth/register" className="about__btn__btn about__btn__btn--blue">
             I want to sell on Revu
           </Link>

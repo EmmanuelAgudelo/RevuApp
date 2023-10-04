@@ -14,7 +14,7 @@ export const Partners = () => {
                     </div>
                     <div className="partners__link">
                         <Link to={'/auth/register'} className="partners__button partners__button--orange">Join us as an establishmen</Link>
-                        <Link to={'/questions'} className="partners__button partners__button--white">Learn how it works</Link>
+                        <a href="/#funcionality" className="partners__button partners__button--white">Learn how it works</a>
                     </div>
                 </div>
             </div>
