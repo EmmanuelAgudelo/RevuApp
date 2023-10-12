@@ -5,6 +5,7 @@ import { ModalContentBranch } from '../../../modal/ModalDocumentBranch'
 import { useStore } from 'zustand'
 import { branchStore, businesseStore, optionStore } from '../../../../../store'
 import { BodyDetails } from './BodyDetails';
+import { FiAlertTriangle } from 'react-icons/fi';
 
 
 export const DetailsBranch = () => {
@@ -14,7 +15,7 @@ export const DetailsBranch = () => {
   const { businessesByIdUser } = useStore(businesseStore);
   const { updateBranchActive, updateBranchInactive } = useStore(branchStore);
   const { setOption, option } = useStore(optionStore);
-  
+
 
   // Manejo del modal
   const handleOpenModal = () => {
@@ -64,15 +65,35 @@ export const DetailsBranch = () => {
       </div>
       {option !== '' &&
         <div className="headquarters__footer">
+          <>
+            {businessesByIdUser &&
+              <>
+                {(!businessesByIdUser.logo || !businessesByIdUser.cover_photo) &&
+                  <div style={{ padding: '0 3rem', textAlign: 'center' }}>
+                    <span style={{ color: 'red', fontSize: '1.2rem' }}><FiAlertTriangle />You won't be able to activate any location if the logo and cover photo haven't been uploaded.</span>
+                  </div>
+                }
+              </>
+            }
+          </>
           <button className='btn btn--blue' onClick={handleOpenModal}>
-            <BsBank size={20} className='headquarters__btn--icon'  />
+            <BsBank size={20} className='headquarters__btn--icon' />
             <span>Legal documents</span>
           </button>
           {businessesByIdUser &&
             businessesByIdUser.branches.find((branch) => branch._id === option)?.status == 'PENDING_APPROVAL' || businessesByIdUser?.branches.find((branch) => branch._id === option)?.status == 'INACTIVE' ?
-            <button className="btn btn--orange" onClick={() => handleActive(option, businessesByIdUser.id ?? '')}>
-              Active
-            </button>
+            <>
+              {(!businessesByIdUser.logo || !businessesByIdUser.cover_photo) ?
+                <button style={{ opacity: .2 }} className="btn btn--orange" onClick={() => handleActive(option, businessesByIdUser.id ?? '')} disabled>
+                  Active
+                </button>
+                :
+                <button className="btn btn--orange" onClick={() => handleActive(option, businessesByIdUser.id ?? '')}>
+                  Active
+                </button>
+              }
+            </>
+
             :
             <button className="btn btn--orange" onClick={() => handleInactive(option, businessesByIdUser?.id ?? '')}>
               Desactive

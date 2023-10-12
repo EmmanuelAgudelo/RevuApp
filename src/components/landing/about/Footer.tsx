@@ -2,6 +2,7 @@ import React from 'react'
 import { FaTiktok, FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 import { routes } from '../../../router/routes';
 import { useLocation } from 'react-router-dom';
+import { AiFillLinkedin } from 'react-icons/ai';
 
 export const Footer = () => {
 
@@ -10,10 +11,9 @@ export const Footer = () => {
     return (
         <div className="footer">
             <div className="footer__icons">
-                <div className="footer__icon"><FaInstagram /></div>
-                <div className="footer__icon"><FaTiktok /></div>
-                <div className="footer__icon"><FaFacebookF /></div>
-                <div className="footer__icon"><FaTwitter /></div>
+                <a href='https://instagram.com/revufoods.usa?igshid=MWZjMTM2ODFkZg==' target='__blank' className="footer__icon"><FaInstagram /></a>
+                <a href='https://www.tiktok.com/@revufoods?_t=8gOjUWlDhWH&_r=1' target='__blank' className="footer__icon"><FaTiktok /></a>
+                <a href='https://www.linkedin.com/company/vaco-foods/' target='__blank' className="footer__icon"><AiFillLinkedin /></a>
             </div>
             <div className="footer__menu">
                 <ul>
