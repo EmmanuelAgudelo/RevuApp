@@ -22,7 +22,7 @@ export const SidebarPartner = ({ showMenu, onUpdate }: Props) => {
 
 
   const handleSubMenuClick = () => {
-    setShowSubMenu(showSubMenu ? !showMenu : false);
+    setShowSubMenu(!showSubMenu);
   };
 
   return (
