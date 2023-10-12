@@ -13,6 +13,7 @@ import { ModalFormBranch } from '../../modal/ModalFormBranch';
 import { BranchProfile } from './BranchProfile';
 import { toastError, toastSuccess } from '../../../../helpers';
 import ModalImageBusiness from '../../modal/ModalImageBusiness';
+import { FiAlertTriangle } from 'react-icons/fi';
 
 export const BusinessProfile = () => {
 
@@ -136,16 +137,26 @@ export const BusinessProfile = () => {
         <button className='btn btn--icon btn--blue' onClick={() => handleOpenModal2('COVER_PHOTO')}><TbCameraPlus size={20} />Change cover photo</button>
       </div>
       {businessesByOwner &&
-        <div className='agentForm__images'>
-          <div className='agentForm__image'>
-            <img src={businessesByOwner.logo ? businessesByOwner.logo.url : '/images/no_image.jpg'} alt="" />
-            <span>Logo</span>
+        <>
+          <div className='agentForm__images'>
+            <div className='agentForm__image'>
+              <img src={businessesByOwner.logo ? businessesByOwner.logo.url : '/images/no_image.jpg'} alt="" />
+              <span>Logo</span>
+            </div>
+            <div className='agentForm__image'>
+              <img src={businessesByOwner.cover_photo ? businessesByOwner.cover_photo.url : '/images/no_image.jpg'} alt="" />
+              <span>Cover Photo</span>
+            </div>
           </div>
-          <div className='agentForm__image'>
-            <img src={businessesByOwner.cover_photo ? businessesByOwner.cover_photo.url : '/images/no_image.jpg'} alt="" />
-            <span>Cover Photo</span>
-          </div>
-        </div>
+          <>
+            {(!businessesByOwner.logo || !businessesByOwner.cover_photo) &&
+              <div style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', alignItems: 'center', marginTop: '5rem', marginBottom: '5rem' }}>
+                <span style={{ color: 'red' }}><FiAlertTriangle />Your locations cannot be activated unless you upload the cover photo and logo.</span>
+              </div>
+            }
+          </>
+        </>
+
       }
 
       {businessesByOwner &&
