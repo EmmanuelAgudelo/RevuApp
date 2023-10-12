@@ -5,6 +5,7 @@ import 'react-image-crop/dist/ReactCrop.css';
 import { useStore } from 'zustand';
 import { businesseStore } from '../../../store';
 import { IFormImage } from '../../../interfaces';
+import { toastError } from '../../../helpers';
 
 interface Props {
     type: string;
@@ -79,10 +80,21 @@ const ModalImageBusiness = ({ type }: Props) => {
 
         if (businessesByOwner) {
             if (type === 'LOGO') {
-                uploadLogo(businessesByOwner.id, data)
+                if (data.base64 !== '') {
+                    uploadLogo(businessesByOwner.id, data)
+                }
+                else {
+                    toastError('Please select the section to be cropped correctly.')
+                }
             }
             else {
-                uploadCoverPhoto(businessesByOwner.id, data)
+                if (data.base64 !== '') {
+                    uploadCoverPhoto(businessesByOwner.id, data)
+                }
+                else {
+                    toastError('Please select the section to be cropped correctly.')
+                }
+
             }
         }
     }
@@ -126,7 +138,7 @@ const ModalImageBusiness = ({ type }: Props) => {
                                     minHeight={400}
                                     keepSelection
                                 >
-                                    <img src={src} alt="" ref={imageRef} style={{ width: "600px", height: '400px', objectFit: 'cover', objectPosition: 'center' }} />
+                                    <img src={src} alt="" ref={imageRef} style={{ width: "700px", height: '500px', objectFit: 'cover', objectPosition: 'center' }} />
                                 </ReactCrop>
                             )}
                         </div>

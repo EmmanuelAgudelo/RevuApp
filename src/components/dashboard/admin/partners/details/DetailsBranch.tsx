@@ -70,7 +70,7 @@ export const DetailsBranch = () => {
               <>
                 {(!businessesByIdUser.logo || !businessesByIdUser.cover_photo) &&
                   <div style={{ padding: '0 3rem', textAlign: 'center' }}>
-                    <span style={{ color: 'red', fontSize: '1.2rem' }}><FiAlertTriangle />You won't be able to activate any location if the logo and cover photo haven't been uploaded.</span>
+                    <span style={{ color: 'red', fontSize: '1.2rem' }}><FiAlertTriangle />You won't be able to activate any branch if the logo and cover photo haven't been uploaded.</span>
                   </div>
                 }
               </>

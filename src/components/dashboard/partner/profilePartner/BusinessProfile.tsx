@@ -151,7 +151,7 @@ export const BusinessProfile = () => {
           <>
             {(!businessesByOwner.logo || !businessesByOwner.cover_photo) &&
               <div style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', alignItems: 'center', marginTop: '5rem', marginBottom: '5rem' }}>
-                <span style={{ color: 'red' }}><FiAlertTriangle />Your locations cannot be activated unless you upload the cover photo and logo.</span>
+                <span style={{ color: 'red' }}><FiAlertTriangle />Your branch cannot be activated unless you upload the cover photo and logo.</span>
               </div>
             }
           </>
